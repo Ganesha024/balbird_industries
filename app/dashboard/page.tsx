@@ -45,7 +45,7 @@ export default function DashboardPage() {
   ];
 
   const operationalVerticals = [
-    { icon: MessageCircle, name: "Communication", desc: "Stakeholder interaction & chatbot", status: "Active" },
+    { icon: MessageCircle, name: "Communication", desc: "Network interaction & chatbot", status: "Active" },
     { icon: ClipboardList, name: "Task Management", desc: "Execution tracking & milestones", status: "Active" },
     { icon: Network, name: "Matchmaking", desc: "AI-assisted capability matching", status: "Active" },
     { icon: Shield, name: "Engineering", desc: "Technical validation & QA", status: "Active" },

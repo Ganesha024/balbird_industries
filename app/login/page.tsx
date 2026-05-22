@@ -22,7 +22,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-muted flex items-center justify-center p-4">
       <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-5 gap-6">
         {/* Login Form — 2 cols */}
         <div className="lg:col-span-2 flex flex-col gap-4">

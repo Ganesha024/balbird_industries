@@ -10,7 +10,16 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-  }
+  },
+  async redirects() {
+    return [
+      {
+        source: '/stakeholders',
+        destination: '/network',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

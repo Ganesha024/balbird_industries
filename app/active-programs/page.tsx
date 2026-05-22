@@ -157,7 +157,7 @@ export default function ActiveProgramsPage() {
             </Card>
 
             {/* CTA Card */}
-            <Card className="p-8 bg-slate-50 text-foreground flex flex-col justify-center border-none">
+            <Card className="p-8 bg-muted text-foreground flex flex-col justify-center border-none">
               <div className="text-center">
                 <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Activity className="w-8 h-8 text-accent animate-pulse" />

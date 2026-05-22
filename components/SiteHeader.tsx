@@ -16,7 +16,7 @@ const nav = {
       items: [
         { href: "/capacity-ecosystem", label: "Capacity Ecosystem" },
         { href: "/mobility-sectors", label: "Mobility Sectors" },
-        { href: "/stakeholders", label: "Stakeholders" },
+        { href: "/network", label: "Network" },
       ],
     },
     {

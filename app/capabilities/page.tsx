@@ -129,13 +129,13 @@ export default function ServicesPage() {
                   <h3 className="text-2xl font-extrabold">Execution Consistency</h3>
                 </div>
                 <p className="text-foreground/80 leading-relaxed mb-6">
-                  Project-level coordination across all stakeholders — from initial scoping
+                  Project-level coordination across all Network — from initial scoping
                   through final delivery — with structured task management and clear ownership
                   at every phase.
                 </p>
                 <ul className="space-y-3">
                   {[
-                    'Stakeholder role assignment and responsibility mapping',
+                    'Network role assignment and responsibility mapping',
                     'Timeline and milestone management across partners',
                     'Task delegation with accountability tracking',
                     'Escalation protocols and decision workflows',
@@ -154,7 +154,7 @@ export default function ServicesPage() {
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { label: 'Scoping', desc: 'Define requirements & stakeholders' },
+                    { label: 'Scoping', desc: 'Define requirements & Network' },
                     { label: 'Planning', desc: 'Align timelines & resources' },
                     { label: 'Execution', desc: 'Coordinate production & quality' },
                     { label: 'Closure', desc: 'Delivery, documentation & review' },
@@ -198,7 +198,7 @@ export default function ServicesPage() {
                   ))}
                 </ul>
               </div>
-              <div className="w-full lg:w-1/2 bg-slate-50 text-foreground rounded-2xl p-8">
+              <div className="w-full lg:w-1/2 bg-muted text-foreground rounded-2xl p-8">
                 <h4 className="font-bold text-lg mb-4">Why traceability matters in mobility</h4>
                 <p className="text-foreground/70 text-sm mb-6">
                   In mobility manufacturing, components go into safety-critical systems. Traceability
@@ -238,7 +238,7 @@ export default function ServicesPage() {
                 </p>
                 <ul className="space-y-3">
                   {[
-                    'Multi-stakeholder program alignment',
+                    'Multi-Network program alignment',
                     'Association and member coordination',
                     'Cross-border consortium structuring',
                     'Shared compliance and quality frameworks',
@@ -292,7 +292,7 @@ export default function ServicesPage() {
               {
                 icon: BarChart3,
                 title: 'Business Development',
-                desc: 'Stakeholder research, outreach activities, demand generation, and strategic content preparation for visibility.',
+                desc: 'Network research, outreach activities, demand generation, and strategic content preparation for visibility.',
               },
               {
                 icon: Factory,
@@ -337,7 +337,7 @@ export default function ServicesPage() {
                   'AI-assisted manufacturer-project matching',
                   'Automated capability and capacity analysis',
                   'Engineering feasibility screening',
-                  'Data mining for stakeholder insights',
+                  'Data mining for Network insights',
                   'Workflow automation across operational verticals',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
@@ -353,7 +353,7 @@ export default function ServicesPage() {
                   { icon: Target, label: 'Requirement Matching', value: 'AI-Driven' },
                   { icon: ClipboardList, label: 'Workflow Automation', value: 'n8n Powered' },
                   { icon: Shield, label: 'Quality Verification', value: 'Structured' },
-                  { icon: Network, label: 'Stakeholder Insights', value: 'Data-Backed' },
+                  { icon: Network, label: 'Network Insights', value: 'Data-Backed' },
                 ].map((item, idx) => (
                   <div key={idx} className="p-6 bg-card rounded-xl border border-border text-center">
                     <item.icon className="w-8 h-8 text-accent mx-auto mb-3" />
@@ -368,7 +368,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-32 bg-slate-50 text-foreground relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-muted text-foreground relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
 
         <div className="container mx-auto px-4 md:px-8 lg:px-16 text-center relative z-10">

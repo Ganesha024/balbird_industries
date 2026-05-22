@@ -11,7 +11,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-const stakeholders = [
+const Network = [
   {
     key: "Manufacturer",
     label: "Manufacturers",
@@ -128,13 +128,13 @@ const stakeholders = [
   },
 ] as const;
 
-export default function StakeholdersPage() {
+export default function NetworkPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero */}
       <section 
         className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/hero-stakeholders.png')" }}
+        style={{ backgroundImage: "url('/images/hero-Network.png')" }}
       >
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-white/90" />
@@ -154,11 +154,11 @@ export default function StakeholdersPage() {
             Who&apos;s Involved
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.1]">
-            Stakeholder<br />
+            Network<br />
             <span className="text-accent">Ecosystem</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
-            Balbird operates with a defined set of stakeholders — each with a clear role, structured access, and aligned outcomes. Every participant is role-defined by design.
+            Balbird operates with a defined set of Network — each with a clear role, structured access, and aligned outcomes. Every participant is role-defined by design.
           </p>
         </div>
       </section>
@@ -178,7 +178,7 @@ export default function StakeholdersPage() {
             <div className="text-sm text-foreground/70">
               <ul className="mt-3 space-y-2">
                 {[
-                  'Expectations mismatch between stakeholders',
+                  'Expectations mismatch between Network',
                   'Capacity gets misused or misallocated',
                   'Funding decisions become risky and uncertain',
                   'Growth becomes unstable and unpredictable',
@@ -216,17 +216,17 @@ export default function StakeholdersPage() {
         </div>
       </section>
 
-      {/* Stakeholder Roles — Detailed Cards */}
+      {/* Network Roles — Detailed Cards */}
       <section className="container mx-auto px-4 md:px-8 lg:px-16 space-y-6">
         <div className="flex flex-col gap-3">
-          <h2 className="text-3xl font-extrabold tracking-tight">Stakeholder Roles</h2>
+          <h2 className="text-3xl font-extrabold tracking-tight">Network Roles</h2>
           <p className="max-w-3xl text-foreground/80">
-            Each stakeholder type has defined responsibilities and receives structured value
+            Each Network type has defined responsibilities and receives structured value
             from the ecosystem.
           </p>
         </div>
         <div className="space-y-6">
-          {stakeholders.map((s) => (
+          {Network.map((s) => (
             <Card key={s.key} className="overflow-hidden">
               <div className="p-6">
                 <div className="flex items-start gap-4 mb-6">

@@ -69,7 +69,7 @@ export default function Home() {
               Start a Project →
             </Link>
             <Link
-              href="/stakeholders"
+              href="/network"
               className="w-full sm:w-auto px-8 py-4 bg-transparent text-foreground font-bold rounded border-2 border-border hover:border-foreground transition-all text-lg hover:-translate-y-0.5"
             >
               Explore Our Ecosystem
@@ -83,10 +83,10 @@ export default function Home() {
       </section>
 
       {/* SECTION B — Operational Snapshot */}
-      <section className="bg-slate-50 text-foreground border-y border-border">
+      <section className="bg-muted text-foreground border-y border-border">
         <div className="container mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/10">
-            <StatCounter value={6} suffix="+" label="Stakeholder Types" />
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-border">
+            <StatCounter value={6} suffix="+" label="Network Types" />
             <StatCounter value={4} suffix="" label="Operational Verticals" />
             <StatCounter value={1} suffix="" label="Sector Focus: Mobility" />
             <StatCounter value={3} suffix="" label="Core CDMO Services" />
@@ -119,7 +119,7 @@ export default function Home() {
               {[
                 {
                   title: 'Project-Based Execution',
-                  desc: 'Every engagement is structured as a project with clear scope, stakeholders, and deliverables — no open listings, no spot trades.',
+                  desc: 'Every engagement is structured as a project with clear scope, Network, and deliverables — no open listings, no spot trades.',
                 },
                 {
                   title: 'Cross-Border Coordination',
@@ -170,7 +170,7 @@ export default function Home() {
               {
                 icon: Workflow,
                 title: 'Execution Consistency',
-                desc: 'Project-level coordination across stakeholders — from scoping through delivery — with structured task management and clear ownership.',
+                desc: 'Project-level coordination across Network — from scoping through delivery — with structured task management and clear ownership.',
               },
               {
                 icon: ScanLine,
@@ -228,7 +228,7 @@ export default function Home() {
                 {
                   step: '01',
                   title: 'Project Scoping',
-                  desc: 'Define manufacturing requirements, stakeholder roles, and execution parameters.',
+                  desc: 'Define manufacturing requirements, Network roles, and execution parameters.',
                 },
                 {
                   step: '02',
@@ -260,7 +260,7 @@ export default function Home() {
       </section>
 
       {/* SECTION F — Sector Focus: Mobility */}
-      <section className="py-24 md:py-32 bg-slate-50 text-foreground">
+      <section className="py-24 md:py-32 bg-muted text-foreground">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <SectionHeader
             eyebrow="Sector Focus"
@@ -287,12 +287,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION G — Stakeholder Ecosystem */}
+      {/* SECTION G — Network Ecosystem */}
       <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <SectionHeader
             eyebrow="Who's Involved"
-            heading="Our Stakeholder Ecosystem"
+            heading="Our Network Ecosystem"
             subheading="Every participant has a defined role, structured access, and aligned outcomes."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
@@ -327,34 +327,34 @@ export default function Home() {
                 role: 'Execution Cell (Students)',
                 desc: 'Student workforce contributing to HR operations, business development, and manufacturing support.',
               },
-            ].map((stakeholder, idx) => (
+            ].map((Network, idx) => (
               <div
                 key={idx}
                 className="p-6 rounded-xl bg-card border border-border hover:shadow-md transition-shadow group"
               >
                 <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                  <stakeholder.icon className="w-5 h-5 text-accent" />
+                  <Network.icon className="w-5 h-5 text-accent" />
                 </div>
-                <h4 className="font-bold text-lg mb-2">{stakeholder.role}</h4>
+                <h4 className="font-bold text-lg mb-2">{Network.role}</h4>
                 <p className="text-foreground/70 text-sm leading-relaxed">
-                  {stakeholder.desc}
+                  {Network.desc}
                 </p>
               </div>
             ))}
           </div>
           <div className="text-center mt-10">
             <Link
-              href="/stakeholders"
+              href="/network"
               className="inline-flex items-center gap-2 text-accent font-bold hover:gap-3 transition-all"
             >
-              Learn about each stakeholder role <ArrowRight className="w-4 h-4" />
+              Learn about each Network role <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* SECTION H — Operational Verticals */}
-      <section className="py-20 bg-slate-100 border-y border-slate-200">
+      <section className="py-20 bg-muted border-y border-slate-200">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <SectionHeader
             eyebrow="How We Operate"
@@ -365,7 +365,7 @@ export default function Home() {
               {
                 icon: ClipboardList,
                 vertical: 'Communication',
-                desc: 'Stakeholder interaction, chatbot systems, and structured information flow across all participants.',
+                desc: 'Network interaction, chatbot systems, and structured information flow across all participants.',
               },
               {
                 icon: Target,
@@ -415,7 +415,7 @@ export default function Home() {
             {[
               {
                 not: 'Not a Broker',
-                detail: 'We don\'t take positions or trade margins. We provide structured execution workflows for direct engagement between stakeholders.',
+                detail: 'We don\'t take positions or trade margins. We provide structured execution workflows for direct engagement between Network.',
               },
               {
                 not: 'Not a Marketplace',
@@ -444,7 +444,7 @@ export default function Home() {
       </section>
 
       {/* SECTION J — CTA Banner */}
-      <section className="py-24 md:py-32 bg-slate-50 text-foreground relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-muted text-foreground relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
         <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-accent/5 rounded-full blur-[80px]" />
 

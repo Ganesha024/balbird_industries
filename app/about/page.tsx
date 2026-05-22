@@ -47,7 +47,7 @@ export default function AboutPage() {
             <span className="text-accent">Execution Partner</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
-            Balbird is an execution partner operating in the mobility components manufacturing sector. We help stakeholders execute operations together — with structure, traceability, and consistency.
+            Balbird is an execution partner operating in the mobility components manufacturing sector. We help Network execute operations together — with structure, traceability, and consistency.
           </p>
         </div>
       </section>
@@ -58,7 +58,7 @@ export default function AboutPage() {
         <div className="flex flex-col gap-3">
           <h2 className="text-3xl font-extrabold tracking-tight">Our Identity</h2>
           <p className="max-w-3xl text-foreground/80">
-            Understanding what Balbird is — and what it is not — is critical to how we work with every stakeholder.
+            Understanding what Balbird is — and what it is not — is critical to how we work with every Network.
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
@@ -70,7 +70,7 @@ export default function AboutPage() {
                   'A cross-border manufacturing execution partner',
                   'Project-based — every engagement is a defined project',
                   'Focused exclusively on mobility components manufacturing',
-                  'A facilitator of structured collaboration between stakeholders',
+                  'A facilitator of structured collaboration between Network',
                   'Commission-based on production work + fees from execution cell',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
@@ -120,9 +120,9 @@ export default function AboutPage() {
                 { icon: Factory, title: 'Manufacturing Operations', desc: 'Coordinated production workflows across verified manufacturers.' },
                 { icon: Workflow, title: 'Execution Coordination', desc: 'Project-level coordination from scoping through delivery.' },
                 { icon: Shield, title: 'Manufacturing Traceability', desc: 'End-to-end documentation and compliance at every node.' },
-                { icon: Network, title: 'Consortium Coordination', desc: 'Multi-stakeholder consortium alignment for large programs.' },
+                { icon: Network, title: 'Consortium Coordination', desc: 'Multi-Network consortium alignment for large programs.' },
                 { icon: Users, title: 'Execution Cell (HR)', desc: 'Student workforce support for HR and operational functions.' },
-                { icon: BarChart3, title: 'Execution Cell (BD)', desc: 'Business development, outreach, and stakeholder research.' },
+                { icon: BarChart3, title: 'Execution Cell (BD)', desc: 'Business development, outreach, and Network research.' },
               ].map((service, idx) => (
                 <div key={idx} className="rounded-xl bg-foreground/[0.03] px-5 py-4">
                   <div className="flex items-center gap-3 mb-2">
@@ -147,7 +147,7 @@ export default function AboutPage() {
         </div>
         <div className="grid gap-4 md:grid-cols-4">
           {[
-            { icon: ClipboardList, title: 'Communication', desc: 'Stakeholder interaction systems, chatbot, and structured information flow.' },
+            { icon: ClipboardList, title: 'Communication', desc: 'Network interaction systems, chatbot, and structured information flow.' },
             { icon: Target, title: 'Task Management', desc: 'Execution tracking, milestone monitoring, and accountability workflows.' },
             { icon: Network, title: 'Matchmaking', desc: 'AI-assisted matching of capabilities with requirements.' },
             { icon: Shield, title: 'Engineering', desc: 'Technical validation, quality assurance, and DFM analysis.' },
@@ -191,7 +191,7 @@ export default function AboutPage() {
               name: "Sarah Jenkins",
               role: "Chief Marketing Officer",
               image: "/images/portrait-cmo.png",
-              desc: "Leads brand identity, stakeholder communications, and market positioning across global manufacturing corridors.",
+              desc: "Leads brand identity, Network communications, and market positioning across global manufacturing corridors.",
             },
             {
               name: "Michael Thorne",
@@ -201,7 +201,7 @@ export default function AboutPage() {
             },
           ].map((member, idx) => (
             <div key={idx} className="group flex flex-col items-center text-center">
-              <div className="relative w-full aspect-[4/5] mb-6 overflow-hidden rounded-2xl bg-slate-100 shadow-md transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-2">
+              <div className="relative w-full aspect-[4/5] mb-6 overflow-hidden rounded-2xl bg-muted shadow-md transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-2">
                 <Image 
                   src={member.image} 
                   alt={member.name} 
@@ -263,7 +263,7 @@ export default function AboutPage() {
         <Card className="p-6">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              'Operationally seamless for stakeholders',
+              'Operationally seamless for Network',
               'Flexible and not rigid',
               'Space for continuous evolution',
               'Externally deployable/configurable',
@@ -273,7 +273,7 @@ export default function AboutPage() {
               'Managed through task management',
               'Quantifiable with proper justification',
               'Continuously evolvable',
-              'Multi-stakeholder capable',
+              'Multi-Network capable',
               'AI and automation wherever possible',
             ].map((expectation, idx) => (
               <div key={idx} className="flex items-start gap-2 text-sm text-foreground/80">

@@ -7,6 +7,7 @@ import {
   ChevronDown, CheckCircle, MessageCircle
 } from "lucide-react";
 import { useMemo, useState } from "react";
+import { submitJoinNetwork } from "@/lib/actions";
 
 const roles = [
   { key: "Manufacturer", icon: Factory, desc: "Core manufacturing nodes providing capacity and capabilities." },
@@ -39,10 +40,31 @@ export default function JoinNetworkPage() {
     }
   }, [role]);
 
+  const [isPending, setIsPending] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsPending(true);
+    setMessage("");
+    
+    const formData = new FormData(e.currentTarget);
+    formData.append("selected_role", role);
+
+    const res = await submitJoinNetwork(formData);
+    if (res.success) {
+      setMessage("Registration submitted successfully! We will contact you soon.");
+      (e.target as HTMLFormElement).reset();
+    } else {
+      setMessage("Error: " + res.error);
+    }
+    setIsPending(false);
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-slate-50">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-muted">
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -71,12 +93,12 @@ export default function JoinNetworkPage() {
         </div>
       </section>
 
-      {/* Stakeholder Roles */}
+      {/* Network Roles */}
       <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <div className="flex flex-col gap-3 mb-12">
             <span className="text-accent font-bold tracking-widest uppercase text-xs">Roles</span>
-            <h2 className="text-3xl font-extrabold tracking-tight">Stakeholder Roles</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight">Network Roles</h2>
             <p className="max-w-3xl text-foreground/80">
               Select your role to understand how you can contribute to and benefit from the network.
             </p>
@@ -113,7 +135,14 @@ export default function JoinNetworkPage() {
           <Card className="overflow-hidden">
             <div className="p-6 md:p-8">
               <h3 className="text-2xl font-extrabold tracking-tight mb-6">Register Your Organization</h3>
-              <div className="grid gap-6 lg:grid-cols-2">
+              
+              {message && (
+                <div className={`p-4 mb-6 rounded-lg font-medium text-sm ${message.startsWith("Error") ? "bg-red-500/10 text-red-500" : "bg-green-500/10 text-green-600"}`}>
+                  {message}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="grid gap-6 lg:grid-cols-2">
                 <div className="grid gap-4">
                   <div className="grid gap-2">
                     <label className="text-sm font-medium">Organization Name</label>
@@ -192,12 +221,12 @@ export default function JoinNetworkPage() {
                   )}
 
                   <div className="mt-2">
-                    <Button type="button" className="h-11 w-full">
-                      Submit Registration
+                    <Button type="submit" disabled={isPending} className="h-11 w-full">
+                      {isPending ? "Submitting..." : "Submit Registration"}
                     </Button>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </Card>
 

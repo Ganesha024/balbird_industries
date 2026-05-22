@@ -9,7 +9,7 @@ const resources = [
   {
     icon: Factory,
     group: "Manufacturers",
-    description: "Essential guides and templates for manufacturing stakeholders to onboard, comply, and scale operations.",
+    description: "Essential guides and templates for manufacturing Network to onboard, comply, and scale operations.",
     items: ["Onboarding Guide", "Capacity Template", "Compliance Checklist", "Expansion Planning Outline"],
   },
   {
@@ -48,7 +48,7 @@ export default function ResourcesPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-slate-50">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-muted">
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -68,7 +68,7 @@ export default function ResourcesPage() {
             <span className="text-accent">Resources</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mb-8 font-medium leading-relaxed">
-            Comprehensive guides and templates supporting onboarding, compliance structuring, traceability, and capacity alignment across all stakeholders.
+            Comprehensive guides and templates supporting onboarding, compliance structuring, traceability, and capacity alignment across all Network.
           </p>
         </div>
 
@@ -81,10 +81,10 @@ export default function ResourcesPage() {
       <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <div className="flex flex-col gap-3 mb-12">
-            <span className="text-accent font-bold tracking-widest uppercase text-xs">By Stakeholder</span>
+            <span className="text-accent font-bold tracking-widest uppercase text-xs">By Network</span>
             <h2 className="text-3xl font-extrabold tracking-tight">Resource Categories</h2>
             <p className="max-w-3xl text-foreground/80">
-              Browse resources tailored to your stakeholder type and operational needs.
+              Browse resources tailored to your Network type and operational needs.
             </p>
           </div>
 
@@ -101,7 +101,7 @@ export default function ResourcesPage() {
                       <CardDescription>{r.description}</CardDescription>
                       <div className="mt-4 space-y-2">
                         {r.items.map((item) => (
-                          <div key={item} className="flex items-center gap-3 p-3 bg-card rounded-lg border border-border hover:bg-slate-100 transition-colors cursor-pointer">
+                          <div key={item} className="flex items-center gap-3 p-3 bg-card rounded-lg border border-border hover:bg-muted transition-colors cursor-pointer">
                             <Download className="w-4 h-4 text-accent shrink-0" />
                             <span className="text-sm font-medium text-foreground/80">{item}</span>
                           </div>
@@ -117,7 +117,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-32 bg-slate-50 text-foreground relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-muted text-foreground relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
         <div className="container mx-auto px-4 md:px-8 lg:px-16 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Access Resources</h2>

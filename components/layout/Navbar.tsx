@@ -27,7 +27,7 @@ export default function Navbar() {
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/capabilities' },
     { name: 'Capacity & Capabilities', href: '/capacity-ecosystem' },
-    { name: 'Stakeholders', href: '/stakeholders' },
+    { name: 'Network', href: '/network' },
     { name: 'Insights', href: '/insights' },
     { name: 'Active Programs', href: '/active-programs' },
   ];
@@ -42,7 +42,7 @@ export default function Navbar() {
     return null;
   }
 
-  const transparentPages = ['/', '/about', '/capabilities', '/stakeholders', '/active-programs', '/capacity-ecosystem'];
+  const transparentPages = ['/', '/about', '/capabilities', '/network', '/active-programs', '/capacity-ecosystem'];
   const isTransparent = transparentPages.includes(pathname || '') && !isScrolled;
 
   return (

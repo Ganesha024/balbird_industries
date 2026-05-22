@@ -1,15 +1,38 @@
+"use client";
+
 import { Card, CardTitle, CardDescription } from "@/components/ui/Card";
 import { ButtonLink } from "@/components/ui/Button";
 import {
   ChevronDown, MessageSquare, ClipboardList,
   Shield, Target, MessageCircle
 } from "lucide-react";
+import { useState } from "react";
+import { submitStrategicDiscussion } from "@/lib/actions";
 
 export default function RequestStrategicDiscussionPage() {
+  const [isPending, setIsPending] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsPending(true);
+    setMessage("");
+    
+    const formData = new FormData(e.currentTarget);
+    const res = await submitStrategicDiscussion(formData);
+    
+    if (res.success) {
+      setMessage("Discussion request submitted successfully! We will contact you soon.");
+      (e.target as HTMLFormElement).reset();
+    } else {
+      setMessage("Error: " + res.error);
+    }
+    setIsPending(false);
+  };
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center overflow-hidden bg-slate-50">
+      <section className="relative min-h-[50vh] flex items-center overflow-hidden bg-muted">
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -52,11 +75,18 @@ export default function RequestStrategicDiscussionPage() {
             ))}
           </div>
 
-          {/* Intake Form */}
+          {/* Form */}
           <Card className="overflow-hidden">
             <div className="p-6 md:p-8">
-              <h2 className="text-2xl font-extrabold tracking-tight mb-6">Request Your Discussion</h2>
-              <div className="grid gap-6 lg:grid-cols-2">
+              <h3 className="text-2xl font-extrabold tracking-tight mb-6">Initiate Request</h3>
+              
+              {message && (
+                <div className={`p-4 mb-6 rounded-lg font-medium text-sm ${message.startsWith("Error") ? "bg-red-500/10 text-red-500" : "bg-green-500/10 text-green-600"}`}>
+                  {message}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="grid gap-6 lg:grid-cols-2">
                 <div className="grid gap-4">
                   <div className="grid gap-2">
                     <label className="text-sm font-medium">Organization Name</label>
@@ -67,12 +97,12 @@ export default function RequestStrategicDiscussionPage() {
                     />
                   </div>
                   <div className="grid gap-2">
-                    <label className="text-sm font-medium">Stakeholder Type</label>
+                    <label className="text-sm font-medium">Network Type</label>
                     <select
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
-                      name="stakeholder_type"
+                      name="Network_type"
                     >
-                      <option value="">Select stakeholder type</option>
+                      <option value="">Select Network type</option>
                       <option value="manufacturer">Manufacturer</option>
                       <option value="oem_tier">OEM / Buyer</option>
                       <option value="association">Association</option>
@@ -179,9 +209,10 @@ export default function RequestStrategicDiscussionPage() {
                   <div className="flex flex-col sm:flex-row gap-3">
                     <button
                       type="submit"
-                      className="h-11 w-full rounded-xl bg-accent px-4 text-sm font-medium text-accent-foreground transition-colors hover:brightness-110"
+                      disabled={isPending}
+                      className="h-11 w-full rounded-xl bg-accent px-4 text-sm font-medium text-accent-foreground transition-colors hover:brightness-110 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
-                      Submit Request
+                      {isPending ? "Submitting..." : "Submit Request"}
                     </button>
                     <a
                       href="https://wa.me/919561127357"
@@ -193,7 +224,7 @@ export default function RequestStrategicDiscussionPage() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </Card>
         </div>

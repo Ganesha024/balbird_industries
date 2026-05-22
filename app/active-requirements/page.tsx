@@ -153,7 +153,7 @@ export default function ExecutionReadyFacilitiesPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-slate-50">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-muted">
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -247,7 +247,7 @@ export default function ExecutionReadyFacilitiesPage() {
                 Capacity is dynamically aligned across multiple facilities and suppliers, enabling scalable, flexible, and reliable execution for mobility component projects.
               </p>
             </div>
-            <div className="w-full lg:w-1/2 bg-slate-50 text-foreground rounded-2xl p-8">
+            <div className="w-full lg:w-1/2 bg-muted text-foreground rounded-2xl p-8">
               <h3 className="font-bold text-lg mb-4">Materials Processed</h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
@@ -266,7 +266,7 @@ export default function ExecutionReadyFacilitiesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-32 bg-slate-50 text-foreground relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-muted text-foreground relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
         <div className="container mx-auto px-4 md:px-8 lg:px-16 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">

@@ -21,7 +21,7 @@ export default function Footer() {
             <h4 className="text-foreground font-bold text-lg mb-6">Company</h4>
             <ul className="space-y-3">
               <li><Link href="/about" className="hover:text-accent transition-colors">About Us</Link></li>
-              <li><Link href="/stakeholders" className="hover:text-accent transition-colors">Stakeholder Ecosystem</Link></li>
+              <li><Link href="/network" className="hover:text-accent transition-colors">Network Ecosystem</Link></li>
               <li><Link href="/insights" className="hover:text-accent transition-colors">Insights & Resources</Link></li>
               <li><Link href="/join-network" className="hover:text-accent transition-colors">Join the Network</Link></li>
             </ul>

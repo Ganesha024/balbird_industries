@@ -1,48 +1,104 @@
-import { Card, CardTitle, CardDescription } from "@/components/ui/Card";
+import Image from 'next/image';
+import CapabilityCard from '@/components/CapabilityCard';
 import { ButtonLink } from "@/components/ui/Button";
-import {
-  Factory, Building2, GraduationCap, Globe, BarChart3,
-  CheckCircle, ChevronDown, Network, Shield,
-} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
-const pillars = [
+const detailedCapabilities = [
   {
-    icon: Factory,
-    title: "Manufacturing Units",
-    description: "Core manufacturing nodes with verified data on capacity, capabilities, and compliance.",
-    data: ["Machine Level Data", "Installed vs Utilized Capacity", "Process Capabilities", "Certifications", "Inspection Systems", "Scalability Readiness"],
+    category: "PRECISION MACHINING ECOSYSTEM",
+    items: [
+      {
+        title: "CNC Turning",
+        image: "/images/cnc_machining.png",
+        details: [
+          "Batch Range: 1 → 1,000 units",
+          "Capability: 5 mm → 500 mm diameter",
+          "Length up to 700 mm",
+          "2 CNC turning centres",
+          "Applications: Precision industrial components, Medical support assemblies, Mechanical fittings, Stainless steel components, Rotational parts"
+        ]
+      },
+      {
+        title: "VMC Infrastructure",
+        image: "/images/cnc_machining.png",
+        details: [
+          "Machines: BFW BMV 50 TC24, BFW Chakra BMV 60+, BFW VMC with 4th axis",
+          "Capability: Standard machining envelope: 1200 × 600 × 600 mm",
+          "Extended capability: up to 9000 × 3500 × 1700 mm",
+          "Applications: Precision plates, Structural systems, Industrial support components, Medical framework parts, Fixtures & tooling"
+        ]
+      }
+    ]
   },
   {
-    icon: Building2,
-    title: "OEM Programs",
-    description: "Structured OEM engagement with clear specifications, volumes, and compliance frameworks.",
-    data: ["Technical Specifications", "Production Volumes", "Compliance Requirements", "Documentation Standards", "Timelines"],
+    category: "FABRICATION & SHEET METAL ECOSYSTEM",
+    items: [
+      {
+        title: "Laser Cutting",
+        image: "/images/fabrication_welding.png",
+        details: [
+          "1500 × 3000 mm in-house",
+          "Larger systems through cluster support",
+        ]
+      },
+      {
+        title: "Plasma Cutting & CNC Bending",
+        image: "/images/fabrication_welding.png",
+        details: [
+          "Plasma Cutting: Up to 2000 × 6000 mm",
+          "CNC Bending: Up to 6000 mm length",
+        ]
+      },
+      {
+        title: "Welding Infrastructure",
+        image: "/images/fabrication_welding.png",
+        details: [
+          "MIG / CO2 welding, TIG welding",
+          "ARC welding, Projection welding",
+          "Laser welding",
+          "Applications: Stainless steel medical systems, Equipment enclosures, Functional support structures, Industrial healthcare systems, Cabinets & support assemblies"
+        ]
+      }
+    ]
   },
   {
-    icon: GraduationCap,
-    title: "Workforce / Students",
-    description: "Skilled workforce integration and student programs for sustainable manufacturing support.",
-    data: ["Production Assistance", "Inspection Support", "Documentation Structuring", "Process Mapping"],
-  },
-  {
-    icon: Globe,
-    title: "Industrial Associations",
-    description: "Collaborative bodies driving cluster development, compliance, and export readiness.",
-    data: ["Cluster Capability Mapping", "Compliance Initiatives", "Export Readiness", "Standardization"],
-  },
-  {
-    icon: BarChart3,
-    title: "Strategic / Financial",
-    description: "Performance analytics, scalability planning, and acquisition readiness for stakeholders.",
-    data: ["Operational Performance", "Utilization Trends", "Compliance Maturity", "Scalability Planning", "Acquisition Readiness"],
-  },
-] as const;
+    category: "PLASTIC MOULDING SUPPORT",
+    items: [
+      {
+        title: "Milacron Nova Servo - 150 Ton",
+        image: "/images/plastic_moulding.png",
+        details: [
+          "Injection pressure: 1731 Bar",
+          "Shot weight: 336 grams"
+        ]
+      },
+      {
+        title: "Toshiba TS Servo - 150 Ton",
+        image: "/images/plastic_moulding.png",
+        details: [
+          "Injection pressure: 2022 Bar",
+          "Shot weight: 402 grams",
+        ]
+      },
+      {
+        title: "Additional Ecosystem Support",
+        image: "/images/plastic_moulding.png",
+        details: [
+          "100T → 850T injection moulding",
+          "Vacuum casting",
+          "RIM processing",
+          "Applications: Engineering plastic components, Medical support housings, Hybrid assemblies"
+        ]
+      }
+    ]
+  }
+];
 
 export default function CapacityEcosystemPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-slate-50">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-muted">
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -71,90 +127,41 @@ export default function CapacityEcosystemPage() {
         </div>
       </section>
 
-      {/* Ecosystem Overview */}
-      <section className="py-24 md:py-32 bg-background">
+
+      {/* Detailed Capabilities (GIFs / Media Structure) */}
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
-          <div className="flex flex-col gap-3 mb-12">
-            <span className="text-accent font-bold tracking-widest uppercase text-xs">Overview</span>
-            <h2 className="text-3xl font-extrabold tracking-tight">Five Interconnected Pillars</h2>
-            <p className="max-w-3xl text-foreground/80">
-              The Capacity Ecosystem integrates verified manufacturing nodes with OEM requirements, skilled workforce, industry standards, and strategic financing.
+          <div className="flex flex-col gap-3 mb-16 text-center">
+            <span className="text-accent font-bold tracking-widest uppercase text-xs">Infrastructure</span>
+            <h2 className="text-3xl font-extrabold tracking-tight">Capacities & Capabilities</h2>
+            <p className="max-w-2xl mx-auto text-foreground/80">
+              State-of-the-art machinery and verified ecosystem capacities designed to handle end-to-end mobility manufacturing requirements.
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-16">
-            {[
-              { icon: Network, title: "Data Standardization", desc: "Unified metrics across all pillars for accurate capacity matching." },
-              { icon: Shield, title: "Compliance Integration", desc: "Embedded regulatory and quality standards throughout the network." },
-              { icon: BarChart3, title: "Real-time Visibility", desc: "Live utilization, performance, and readiness data for all stakeholders." },
-              { icon: Globe, title: "Scalability Focus", desc: "Built-in planning for capacity expansion and new program integration." },
-            ].map((item, idx) => (
-              <div key={idx} className="p-5 bg-card rounded-xl border border-border">
-                <item.icon className="w-6 h-6 text-accent mb-3" />
-                <h4 className="font-bold text-sm mb-1">{item.title}</h4>
-                <p className="text-xs text-foreground/60">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Pillar Cards */}
-          <div className="grid gap-6 lg:grid-cols-2">
-            {pillars.map((p, idx) => (
-              <Card key={p.title} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="p-5">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10">
-                      <p.icon className="h-5 w-5 text-accent" />
-                    </div>
-                    <div className="flex-1">
-                      <CardTitle>{p.title}</CardTitle>
-                      <CardDescription>{p.description}</CardDescription>
-                      <ul className="mt-3 space-y-1.5">
-                        {p.data.map((item) => (
-                          <li key={item} className="flex items-center gap-2 text-sm text-foreground/80">
-                            <div className="h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+          <div className="space-y-20">
+            {detailedCapabilities.map((category, idx) => (
+              <div key={idx}>
+                <div className="mb-8">
+                  <div className="inline-block bg-accent text-white px-8 py-3 rounded-r-3xl font-extrabold text-xl tracking-tight shadow-md">
+                    {category.category}
                   </div>
                 </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Why This Matters */}
-      <section className="py-24 md:py-32 bg-card border-y border-border/30">
-        <div className="container mx-auto px-4 md:px-8 lg:px-16">
-          <div className="flex flex-col gap-3 mb-12">
-            <span className="text-accent font-bold tracking-widest uppercase text-xs">Why It Matters</span>
-            <h2 className="text-3xl font-extrabold tracking-tight">Long-Term Manufacturing Strength</h2>
-            <p className="max-w-3xl text-foreground/80">
-              In mobility sectors, programs are long-term. Compliance is strict. Traceability is non-negotiable. Only structured ecosystems survive this environment.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            <Card className="p-6 border-l-4 border-l-red-300">
-              <CardTitle>Unstructured Growth Risks</CardTitle>
-              <CardDescription>
-                When capacity isn&apos;t properly structured, expectations mismatch, resources get misused, and funding becomes unpredictable. This leads to wasted potential and unstable operations.
-              </CardDescription>
-            </Card>
-            <Card className="p-6 border-l-4 border-l-accent">
-              <CardTitle>Structured Ecosystem Benefits</CardTitle>
-              <CardDescription>
-                Defined roles and data standards create predictability. Capacity aligns with demand, workforce integrates smoothly, compliance improves naturally, and capital flows logically.
-              </CardDescription>
-            </Card>
+                {/* Cards Grid */}
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                  {category.items.map((item, itemIdx) => (
+                    <CapabilityCard key={itemIdx} item={item} />
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-32 bg-slate-50 text-foreground relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-muted text-foreground relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
         <div className="container mx-auto px-4 md:px-8 lg:px-16 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
