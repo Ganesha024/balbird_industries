@@ -32,9 +32,15 @@ export default function JoinNetworkPage() {
       case "Manufacturer":
         return ["Installed Machines", "Monthly Capacity", "Certifications", "Core Processes"];
       case "OEM_Tier":
-        return ["Sector", "Volume Expectations", "Compliance Requirements"];
+        return ["Current Procurement Volume", "Key Components Required", "Compliance Standards", "Preferred Geographies"];
+      case "Industrial_Association":
+        return ["Number of Members", "Key Sectors Covered", "Primary Region", "Partnership Goals"];
       case "Student_Workforce":
-        return ["Qualification", "Area of Interest", "Availability Period"];
+        return ["Highest Qualification", "Core Technical Skills", "Interested Sectors", "Availability Timeline"];
+      case "Strategic_Advisor":
+        return ["Area of Expertise", "Years of Experience", "Key Past Projects", "Target Clientele"];
+      case "Retail_Middlemen":
+        return ["Distribution Networks", "Annual Logistics Volume", "Warehousing Capacity", "Regions Covered"];
       default:
         return [];
     }
