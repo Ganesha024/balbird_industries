@@ -120,21 +120,18 @@ export default function AboutPage() {
             </div>
             <Card className="overflow-hidden">
               <div className="p-6">
-                <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2">
+                <div className="grid gap-3 sm:grid-cols-1 md:grid-cols-2">
                   {[
-                    { icon: Factory, title: 'Manufacturing Operations', desc: 'Coordinated production workflows.' },
-                    { icon: Workflow, title: 'Execution Coordination', desc: 'Project-level coordination.' },
-                    { icon: Shield, title: 'Manufacturing Traceability', desc: 'End-to-end documentation.' },
-                    { icon: Network, title: 'Consortium Coordination', desc: 'Multi-Network alignment.' },
-                    { icon: Users, title: 'Execution Cell (HR)', desc: 'Student workforce support.' },
-                    { icon: BarChart3, title: 'Execution Cell (BD)', desc: 'Business development.' },
+                    { icon: Factory, title: 'Manufacturing Operations' },
+                    { icon: Workflow, title: 'Execution Coordination' },
+                    { icon: Shield, title: 'Manufacturing Traceability' },
+                    { icon: Network, title: 'Consortium Coordination' },
+                    { icon: Users, title: 'Execution Cell (HR)' },
+                    { icon: BarChart3, title: 'Execution Cell (BD)' },
                   ].map((service, idx) => (
-                    <div key={idx} className="rounded-xl bg-foreground/[0.03] px-5 py-4">
-                      <div className="flex items-center gap-3 mb-2">
-                        <service.icon className="h-5 w-5 text-accent" />
-                        <h4 className="font-bold text-sm">{service.title}</h4>
-                      </div>
-                      <p className="text-xs text-foreground/70">{service.desc}</p>
+                    <div key={idx} className="rounded-xl bg-foreground/[0.03] px-4 py-3 flex items-center gap-3">
+                      <service.icon className="h-5 w-5 text-accent shrink-0" />
+                      <h4 className="font-bold text-sm">{service.title}</h4>
                     </div>
                   ))}
                 </div>
@@ -151,13 +148,14 @@ export default function AboutPage() {
                   <Building2 className="w-6 h-6 text-foreground/70" />
                 </div>
                 <h4 className="font-semibold text-foreground text-sm mb-1">OEMs</h4>
-                <p className="text-[10px] text-foreground/60 leading-tight">Requirement Origination</p>
+                <p className="text-[10px] text-foreground/60 leading-tight">Demand, Specs, Forecasting</p>
               </div>
               
               <div className="flex flex-col items-center z-10 bg-card p-2 rounded-full">
                 <div className="w-20 h-20 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_30px_-5px_rgba(var(--accent-rgb),0.3)]">
                   <ServerCog className="w-6 h-6 text-accent mb-1" />
                   <h4 className="font-semibold text-foreground text-xs">Balbird Hub</h4>
+                  <p className="text-[9px] text-foreground/60 mt-0.5">Execution & Matchmaking</p>
                 </div>
               </div>
 
@@ -166,7 +164,7 @@ export default function AboutPage() {
                   <Factory className="w-6 h-6 text-foreground/70" />
                 </div>
                 <h4 className="font-semibold text-foreground text-sm mb-1">Network</h4>
-                <p className="text-[10px] text-foreground/60 leading-tight">Distributed Execution Nodes</p>
+                <p className="text-[10px] text-foreground/60 leading-tight">Factories, Assembly, Logistics</p>
               </div>
             </div>
           </div>
@@ -183,17 +181,16 @@ export default function AboutPage() {
                 Four operational verticals structure everything we build and execute.
               </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2">
               {[
-                { icon: ClipboardList, title: 'Communication', desc: 'Network interaction systems, chatbot, and structured information flow.' },
-                { icon: Target, title: 'Task Management', desc: 'Execution tracking, milestone monitoring, and accountability workflows.' },
-                { icon: Network, title: 'Matchmaking', desc: 'AI-assisted matching of capabilities with requirements.' },
-                { icon: Shield, title: 'Engineering', desc: 'Technical validation, quality assurance, and DFM analysis.' },
+                { icon: ClipboardList, title: 'Communication' },
+                { icon: Target, title: 'Task Management' },
+                { icon: Network, title: 'Matchmaking' },
+                { icon: Shield, title: 'Engineering' },
               ].map((vertical, idx) => (
-                <Card key={idx} className="p-5 text-center">
-                  <vertical.icon className="h-8 w-8 text-accent mx-auto mb-3" />
-                  <CardTitle className="text-base">{vertical.title}</CardTitle>
-                  <CardDescription className="text-xs mt-2">{vertical.desc}</CardDescription>
+                <Card key={idx} className="p-4 flex items-center gap-3">
+                  <vertical.icon className="h-6 w-6 text-accent shrink-0" />
+                  <CardTitle className="text-sm m-0 leading-tight">{vertical.title}</CardTitle>
                 </Card>
               ))}
             </div>
@@ -203,10 +200,10 @@ export default function AboutPage() {
             <div className="w-full h-full min-h-[400px] p-8 rounded-2xl border border-border bg-card shadow-xl flex flex-col justify-center">
               <div className="flex flex-col items-center gap-2 py-4">
                 {[
-                  { icon: ClipboardList, title: "1. Intake" },
-                  { icon: Network, title: "2. Match" },
-                  { icon: Target, title: "3. Execute" },
-                  { icon: Shield, title: "4. Deliver" }
+                  { icon: ClipboardList, title: "1. Intake", sub: "Structured Requirements" },
+                  { icon: Network, title: "2. Match", sub: "AI Capability Routing" },
+                  { icon: Target, title: "3. Execute", sub: "Milestone Tracking" },
+                  { icon: Shield, title: "4. Deliver", sub: "QA & Logistics" }
                 ].map((step, i) => (
                   <React.Fragment key={i}>
                     <div className="flex flex-col items-center text-center relative group w-full">
@@ -214,9 +211,10 @@ export default function AboutPage() {
                         <step.icon className="w-6 h-6 text-accent" />
                       </div>
                       <h4 className="font-semibold text-xs text-foreground">{step.title}</h4>
+                      <p className="text-[10px] text-foreground/60">{step.sub}</p>
                     </div>
                     {i < 3 && (
-                      <div className="w-0.5 h-6 bg-gradient-to-b from-accent/40 to-accent/10 relative z-0 -my-1" />
+                      <div className="w-0.5 h-4 bg-gradient-to-b from-accent/40 to-accent/10 relative z-0 mt-1 mb-1" />
                     )}
                   </React.Fragment>
                 ))}
@@ -295,7 +293,7 @@ export default function AboutPage() {
                 We leverage a strong network of advisors, associations, and industry connections.
               </p>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="flex flex-wrap gap-2">
               {[
                 'Legal Advisor',
                 'Financial Advisor',
@@ -310,9 +308,8 @@ export default function AboutPage() {
                 'Financial Stability',
                 'LinkedIn Premium',
               ].map((resource, idx) => (
-                <div key={idx} className="flex items-center gap-3 p-3 bg-card rounded-xl border border-border">
-                  <CheckCircle className="w-4 h-4 text-accent shrink-0" />
-                  <span className="text-xs font-medium text-foreground/80">{resource}</span>
+                <div key={idx} className="px-4 py-2 bg-muted rounded-full border border-border text-xs font-medium text-foreground/80 shadow-sm">
+                  {resource}
                 </div>
               ))}
             </div>
