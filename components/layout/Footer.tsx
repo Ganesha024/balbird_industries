@@ -55,7 +55,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3">
                 <Mail size={16} />
-                <a href="mailto:info@balbird.com" className="hover:text-accent transition-colors">info@balbird.com</a>
+                <a href="mailto:info@balbirdindustries.com" className="hover:text-accent transition-colors">info@balbirdindustries.com</a>
               </li>
               <li>
                 <Link href="/request-strategic-discussion" className="inline-block mt-2 px-5 py-2.5 bg-accent text-white font-bold rounded hover:bg-accent/90 transition-all text-sm">
