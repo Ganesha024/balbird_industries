@@ -242,7 +242,7 @@ export default function InsightsPage() {
 
             {/* FAQs */}
             {activeTab === 'faq' && (
-              <div className="w-full max-w-4xl mx-auto animate-fade-in">
+              <div className="w-full max-w-5xl mx-auto animate-fade-in">
                 <div className="mb-12 border-b border-border/40 pb-10 text-center">
                   <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-[1.1] mb-6">
                     Frequently Asked Questions
