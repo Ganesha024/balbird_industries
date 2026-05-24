@@ -68,7 +68,7 @@ export default function JoinNetworkPage() {
           label: "Upload CV (pdf or docx)", 
           required: false, 
           accept: ".pdf,.doc,.docx",
-          note: "We're actively connecting to students for recruitment in our team.",
+          note: "We are actively seeking talented students and emerging professionals to join our growing team.",
           disclaimer: commonDisclaimer
         };
       case "Industrial_Association":
