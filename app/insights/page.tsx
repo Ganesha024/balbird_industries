@@ -127,40 +127,63 @@ export default function InsightsPage() {
 
             {/* USER GUIDELINES */}
             {activeTab === 'guidelines' && (
-              <Card className="p-8 md:p-12 border-border bg-card max-w-4xl">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-accent/10 rounded-xl">
-                    <FileText className="w-8 h-8 text-accent" />
+              <div className="w-full animate-fade-in">
+                {/* Article-style Header */}
+                <div className="mb-12 border-b border-border/40 pb-10">
+                  <div className="flex items-center gap-3 text-sm font-semibold text-accent mb-6">
+                    <span className="uppercase tracking-widest">Guidelines</span>
+                    <span className="text-foreground/30">•</span>
+                    <span className="text-foreground/60">Updated Recently</span>
                   </div>
-                  <h2 className="text-2xl font-extrabold tracking-tight">Platform User Guidelines</h2>
+                  
+                  <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-[1.1] mb-8 max-w-4xl">
+                    Platform User Guidelines: Maintaining the Integrity of the Network
+                  </h1>
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center border border-accent/30">
+                      <FileText className="w-5 h-5 text-accent" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-foreground">By Balbird Operations</p>
+                      <p className="text-xs text-foreground/60">Execution Team</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none text-foreground/80 space-y-6">
-                  <p>
+
+                {/* Article-style Body */}
+                <div className="prose prose-sm md:prose-lg dark:prose-invert max-w-4xl text-foreground/80 space-y-8
+                  prose-headings:text-foreground prose-headings:font-bold prose-headings:tracking-tight
+                  prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-4
+                  prose-p:leading-relaxed
+                  prose-strong:text-foreground"
+                >
+                  <p className="text-lg md:text-xl font-medium text-foreground leading-relaxed">
                     Balbird operates as a closed-loop execution network. To maintain the integrity and reliability of our manufacturing ecosystem, all network participants must adhere to strict operational guidelines.
                   </p>
                   
-                  <h3 className="text-lg font-bold text-foreground">1. Commitment to Execution</h3>
+                  <h3>1. Commitment to Execution</h3>
                   <p>
-                    We are not a marketplace for casual browsing. Suppliers joining the network must be prepared to execute projects under strict quality control, timeline compliance, and active telemetry monitoring.
+                    We are not a marketplace for casual browsing. Suppliers joining the network must be prepared to execute projects under strict quality control, timeline compliance, and active telemetry monitoring. Every node in the network is expected to perform with industrial-grade reliability.
                   </p>
 
-                  <h3 className="text-lg font-bold text-foreground">2. Communication Protocols</h3>
+                  <h3>2. Communication Protocols</h3>
                   <p>
-                    All project-related communication, engineering changes, and DFM updates must be logged within the designated operational verticals. Avoiding the structured communication loops jeopardizes the safety and traceability of mobility components.
+                    All project-related communication, engineering changes, and DFM updates must be logged within the designated operational verticals. Avoiding the structured communication loops jeopardizes the safety and traceability of mobility components. Ad-hoc emails or undocumented calls are strictly prohibited when handling safety-critical dimensions.
                   </p>
 
-                  <h3 className="text-lg font-bold text-foreground">3. Traceability & Transparency</h3>
+                  <h3>3. Traceability & Transparency</h3>
                   <p>
-                    From raw material origin to final batch inspection, participants are required to maintain unbroken documentation trails. Our Execution Cells are deployed to assist, but ultimate responsibility for compliance remains with the facility operators.
+                    From raw material origin to final batch inspection, participants are required to maintain unbroken documentation trails. Our Execution Cells are deployed to assist, but ultimate responsibility for compliance remains with the facility operators. Heat numbers, melt logs, and coordinate measurement reports must be permanently archived and accessible.
                   </p>
 
-                  <div className="p-4 bg-muted border border-border/50 rounded-xl mt-8">
-                    <p className="text-sm m-0">
-                      <strong>Note:</strong> Detailed user onboarding manuals and compliance checklists are provided directly to qualified suppliers upon successful admission into the network.
+                  <div className="p-6 bg-accent/5 border-l-4 border-l-accent mt-12 rounded-r-xl">
+                    <p className="text-sm m-0 font-medium">
+                      <strong className="text-accent">Note:</strong> Detailed user onboarding manuals and compliance checklists are provided directly to qualified suppliers upon successful admission into the network.
                     </p>
                   </div>
                 </div>
-              </Card>
+              </div>
             )}
           </div>
         </div>
