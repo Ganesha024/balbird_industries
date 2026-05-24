@@ -110,7 +110,7 @@ export default function AboutPage() {
 
       {/* Ecosystem */}
       <section className="container mx-auto px-4 md:px-8 lg:px-16">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col lg:flex-row items-stretch gap-12">
           <div className="flex-1 w-full space-y-6">
             <div className="flex flex-col gap-3">
               <h2 className="text-3xl font-extrabold tracking-tight">Cross-Border Execution Ecosystem</h2>
@@ -143,13 +143,31 @@ export default function AboutPage() {
           </div>
           
           <div className="flex-1 w-full">
-            <div className="w-full relative aspect-square md:aspect-[4/3] lg:aspect-square rounded-2xl overflow-hidden border border-border shadow-xl">
-              <Image
-                src="https://images.unsplash.com/photo-1586528116311-ad8ed7c80a30?auto=format&fit=crop&w=1200&q=80"
-                alt="Manufacturing Execution Ecosystem"
-                fill
-                className="object-cover"
-              />
+            <div className="w-full h-full min-h-[400px] p-8 rounded-2xl border border-border bg-card shadow-xl flex flex-col items-center justify-center gap-8 relative overflow-hidden">
+              <div className="absolute top-[15%] bottom-[15%] left-1/2 w-0.5 bg-accent/20 -translate-x-1/2 z-0" />
+              
+              <div className="flex flex-col items-center text-center w-full z-10 bg-card py-2">
+                <div className="w-20 h-20 bg-muted border border-border rounded-full flex items-center justify-center mb-4 shadow-sm">
+                  <Building2 className="w-8 h-8 text-foreground/70" />
+                </div>
+                <h4 className="font-semibold text-foreground text-sm mb-1">OEMs</h4>
+                <p className="text-xs text-foreground/60 leading-tight">Requirement Origination</p>
+              </div>
+              
+              <div className="flex flex-col items-center z-10 bg-card p-4 rounded-full">
+                <div className="w-28 h-28 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_30px_-5px_rgba(var(--accent-rgb),0.3)]">
+                  <ServerCog className="w-8 h-8 text-accent mb-1" />
+                  <h4 className="font-semibold text-foreground text-sm">Balbird Hub</h4>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center text-center w-full z-10 bg-card py-2">
+                <div className="w-20 h-20 bg-muted border border-border rounded-2xl flex items-center justify-center mb-4 shadow-sm">
+                  <Factory className="w-8 h-8 text-foreground/70" />
+                </div>
+                <h4 className="font-semibold text-foreground text-sm mb-1">Network</h4>
+                <p className="text-xs text-foreground/60 leading-tight">Distributed Execution Nodes</p>
+              </div>
             </div>
           </div>
         </div>
@@ -157,7 +175,7 @@ export default function AboutPage() {
 
       {/* Operational Verticals */}
       <section className="container mx-auto px-4 md:px-8 lg:px-16">
-        <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+        <div className="flex flex-col lg:flex-row-reverse items-stretch gap-12">
           <div className="flex-1 w-full space-y-6">
             <div className="flex flex-col gap-3">
               <h2 className="text-3xl font-extrabold tracking-tight">Operational Verticals</h2>
@@ -182,13 +200,27 @@ export default function AboutPage() {
           </div>
           
           <div className="flex-1 w-full">
-            <div className="w-full relative aspect-square md:aspect-[4/3] lg:aspect-square rounded-2xl overflow-hidden border border-border shadow-xl">
-              <Image
-                src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1200&q=80"
-                alt="Operational Verticals Analytics"
-                fill
-                className="object-cover"
-              />
+            <div className="w-full h-full min-h-[400px] p-8 rounded-2xl border border-border bg-card shadow-xl flex flex-col justify-center">
+              <div className="flex flex-col items-center gap-2 py-4">
+                {[
+                  { icon: ClipboardList, title: "1. Intake" },
+                  { icon: Network, title: "2. Match" },
+                  { icon: Target, title: "3. Execute" },
+                  { icon: Shield, title: "4. Deliver" }
+                ].map((step, i) => (
+                  <React.Fragment key={i}>
+                    <div className="flex flex-col items-center text-center relative group w-full">
+                      <div className="w-16 h-16 bg-background border border-accent/30 rounded-xl flex items-center justify-center mb-2 shadow-sm group-hover:border-accent group-hover:shadow-accent/20 transition-all z-10">
+                        <step.icon className="w-8 h-8 text-accent" />
+                      </div>
+                      <h4 className="font-semibold text-sm text-foreground">{step.title}</h4>
+                    </div>
+                    {i < 3 && (
+                      <div className="w-1 h-8 bg-gradient-to-b from-accent/40 to-accent/10 relative z-0 -my-1" />
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -255,7 +287,7 @@ export default function AboutPage() {
 
       {/* Resources We Have */}
       <section className="container mx-auto px-4 md:px-8 lg:px-16">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col lg:flex-row items-stretch gap-12">
           <div className="flex-1 w-full space-y-6">
             <div className="flex flex-col gap-3">
               <h2 className="text-3xl font-extrabold tracking-tight">Resources & Network</h2>
@@ -287,13 +319,38 @@ export default function AboutPage() {
           </div>
 
           <div className="flex-1 w-full">
-            <div className="w-full relative aspect-square md:aspect-[4/3] lg:aspect-square rounded-2xl overflow-hidden border border-border shadow-xl">
-              <Image
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
-                alt="Global Network and Resources"
-                fill
-                className="object-cover"
-              />
+            <div className="w-full h-full min-h-[400px] py-16 px-4 rounded-2xl border border-border bg-card shadow-xl relative overflow-hidden flex flex-col justify-center">
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent opacity-50" />
+              
+              <div className="relative w-full max-w-sm mx-auto flex items-center justify-center min-h-[300px]">
+                {/* Center Node */}
+                <div className="relative z-20 w-28 h-28 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_40px_-10px_rgba(var(--accent-rgb),0.4)]">
+                  <Globe className="w-8 h-8 text-accent mb-2" />
+                  <span className="text-sm font-bold text-foreground">Balbird</span>
+                </div>
+
+                {/* Orbiting Nodes */}
+                {[
+                  { label: "Legal & Finance", pos: "top-0 left-1/2 -translate-x-1/2 -translate-y-4" },
+                  { label: "Universities", pos: "bottom-0 left-1/2 -translate-x-1/2 translate-y-4" },
+                  { label: "Logistics", pos: "top-1/2 left-0 -translate-x-4 -translate-y-1/2" },
+                  { label: "Associations", pos: "top-1/2 right-0 translate-x-4 -translate-y-1/2" },
+                  { label: "Auditors", pos: "top-[15%] left-[15%] -translate-x-1/2 -translate-y-1/2" },
+                  { label: "Advisors", pos: "bottom-[15%] right-[15%] translate-x-1/2 translate-y-1/2" },
+                ].map((node, i) => (
+                  <React.Fragment key={i}>
+                    <div className={`absolute z-10 ${node.pos}`}>
+                      <div className="px-3 py-2 bg-muted/90 backdrop-blur-md border border-border rounded-full text-xs font-semibold text-foreground/80 shadow-lg whitespace-nowrap">
+                        {node.label}
+                      </div>
+                    </div>
+                  </React.Fragment>
+                ))}
+                
+                {/* Simple decorative rings */}
+                <div className="absolute inset-0 m-auto w-[200px] h-[200px] border border-accent/10 rounded-full z-0" />
+                <div className="absolute inset-0 m-auto w-[350px] h-[350px] border border-border/50 rounded-full z-0 border-dashed" />
+              </div>
             </div>
           </div>
         </div>
