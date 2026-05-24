@@ -126,6 +126,7 @@ export default function RequestStrategicDiscussionPage() {
                       <option value="railway">Railway</option>
                       <option value="marine">Marine</option>
                       <option value="heavy_mobility">Heavy Mobility</option>
+                      <option value="none">None of the above</option>
                     </select>
                   </div>
                   <div className="grid gap-2">

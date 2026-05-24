@@ -21,7 +21,7 @@ const roles = [
 type RoleKey = (typeof roles)[number]["key"];
 
 const sectors = [
-  "Aerospace", "Automotive", "Electric Vehicles", "Railway", "Marine", "Heavy Mobility",
+  "Aerospace", "Automotive", "Electric Vehicles", "Railway", "Marine", "Heavy Mobility", "None of the above"
 ] as const;
 
 export default function JoinNetworkPage() {
