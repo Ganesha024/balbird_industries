@@ -46,6 +46,30 @@ export default function JoinNetworkPage() {
     }
   }, [role]);
 
+  const roleFileConfig = useMemo(() => {
+    switch (role) {
+      case "Manufacturer":
+        return { label: "Upload Company Profile", required: true, accept: ".pdf,.doc,.docx,.ppt,.pptx" };
+      case "OEM_Tier":
+        return { label: "Upload Company Profile", required: false, accept: ".pdf,.doc,.docx,.ppt,.pptx" };
+      case "Student_Workforce":
+        return { 
+          label: "Upload CV (pdf or docx)", 
+          required: false, 
+          accept: ".pdf,.doc,.docx",
+          note: "We're actively connecting to students for recruitment in our team."
+        };
+      case "Industrial_Association":
+        return { label: "Upload Association Profile", required: false, accept: ".pdf,.doc,.docx,.ppt,.pptx" };
+      case "Strategic_Advisor":
+        return { label: "Upload Professional Profile / Portfolio", required: false, accept: ".pdf,.doc,.docx,.ppt,.pptx" };
+      case "Retail_Middlemen":
+        return { label: "Upload Company Profile", required: false, accept: ".pdf,.doc,.docx,.ppt,.pptx" };
+      default:
+        return null;
+    }
+  }, [role]);
+
   const [isPending, setIsPending] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -242,15 +266,23 @@ export default function JoinNetworkPage() {
                             />
                           </div>
                         ))}
-                        <div className="grid gap-2 pt-2 border-t border-border/50 mt-2">
-                          <label className="text-sm text-foreground/70">Company Profile (PDF, PPT, DOCX)</label>
-                          <input
-                            type="file"
-                            className="h-11 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-accent/10 file:text-accent hover:file:bg-accent/20 cursor-pointer"
-                            name="company_profile"
-                            accept=".pdf,.doc,.docx,.ppt,.pptx"
-                          />
-                        </div>
+                        {roleFileConfig && (
+                          <div className="grid gap-2 pt-2 border-t border-border/50 mt-2">
+                            <label className="text-sm text-foreground/70">
+                              {roleFileConfig.label} {roleFileConfig.required && <span className="text-red-500">*</span>}
+                            </label>
+                            {roleFileConfig.note && (
+                              <p className="text-xs text-accent italic mb-1">{roleFileConfig.note}</p>
+                            )}
+                            <input
+                              type="file"
+                              className="h-11 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-accent/10 file:text-accent hover:file:bg-accent/20 cursor-pointer"
+                              name="company_profile"
+                              accept={roleFileConfig.accept}
+                              required={roleFileConfig.required}
+                            />
+                          </div>
+                        )}
                       </div>
                     </div>
                   ) : (
