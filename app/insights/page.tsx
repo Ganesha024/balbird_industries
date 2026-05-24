@@ -4,13 +4,57 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Card, CardTitle, CardDescription } from "@/components/ui/Card";
 import { ButtonLink } from "@/components/ui/Button";
-import { ChevronDown, BookOpen, Presentation, FileText, ArrowRight } from "lucide-react";
+import { ChevronDown, BookOpen, Presentation, FileText, ArrowRight, HelpCircle, Plus, Minus } from "lucide-react";
 import { blogs } from '@/lib/data/blogs';
 
-type TabType = 'blogs' | 'casestudy' | 'guidelines';
+type TabType = 'blogs' | 'casestudy' | 'guidelines' | 'faq';
+
+const faqs = [
+  {
+    question: "What is Balbird Industries?",
+    answer: "Balbird Industries is a Cross-Border Manufacturing Execution Partner specializing in mobility components. We go beyond traditional sourcing by directly orchestrating and managing production across a verified network of specialized manufacturers."
+  },
+  {
+    question: "What industries do you serve?",
+    answer: "We specialize in safety-critical mobility sectors, including aerospace, electric vehicles (EV), automotive, commercial railway, marine, and heavy equipment manufacturing."
+  },
+  {
+    question: "How is Balbird different from a manufacturing marketplace?",
+    answer: "Unlike a marketplace that simply connects buyers with suppliers and steps away, Balbird actively manages the execution. We integrate process telemetry, conduct on-site compliance audits using our Execution Cells, and take responsibility for final part quality and delivery timelines."
+  },
+  {
+    question: "What is the Consortium Manufacturing Model?",
+    answer: "Instead of relying on a single facility, we pool the capabilities of specialized mid-sized factories into structured consortiums. This distributes risk, aggregates capacity, and allows OEMs to scale production dynamically without single points of failure."
+  },
+  {
+    question: "How do you ensure quality and compliance across borders?",
+    answer: "We enforce standardized quality gates, unbroken traceability trails (including heat numbers and melt logs), and deploy trained Execution Cells to monitor shop floors directly. We align with global standards like IATF 16949 and AS9100."
+  },
+  {
+    question: "What are Execution Cells?",
+    answer: "Execution Cells are trained cohorts of engineering students deployed directly to manufacturing nodes. They handle real-time process documentation, quality logging, and digital tracking, acting as an active telemetry layer that ensures compliance without adding overhead to the factory."
+  },
+  {
+    question: "Do you handle Design-for-Manufacturing (DFM) reviews?",
+    answer: "Yes. Before production begins, we conduct automated and manual DFM screening to validate CAD designs against the specific machine capabilities of the matched facility, minimizing scrap and rework."
+  },
+  {
+    question: "What capabilities exist within the Balbird ecosystem?",
+    answer: "Our network covers a vast range of industrial processes including high-precision CNC turning, VMC machining (up to 1200mm envelopes), heavy fabrication, precision welding, plastic injection molding, and specialized surface treatments."
+  },
+  {
+    question: "How do suppliers join the manufacturing network?",
+    answer: "Suppliers must pass our rigorous pre-qualification audits, which verify machine specifications, operator certifications, and quality management systems. You can apply through the 'Join Network' page."
+  },
+  {
+    question: "Can I track my project's progress in real-time?",
+    answer: "Yes. We utilize centralized milestone tracking and low-code automated workflows to provide OEMs with total visibility into work-in-progress metrics, QA sign-offs, and shipping schedules."
+  }
+];
 
 export default function InsightsPage() {
   const [activeTab, setActiveTab] = useState<TabType>('blogs');
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -79,6 +123,16 @@ export default function InsightsPage() {
               }`}
             >
               <FileText className="w-4 h-4" /> User Guidelines
+            </button>
+            <button
+              onClick={() => setActiveTab('faq')}
+              className={`flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 ${
+                activeTab === 'faq' 
+                  ? 'bg-accent text-white shadow-md' 
+                  : 'bg-muted text-foreground/70 hover:bg-muted/80 hover:text-foreground'
+              }`}
+            >
+              <HelpCircle className="w-4 h-4" /> FAQs
             </button>
           </div>
 
@@ -182,6 +236,58 @@ export default function InsightsPage() {
                       <strong className="text-accent">Note:</strong> Detailed user onboarding manuals and compliance checklists are provided directly to qualified suppliers upon successful admission into the network.
                     </p>
                   </div>
+                </div>
+              </div>
+            )}
+
+            {/* FAQs */}
+            {activeTab === 'faq' && (
+              <div className="w-full max-w-4xl mx-auto animate-fade-in">
+                <div className="mb-12 border-b border-border/40 pb-10 text-center">
+                  <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-[1.1] mb-6">
+                    Frequently Asked Questions
+                  </h1>
+                  <p className="text-lg text-foreground/70 font-medium">
+                    Everything you need to know about the Balbird manufacturing execution network.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  {faqs.map((faq, index) => {
+                    const isOpen = openFaq === index;
+                    return (
+                      <div 
+                        key={index} 
+                        className={`border rounded-xl transition-all duration-300 overflow-hidden ${
+                          isOpen ? 'border-accent bg-accent/5' : 'border-border bg-card hover:border-accent/50'
+                        }`}
+                      >
+                        <button 
+                          onClick={() => setOpenFaq(isOpen ? null : index)}
+                          className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+                        >
+                          <span className={`font-bold text-lg md:text-xl pr-8 ${isOpen ? 'text-accent' : 'text-foreground'}`}>
+                            {faq.question}
+                          </span>
+                          <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
+                            isOpen ? 'bg-accent text-white' : 'bg-muted text-foreground/60'
+                          }`}>
+                            {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                          </div>
+                        </button>
+                        
+                        <div 
+                          className={`transition-all duration-300 ease-in-out ${
+                            isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                          }`}
+                        >
+                          <div className="p-6 pt-0 text-foreground/80 leading-relaxed text-sm md:text-base border-t border-border/50 mx-6">
+                            {faq.answer}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}
