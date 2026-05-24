@@ -60,7 +60,7 @@ export default function JoinNetworkPage() {
         return { 
           label: "Upload Company Profile", 
           required: false, 
-          accept: ".pdf,.doc,.docx,.ppt,.pptx",
+          accept: ".pdf,.doc,.docx,.ppt,.pptx,.xlsx",
           disclaimer: commonDisclaimer 
         };
       case "Student_Workforce":
@@ -68,7 +68,7 @@ export default function JoinNetworkPage() {
           label: "Upload CV (pdf or docx)", 
           required: false, 
           accept: ".pdf,.doc,.docx",
-          note: "We are actively seeking talented students and emerging professionals to join our growing team.",
+          note: "We are actively seeking talented students and emerging professionals to join our team.",
           disclaimer: commonDisclaimer
         };
       case "Industrial_Association":

@@ -75,8 +75,12 @@ export async function submitJoinNetwork(formData: FormData) {
 
 export async function submitStrategicDiscussion(formData: FormData) {
   const organization_name = formData.get("organization_name") as string;
+  const Network_type = formData.get("Network_type") as string;
+  const sector = formData.get("sector") as string;
+  const country_region = formData.get("country_region") as string;
   const contact_person = formData.get("contact_person") as string;
   const contact_email = formData.get("contact_email") as string;
+  const whatsapp_number = formData.get("whatsapp_number") as string;
   const program_interest = formData.get("program_interest") as string;
   const capacity_focus = formData.get("capacity_focus") as string;
   const preferred_timeline = formData.get("preferred_timeline") as string;
@@ -87,8 +91,12 @@ export async function submitStrategicDiscussion(formData: FormData) {
     .insert([
       {
         organization_name,
+        Network_type,
+        sector,
+        country_region,
         contact_person,
         contact_email,
+        whatsapp_number,
         program_interest,
         capacity_focus,
         preferred_timeline,

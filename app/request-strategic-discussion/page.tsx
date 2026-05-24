@@ -89,18 +89,20 @@ export default function RequestStrategicDiscussionPage() {
               <form onSubmit={handleSubmit} className="grid gap-6 lg:grid-cols-2">
                 <div className="grid gap-4">
                   <div className="grid gap-2">
-                    <label className="text-sm font-medium">Organization Name</label>
+                    <label className="text-sm font-medium">Organization Name <span className="text-red-500">*</span></label>
                     <input
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                       name="organization_name"
-                      placeholder="Your organization name"
+                      placeholder="Company / Institution"
+                      required
                     />
                   </div>
                   <div className="grid gap-2">
-                    <label className="text-sm font-medium">Network Type</label>
+                    <label className="text-sm font-medium">Network Type <span className="text-red-500">*</span></label>
                     <select
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                       name="Network_type"
+                      required
                     >
                       <option value="">Select Network type</option>
                       <option value="manufacturer">Manufacturer</option>
@@ -112,10 +114,11 @@ export default function RequestStrategicDiscussionPage() {
                     </select>
                   </div>
                   <div className="grid gap-2">
-                    <label className="text-sm font-medium">Sector</label>
+                    <label className="text-sm font-medium">Sector <span className="text-red-500">*</span></label>
                     <select
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                       name="sector"
+                      required
                     >
                       <option value="">Select sector</option>
                       <option value="aerospace">Aerospace</option>
@@ -127,38 +130,52 @@ export default function RequestStrategicDiscussionPage() {
                     </select>
                   </div>
                   <div className="grid gap-2">
-                    <label className="text-sm font-medium">Country / Region</label>
+                    <label className="text-sm font-medium">Country / Region <span className="text-red-500">*</span></label>
                     <input
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                       name="country_region"
                       placeholder="Country or region"
+                      required
                     />
                   </div>
                   <div className="grid gap-2">
-                    <label className="text-sm font-medium">Contact Person</label>
+                    <label className="text-sm font-medium">Contact Person <span className="text-red-500">*</span></label>
                     <input
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                       name="contact_person"
                       placeholder="Full name"
+                      required
                     />
                   </div>
                   <div className="grid gap-2">
-                    <label className="text-sm font-medium">Contact Email</label>
+                    <label className="text-sm font-medium">Contact Email <span className="text-red-500">*</span></label>
                     <input
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
-                      name="contact_email"
                       type="email"
+                      name="contact_email"
                       placeholder="email@organization.com"
+                      required
+                    />
+                  </div>
+                  <div className="grid gap-2">
+                    <label className="text-sm font-medium">Contact / WhatsApp Number <span className="text-red-500">*</span></label>
+                    <input
+                      className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                      type="tel"
+                      name="whatsapp_number"
+                      placeholder="+1 (555) 000-0000"
+                      required
                     />
                   </div>
                 </div>
 
-                <div className="grid gap-4">
+                <div className="grid gap-4 content-start">
                   <div className="grid gap-2">
-                    <label className="text-sm font-medium">Program Interest</label>
+                    <label className="text-sm font-medium">Program of Interest <span className="text-red-500">*</span></label>
                     <select
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                       name="program_interest"
+                      required
                     >
                       <option value="">Select program of interest</option>
                       <option value="capacity_enhancement">Capacity Enhancement</option>
@@ -171,10 +188,11 @@ export default function RequestStrategicDiscussionPage() {
                     </select>
                   </div>
                   <div className="grid gap-2">
-                    <label className="text-sm font-medium">Capacity / Capability Focus</label>
+                    <label className="text-sm font-medium">Capacity / Capability Focus <span className="text-red-500">*</span></label>
                     <select
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                       name="capacity_focus"
+                      required
                     >
                       <option value="">Select focus area</option>
                       <option value="manufacturing_capacity">Manufacturing Capacity</option>
@@ -186,10 +204,11 @@ export default function RequestStrategicDiscussionPage() {
                     </select>
                   </div>
                   <div className="grid gap-2">
-                    <label className="text-sm font-medium">Preferred Timeline</label>
+                    <label className="text-sm font-medium">Preferred Timeline <span className="text-red-500">*</span></label>
                     <select
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                       name="preferred_timeline"
+                      required
                     >
                       <option value="">Select preferred timeline</option>
                       <option value="immediate">Immediate (within 1 week)</option>
@@ -199,11 +218,12 @@ export default function RequestStrategicDiscussionPage() {
                     </select>
                   </div>
                   <div className="grid gap-2">
-                    <label className="text-sm font-medium">Discussion Topics</label>
+                    <label className="text-sm font-medium">Key Discussion Topics <span className="text-red-500">*</span></label>
                     <textarea
-                      className="min-h-24 w-full rounded-xl border border-border bg-background px-3 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                      className="min-h-28 w-full rounded-xl border border-border bg-background px-3 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                       name="discussion_topics"
-                      placeholder="Describe the key topics you'd like to discuss"
+                      placeholder="Briefly describe what you'd like to discuss (e.g., procurement needs, capacity allocation, compliance, specific projects)"
+                      required
                     />
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3">
