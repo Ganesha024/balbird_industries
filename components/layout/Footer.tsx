@@ -53,9 +53,11 @@ export default function Footer() {
           <div>
             <h4 className="text-foreground font-bold text-lg mb-6">Get In Touch</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-3">
-                <Mail size={16} />
-                <a href="mailto:info@balbirdindustries.com" className="hover:text-accent transition-colors">info@balbirdindustries.com</a>
+              <li>
+                <a href="mailto:info@balbirdindustries.com" className="flex items-center gap-3 hover:text-accent transition-colors">
+                  <Mail size={16} />
+                  <span>info@balbirdindustries.com</span>
+                </a>
               </li>
               <li>
                 <Link href="/request-strategic-discussion" className="inline-block mt-2 px-5 py-2.5 bg-accent text-white font-bold rounded hover:bg-accent/90 transition-all text-sm">
