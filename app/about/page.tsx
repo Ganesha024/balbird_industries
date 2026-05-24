@@ -135,6 +135,14 @@ export default function AboutPage() {
             </div>
           </div>
         </Card>
+        <div className="w-full relative h-[300px] sm:h-[400px] md:h-[500px] mt-12 rounded-2xl overflow-hidden border border-border shadow-xl">
+          <Image
+            src="/images/about-infographic-ecosystem.png"
+            alt="Manufacturing Execution Ecosystem"
+            fill
+            className="object-cover"
+          />
+        </div>
       </section>
 
       {/* Operational Verticals */}
@@ -158,6 +166,14 @@ export default function AboutPage() {
               <CardDescription>{vertical.desc}</CardDescription>
             </Card>
           ))}
+        </div>
+        <div className="w-full relative h-[300px] sm:h-[400px] md:h-[500px] mt-12 rounded-2xl overflow-hidden border border-border shadow-xl">
+          <Image
+            src="/images/about-infographic-verticals.png"
+            alt="Operational Verticals Structure"
+            fill
+            className="object-cover"
+          />
         </div>
       </section>
 
@@ -248,6 +264,14 @@ export default function AboutPage() {
               <span className="text-sm font-medium text-foreground/80">{resource}</span>
             </div>
           ))}
+        </div>
+        <div className="w-full relative h-[300px] sm:h-[400px] md:h-[500px] mt-12 rounded-2xl overflow-hidden border border-border shadow-xl">
+          <Image
+            src="/images/about-infographic-network.png"
+            alt="Resources and Network Connections"
+            fill
+            className="object-cover"
+          />
         </div>
       </section>
 
