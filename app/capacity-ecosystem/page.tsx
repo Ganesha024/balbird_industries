@@ -20,7 +20,7 @@ const detailedCapabilities = [
       },
       {
         title: "VMC Infrastructure",
-        image: "/images/cnc_machining.png",
+        image: "/images/vmc_infrastructure.png",
         details: [
           "Machines: BFW BMV 50 TC24, BFW Chakra BMV 60+, BFW VMC with 4th axis",
           "Capability: Standard machining envelope: 1200 × 600 × 600 mm",
@@ -43,7 +43,7 @@ const detailedCapabilities = [
       },
       {
         title: "Plasma Cutting & CNC Bending",
-        image: "/images/fabrication_welding.png",
+        image: "/images/plasma_cutting.png",
         details: [
           "Plasma Cutting: Up to 2000 × 6000 mm",
           "CNC Bending: Up to 6000 mm length",
@@ -51,7 +51,7 @@ const detailedCapabilities = [
       },
       {
         title: "Welding Infrastructure",
-        image: "/images/fabrication_welding.png",
+        image: "/images/welding_infrastructure.png",
         details: [
           "MIG / CO2 welding, TIG welding",
           "ARC welding, Projection welding",
@@ -74,7 +74,7 @@ const detailedCapabilities = [
       },
       {
         title: "Toshiba TS Servo - 150 Ton",
-        image: "/images/plastic_moulding.png",
+        image: "/images/toshiba_servo.png",
         details: [
           "Injection pressure: 2022 Bar",
           "Shot weight: 402 grams",
@@ -82,7 +82,7 @@ const detailedCapabilities = [
       },
       {
         title: "Additional Ecosystem Support",
-        image: "/images/plastic_moulding.png",
+        image: "/images/ecosystem_support.png",
         details: [
           "100T → 850T injection moulding",
           "Vacuum casting",
