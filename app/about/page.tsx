@@ -108,110 +108,120 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* What We Provide (Services Overview) */}
-      <section className="container mx-auto px-4 md:px-8 lg:px-16 space-y-6">
-        <div className="flex flex-col gap-3">
-          <h2 className="text-3xl font-extrabold tracking-tight">What We Provide</h2>
-          <p className="max-w-3xl text-foreground/80">
-            Contract Development Manufacturing Operations (CDMO) — structured execution across the mobility supply chain.
-          </p>
-        </div>
-        <Card className="overflow-hidden">
-          <div className="p-6">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                { icon: Factory, title: 'Manufacturing Operations', desc: 'Coordinated production workflows across verified manufacturers.' },
-                { icon: Workflow, title: 'Execution Coordination', desc: 'Project-level coordination from scoping through delivery.' },
-                { icon: Shield, title: 'Manufacturing Traceability', desc: 'End-to-end documentation and compliance at every node.' },
-                { icon: Network, title: 'Consortium Coordination', desc: 'Multi-Network consortium alignment for large programs.' },
-                { icon: Users, title: 'Execution Cell (HR)', desc: 'Student workforce support for HR and operational functions.' },
-                { icon: BarChart3, title: 'Execution Cell (BD)', desc: 'Business development, outreach, and Network research.' },
-              ].map((service, idx) => (
-                <div key={idx} className="rounded-xl bg-foreground/[0.03] px-5 py-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <service.icon className="h-5 w-5 text-accent" />
-                    <h4 className="font-bold text-sm">{service.title}</h4>
-                  </div>
-                  <p className="text-sm text-foreground/70">{service.desc}</p>
+      {/* Ecosystem */}
+      <section className="container mx-auto px-4 md:px-8 lg:px-16">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="flex-1 w-full space-y-6">
+            <div className="flex flex-col gap-3">
+              <h2 className="text-3xl font-extrabold tracking-tight">Cross-Border Execution Ecosystem</h2>
+              <p className="max-w-xl text-foreground/80">
+                Contract Development Manufacturing Operations (CDMO) — structured execution across the mobility supply chain.
+              </p>
+            </div>
+            <Card className="overflow-hidden">
+              <div className="p-6">
+                <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2">
+                  {[
+                    { icon: Factory, title: 'Manufacturing Operations', desc: 'Coordinated production workflows.' },
+                    { icon: Workflow, title: 'Execution Coordination', desc: 'Project-level coordination.' },
+                    { icon: Shield, title: 'Manufacturing Traceability', desc: 'End-to-end documentation.' },
+                    { icon: Network, title: 'Consortium Coordination', desc: 'Multi-Network alignment.' },
+                    { icon: Users, title: 'Execution Cell (HR)', desc: 'Student workforce support.' },
+                    { icon: BarChart3, title: 'Execution Cell (BD)', desc: 'Business development.' },
+                  ].map((service, idx) => (
+                    <div key={idx} className="rounded-xl bg-foreground/[0.03] px-5 py-4">
+                      <div className="flex items-center gap-3 mb-2">
+                        <service.icon className="h-5 w-5 text-accent" />
+                        <h4 className="font-bold text-sm">{service.title}</h4>
+                      </div>
+                      <p className="text-xs text-foreground/70">{service.desc}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        </Card>
-        <div className="w-full mt-12 p-8 md:p-16 rounded-2xl border border-border bg-card shadow-xl flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden">
-          {/* Connecting Line */}
-          <div className="hidden md:block absolute top-1/2 left-[15%] right-[15%] h-0.5 bg-accent/20 -translate-y-1/2 z-0" />
-          <div className="block md:hidden absolute left-1/2 top-[15%] bottom-[15%] w-0.5 bg-accent/20 -translate-x-1/2 z-0" />
-          
-          <div className="flex flex-col items-center text-center w-40 z-10 bg-card">
-            <div className="w-24 h-24 bg-muted border border-border rounded-full flex items-center justify-center mb-4 shadow-sm">
-              <Building2 className="w-10 h-10 text-foreground/70" />
-            </div>
-            <h4 className="font-bold text-foreground text-lg mb-1">OEMs</h4>
-            <p className="text-xs text-foreground/60 leading-tight">Requirement & Demand Origination</p>
+              </div>
+            </Card>
           </div>
           
-          <div className="flex flex-col items-center z-10 bg-card p-4 rounded-full">
-            <div className="w-32 h-32 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_30px_-5px_rgba(var(--accent-rgb),0.3)]">
-              <ServerCog className="w-10 h-10 text-accent mb-2" />
-              <h4 className="font-bold text-foreground text-sm">Balbird Hub</h4>
-            </div>
-          </div>
+          <div className="flex-1 w-full">
+            <div className="w-full p-8 rounded-2xl border border-border bg-card shadow-xl flex flex-col items-center justify-between gap-8 relative overflow-hidden">
+              <div className="absolute top-[15%] bottom-[15%] left-1/2 w-0.5 bg-accent/20 -translate-x-1/2 z-0" />
+              
+              <div className="flex flex-col items-center text-center w-full z-10 bg-card py-2">
+                <div className="w-20 h-20 bg-muted border border-border rounded-full flex items-center justify-center mb-4 shadow-sm">
+                  <Building2 className="w-8 h-8 text-foreground/70" />
+                </div>
+                <h4 className="font-bold text-foreground text-lg mb-1">OEMs</h4>
+                <p className="text-xs text-foreground/60 leading-tight">Requirement Origination</p>
+              </div>
+              
+              <div className="flex flex-col items-center z-10 bg-card p-4 rounded-full">
+                <div className="w-28 h-28 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_30px_-5px_rgba(var(--accent-rgb),0.3)]">
+                  <ServerCog className="w-8 h-8 text-accent mb-1" />
+                  <h4 className="font-bold text-foreground text-sm">Balbird Hub</h4>
+                </div>
+              </div>
 
-          <div className="flex flex-col items-center text-center w-40 z-10 bg-card">
-            <div className="w-24 h-24 bg-muted border border-border rounded-2xl flex items-center justify-center mb-4 shadow-sm">
-              <Factory className="w-10 h-10 text-foreground/70" />
+              <div className="flex flex-col items-center text-center w-full z-10 bg-card py-2">
+                <div className="w-20 h-20 bg-muted border border-border rounded-2xl flex items-center justify-center mb-4 shadow-sm">
+                  <Factory className="w-8 h-8 text-foreground/70" />
+                </div>
+                <h4 className="font-bold text-foreground text-lg mb-1">Network</h4>
+                <p className="text-xs text-foreground/60 leading-tight">Distributed Execution Nodes</p>
+              </div>
             </div>
-            <h4 className="font-bold text-foreground text-lg mb-1">Network</h4>
-            <p className="text-xs text-foreground/60 leading-tight">Distributed Execution Nodes</p>
           </div>
         </div>
       </section>
 
       {/* Operational Verticals */}
-      <section className="container mx-auto px-4 md:px-8 lg:px-16 space-y-6">
-        <div className="flex flex-col gap-3">
-          <h2 className="text-3xl font-extrabold tracking-tight">Operational Verticals</h2>
-          <p className="max-w-3xl text-foreground/80">
-            Four operational verticals structure everything we build and execute.
-          </p>
-        </div>
-        <div className="grid gap-4 md:grid-cols-4">
-          {[
-            { icon: ClipboardList, title: 'Communication', desc: 'Network interaction systems, chatbot, and structured information flow.' },
-            { icon: Target, title: 'Task Management', desc: 'Execution tracking, milestone monitoring, and accountability workflows.' },
-            { icon: Network, title: 'Matchmaking', desc: 'AI-assisted matching of capabilities with requirements.' },
-            { icon: Shield, title: 'Engineering', desc: 'Technical validation, quality assurance, and DFM analysis.' },
-          ].map((vertical, idx) => (
-            <Card key={idx} className="p-5 text-center">
-              <vertical.icon className="h-8 w-8 text-accent mx-auto mb-3" />
-              <CardTitle>{vertical.title}</CardTitle>
-              <CardDescription>{vertical.desc}</CardDescription>
-            </Card>
-          ))}
-        </div>
-        <div className="w-full mt-12 p-8 rounded-2xl border border-border bg-card shadow-xl overflow-x-auto">
-          <div className="flex items-center justify-between min-w-[700px] max-w-4xl mx-auto gap-4 py-4">
-            {[
-              { icon: ClipboardList, title: "1. Intake" },
-              { icon: Network, title: "2. Match" },
-              { icon: Target, title: "3. Execute" },
-              { icon: Shield, title: "4. Deliver" }
-            ].map((step, i) => (
-              <React.Fragment key={i}>
-                <div className="flex flex-col items-center text-center w-32 relative group">
-                  <div className="w-16 h-16 bg-background border border-accent/30 rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:border-accent group-hover:shadow-accent/20 transition-all">
-                    <step.icon className="w-8 h-8 text-accent" />
-                  </div>
-                  <h4 className="font-bold text-sm text-foreground uppercase tracking-wider">{step.title}</h4>
-                </div>
-                {i < 3 && (
-                  <div className="flex-1 h-0.5 bg-gradient-to-r from-accent/40 to-accent/10 relative">
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 border-y-[6px] border-y-transparent border-l-[8px] border-l-accent/40" />
-                  </div>
-                )}
-              </React.Fragment>
-            ))}
+      <section className="container mx-auto px-4 md:px-8 lg:px-16">
+        <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+          <div className="flex-1 w-full space-y-6">
+            <div className="flex flex-col gap-3">
+              <h2 className="text-3xl font-extrabold tracking-tight">Operational Verticals</h2>
+              <p className="max-w-xl text-foreground/80">
+                Four operational verticals structure everything we build and execute.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                { icon: ClipboardList, title: 'Communication', desc: 'Network interaction systems, chatbot, and structured information flow.' },
+                { icon: Target, title: 'Task Management', desc: 'Execution tracking, milestone monitoring, and accountability workflows.' },
+                { icon: Network, title: 'Matchmaking', desc: 'AI-assisted matching of capabilities with requirements.' },
+                { icon: Shield, title: 'Engineering', desc: 'Technical validation, quality assurance, and DFM analysis.' },
+              ].map((vertical, idx) => (
+                <Card key={idx} className="p-5 text-center">
+                  <vertical.icon className="h-8 w-8 text-accent mx-auto mb-3" />
+                  <CardTitle className="text-base">{vertical.title}</CardTitle>
+                  <CardDescription className="text-xs mt-2">{vertical.desc}</CardDescription>
+                </Card>
+              ))}
+            </div>
+          </div>
+          
+          <div className="flex-1 w-full">
+            <div className="w-full p-8 rounded-2xl border border-border bg-card shadow-xl">
+              <div className="flex flex-col items-center gap-2 py-4">
+                {[
+                  { icon: ClipboardList, title: "1. Intake" },
+                  { icon: Network, title: "2. Match" },
+                  { icon: Target, title: "3. Execute" },
+                  { icon: Shield, title: "4. Deliver" }
+                ].map((step, i) => (
+                  <React.Fragment key={i}>
+                    <div className="flex flex-col items-center text-center relative group w-full">
+                      <div className="w-16 h-16 bg-background border border-accent/30 rounded-xl flex items-center justify-center mb-2 shadow-sm group-hover:border-accent group-hover:shadow-accent/20 transition-all z-10">
+                        <step.icon className="w-8 h-8 text-accent" />
+                      </div>
+                      <h4 className="font-bold text-sm text-foreground uppercase tracking-wider">{step.title}</h4>
+                    </div>
+                    {i < 3 && (
+                      <div className="w-1 h-8 bg-gradient-to-b from-accent/40 to-accent/10 relative z-0 -my-1" />
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -276,65 +286,72 @@ export default function AboutPage() {
       </section>
 
       {/* Resources We Have */}
-      <section className="container mx-auto px-4 md:px-8 lg:px-16 space-y-6">
-        <div className="flex flex-col gap-3">
-          <h2 className="text-3xl font-extrabold tracking-tight">Resources & Network</h2>
-          <p className="max-w-3xl text-foreground/80">
-            We leverage a strong network of advisors, associations, and industry connections.
-          </p>
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            'Legal Advisor',
-            'Financial Advisor',
-            'Tech Advisor',
-            'Supplier Associations',
-            'Student Workforce',
-            'Non-Tech Advisors',
-            'Industrial HR Networks',
-            'Sales Networks',
-            'Quality Networks',
-            'Manufacturer Networks',
-            'Financial Stability',
-            'LinkedIn Premium',
-          ].map((resource, idx) => (
-            <div key={idx} className="flex items-center gap-3 p-4 bg-card rounded-xl border border-border">
-              <CheckCircle className="w-4 h-4 text-accent shrink-0" />
-              <span className="text-sm font-medium text-foreground/80">{resource}</span>
+      <section className="container mx-auto px-4 md:px-8 lg:px-16">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="flex-1 w-full space-y-6">
+            <div className="flex flex-col gap-3">
+              <h2 className="text-3xl font-extrabold tracking-tight">Resources & Network</h2>
+              <p className="max-w-xl text-foreground/80">
+                We leverage a strong network of advisors, associations, and industry connections.
+              </p>
             </div>
-          ))}
-        </div>
-        <div className="w-full mt-12 py-20 px-4 rounded-2xl border border-border bg-card shadow-xl relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent opacity-50" />
-          
-          <div className="relative w-full max-w-3xl mx-auto flex items-center justify-center min-h-[300px]">
-            {/* Center Node */}
-            <div className="relative z-20 w-32 h-32 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_40px_-10px_rgba(var(--accent-rgb),0.4)]">
-              <Globe className="w-10 h-10 text-accent mb-2" />
-              <span className="text-xs font-black tracking-widest uppercase">Balbird</span>
-            </div>
-
-            {/* Orbiting Nodes */}
-            {[
-              { label: "Legal & Finance", pos: "top-0 left-1/2 -translate-x-1/2 -translate-y-4" },
-              { label: "Universities", pos: "bottom-0 left-1/2 -translate-x-1/2 translate-y-4" },
-              { label: "Global Logistics", pos: "top-1/2 left-0 -translate-x-4 -translate-y-1/2" },
-              { label: "Associations", pos: "top-1/2 right-0 translate-x-4 -translate-y-1/2" },
-              { label: "Quality Auditors", pos: "top-[15%] left-[15%] -translate-x-1/2 -translate-y-1/2" },
-              { label: "Advisors", pos: "bottom-[15%] right-[15%] translate-x-1/2 translate-y-1/2" },
-            ].map((node, i) => (
-              <React.Fragment key={i}>
-                <div className={`absolute z-10 ${node.pos}`}>
-                  <div className="px-5 py-2.5 bg-muted/90 backdrop-blur-md border border-border rounded-full text-xs font-bold text-foreground/80 shadow-lg whitespace-nowrap">
-                    {node.label}
-                  </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                'Legal Advisor',
+                'Financial Advisor',
+                'Tech Advisor',
+                'Supplier Associations',
+                'Student Workforce',
+                'Non-Tech Advisors',
+                'Industrial HR Networks',
+                'Sales Networks',
+                'Quality Networks',
+                'Manufacturer Networks',
+                'Financial Stability',
+                'LinkedIn Premium',
+              ].map((resource, idx) => (
+                <div key={idx} className="flex items-center gap-3 p-3 bg-card rounded-xl border border-border">
+                  <CheckCircle className="w-4 h-4 text-accent shrink-0" />
+                  <span className="text-xs font-medium text-foreground/80">{resource}</span>
                 </div>
-              </React.Fragment>
-            ))}
-            
-            {/* Simple decorative rings */}
-            <div className="absolute inset-0 m-auto w-[250px] h-[250px] border border-accent/10 rounded-full z-0" />
-            <div className="absolute inset-0 m-auto w-[450px] h-[450px] border border-border/50 rounded-full z-0 border-dashed" />
+              ))}
+            </div>
+          </div>
+
+          <div className="flex-1 w-full">
+            <div className="w-full py-16 px-4 rounded-2xl border border-border bg-card shadow-xl relative overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent opacity-50" />
+              
+              <div className="relative w-full max-w-sm mx-auto flex items-center justify-center min-h-[300px]">
+                {/* Center Node */}
+                <div className="relative z-20 w-28 h-28 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_40px_-10px_rgba(var(--accent-rgb),0.4)]">
+                  <Globe className="w-8 h-8 text-accent mb-2" />
+                  <span className="text-[10px] font-black tracking-widest uppercase">Balbird</span>
+                </div>
+
+                {/* Orbiting Nodes */}
+                {[
+                  { label: "Legal & Finance", pos: "top-0 left-1/2 -translate-x-1/2 -translate-y-4" },
+                  { label: "Universities", pos: "bottom-0 left-1/2 -translate-x-1/2 translate-y-4" },
+                  { label: "Logistics", pos: "top-1/2 left-0 -translate-x-4 -translate-y-1/2" },
+                  { label: "Associations", pos: "top-1/2 right-0 translate-x-4 -translate-y-1/2" },
+                  { label: "Auditors", pos: "top-[15%] left-[15%] -translate-x-1/2 -translate-y-1/2" },
+                  { label: "Advisors", pos: "bottom-[15%] right-[15%] translate-x-1/2 translate-y-1/2" },
+                ].map((node, i) => (
+                  <React.Fragment key={i}>
+                    <div className={`absolute z-10 ${node.pos}`}>
+                      <div className="px-3 py-2 bg-muted/90 backdrop-blur-md border border-border rounded-full text-[10px] font-bold text-foreground/80 shadow-lg whitespace-nowrap">
+                        {node.label}
+                      </div>
+                    </div>
+                  </React.Fragment>
+                ))}
+                
+                {/* Simple decorative rings */}
+                <div className="absolute inset-0 m-auto w-[200px] h-[200px] border border-accent/10 rounded-full z-0" />
+                <div className="absolute inset-0 m-auto w-[350px] h-[350px] border border-border/50 rounded-full z-0 border-dashed" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
