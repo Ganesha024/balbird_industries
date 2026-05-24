@@ -47,29 +47,51 @@ export default function JoinNetworkPage() {
   }, [role]);
 
   const roleFileConfig = useMemo(() => {
+    const commonDisclaimer = "Note: You may be asked to verify or expand on these operational details during the formal onboarding process.";
     switch (role) {
       case "Manufacturer":
         return { 
           label: "Upload Company Profile", 
           required: true, 
           accept: ".pdf,.doc,.docx,.ppt,.pptx",
-          disclaimer: "Note: You may be asked to verify or expand on these operational details during the formal vendor onboarding process."
+          disclaimer: commonDisclaimer
         };
       case "OEM_Tier":
-        return { label: "Upload Company Profile", required: false, accept: ".pdf,.doc,.docx,.ppt,.pptx" };
+        return { 
+          label: "Upload Company Profile", 
+          required: false, 
+          accept: ".pdf,.doc,.docx,.ppt,.pptx",
+          disclaimer: commonDisclaimer 
+        };
       case "Student_Workforce":
         return { 
           label: "Upload CV (pdf or docx)", 
           required: false, 
           accept: ".pdf,.doc,.docx",
-          note: "We're actively connecting to students for recruitment in our team."
+          note: "We're actively connecting to students for recruitment in our team.",
+          disclaimer: commonDisclaimer
         };
       case "Industrial_Association":
-        return { label: "Upload Association Profile", required: false, accept: ".pdf,.doc,.docx,.ppt,.pptx" };
+        return { 
+          label: "Upload Association Profile", 
+          required: false, 
+          accept: ".pdf,.doc,.docx,.ppt,.pptx",
+          disclaimer: commonDisclaimer
+        };
       case "Strategic_Advisor":
-        return { label: "Upload Professional Profile / Portfolio", required: false, accept: ".pdf,.doc,.docx,.ppt,.pptx" };
+        return { 
+          label: "Upload Professional Profile / Portfolio", 
+          required: false, 
+          accept: ".pdf,.doc,.docx,.ppt,.pptx",
+          disclaimer: commonDisclaimer
+        };
       case "Retail_Middlemen":
-        return { label: "Upload Company Profile", required: false, accept: ".pdf,.doc,.docx,.ppt,.pptx" };
+        return { 
+          label: "Upload Company Profile", 
+          required: false, 
+          accept: ".pdf,.doc,.docx,.ppt,.pptx",
+          disclaimer: commonDisclaimer
+        };
       default:
         return null;
     }
