@@ -27,7 +27,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
     <div className="flex flex-col min-h-screen bg-background">
       {/* Article Navigation */}
       <div className="pt-32 pb-8 md:pt-40 md:pb-12 bg-background">
-        <div className="container mx-auto px-4 md:px-8 lg:px-16 max-w-5xl">
+        <div className="w-full max-w-5xl px-4 md:px-12 lg:px-24">
           <Link 
             href="/insights" 
             className="inline-flex items-center text-sm font-bold text-accent hover:text-accent/80 transition-colors mb-4"
@@ -39,7 +39,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
 
       {/* Article Content */}
       <section className="pb-24">
-        <div className="container mx-auto px-4 md:px-8 lg:px-16 max-w-5xl">
+        <div className="w-full max-w-5xl px-4 md:px-12 lg:px-24">
           <div className="w-full animate-fade-in">
             {/* Article-style Header */}
             <div className="mb-12 border-b border-border/40 pb-10">
