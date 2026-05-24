@@ -83,6 +83,28 @@ export async function submitStrategicDiscussion(formData: FormData) {
   const whatsapp_number = formData.get("whatsapp_number") as string;
   const discussion_topics = formData.get("discussion_topics") as string;
 
+  let document_url = null;
+
+  // Handle file upload
+  const rfq_document = formData.get("rfq_document") as File | null;
+  if (rfq_document && rfq_document.size > 0) {
+    const fileExt = rfq_document.name.split('.').pop();
+    const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+    
+    const { error: uploadError } = await supabase.storage
+      .from('company_profiles')
+      .upload(fileName, rfq_document);
+      
+    if (!uploadError) {
+      const { data: publicUrlData } = supabase.storage
+        .from('company_profiles')
+        .getPublicUrl(fileName);
+      document_url = publicUrlData.publicUrl;
+    } else {
+      console.error("Storage upload error:", uploadError);
+    }
+  }
+
   const { error } = await supabase
     .from('strategic_discussion_requests')
     .insert([
@@ -94,7 +116,8 @@ export async function submitStrategicDiscussion(formData: FormData) {
         contact_person,
         contact_email,
         whatsapp_number,
-        discussion_topics
+        discussion_topics,
+        document_url
       }
     ]);
 

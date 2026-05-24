@@ -178,6 +178,15 @@ export default function RequestStrategicDiscussionPage() {
                       required
                     />
                   </div>
+                  <div className="grid gap-2">
+                    <label className="text-sm font-medium">Upload RFQ / Technical Drawing (Optional)</label>
+                    <input
+                      type="file"
+                      className="h-11 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-accent/10 file:text-accent hover:file:bg-accent/20 cursor-pointer"
+                      name="rfq_document"
+                      accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.zip"
+                    />
+                  </div>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <button
                       type="submit"
