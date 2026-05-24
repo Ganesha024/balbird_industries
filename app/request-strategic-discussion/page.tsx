@@ -163,60 +163,13 @@ export default function RequestStrategicDiscussionPage() {
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                       type="tel"
                       name="whatsapp_number"
-                      placeholder="+1 (555) 000-0000"
+                      placeholder="+91 00000-00000"
                       required
                     />
                   </div>
                 </div>
 
                 <div className="grid gap-4 content-start">
-                  <div className="grid gap-2">
-                    <label className="text-sm font-medium">Program of Interest <span className="text-red-500">*</span></label>
-                    <select
-                      className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
-                      name="program_interest"
-                      required
-                    >
-                      <option value="">Select program of interest</option>
-                      <option value="capacity_enhancement">Capacity Enhancement</option>
-                      <option value="capability_compliance">Capability Compliance Strengthening</option>
-                      <option value="workforce_integration">Workforce Integration</option>
-                      <option value="oem_alignment">OEM Alignment</option>
-                      <option value="cluster_development">Cluster Development</option>
-                      <option value="strategic_expansion">Strategic Expansion Capital Alignment</option>
-                      <option value="cross_country_bilateral">Cross Country Bilateral Programs</option>
-                    </select>
-                  </div>
-                  <div className="grid gap-2">
-                    <label className="text-sm font-medium">Capacity / Capability Focus <span className="text-red-500">*</span></label>
-                    <select
-                      className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
-                      name="capacity_focus"
-                      required
-                    >
-                      <option value="">Select focus area</option>
-                      <option value="manufacturing_capacity">Manufacturing Capacity</option>
-                      <option value="technical_capabilities">Technical Capabilities</option>
-                      <option value="compliance_maturity">Compliance Maturity</option>
-                      <option value="workforce_development">Workforce Development</option>
-                      <option value="supply_chain">Supply Chain Integration</option>
-                      <option value="international_expansion">International Expansion</option>
-                    </select>
-                  </div>
-                  <div className="grid gap-2">
-                    <label className="text-sm font-medium">Preferred Timeline <span className="text-red-500">*</span></label>
-                    <select
-                      className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
-                      name="preferred_timeline"
-                      required
-                    >
-                      <option value="">Select preferred timeline</option>
-                      <option value="immediate">Immediate (within 1 week)</option>
-                      <option value="short_term">Short-term (within 1 month)</option>
-                      <option value="medium_term">Medium-term (1-3 months)</option>
-                      <option value="long_term">Long-term (3+ months)</option>
-                    </select>
-                  </div>
                   <div className="grid gap-2">
                     <label className="text-sm font-medium">Key Discussion Topics <span className="text-red-500">*</span></label>
                     <textarea

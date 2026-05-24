@@ -256,7 +256,7 @@ export default function JoinNetworkPage() {
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                       type="tel"
                       name="whatsapp_number"
-                      placeholder="+1 (555) 000-0000"
+                      placeholder="+91 00000-00000"
                       required
                     />
                   </div>

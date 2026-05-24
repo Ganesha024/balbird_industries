@@ -81,9 +81,6 @@ export async function submitStrategicDiscussion(formData: FormData) {
   const contact_person = formData.get("contact_person") as string;
   const contact_email = formData.get("contact_email") as string;
   const whatsapp_number = formData.get("whatsapp_number") as string;
-  const program_interest = formData.get("program_interest") as string;
-  const capacity_focus = formData.get("capacity_focus") as string;
-  const preferred_timeline = formData.get("preferred_timeline") as string;
   const discussion_topics = formData.get("discussion_topics") as string;
 
   const { error } = await supabase
@@ -97,9 +94,6 @@ export async function submitStrategicDiscussion(formData: FormData) {
         contact_person,
         contact_email,
         whatsapp_number,
-        program_interest,
-        capacity_focus,
-        preferred_timeline,
         discussion_topics
       }
     ]);
