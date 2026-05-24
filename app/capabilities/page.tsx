@@ -16,6 +16,7 @@ import {
   GraduationCap,
   Briefcase,
   BarChart3,
+  ShieldCheck,
 } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
 
@@ -70,8 +71,8 @@ export default function ServicesPage() {
 
           {/* Service 1: Manufacturing Operations */}
           <div className="mt-16 mb-20">
-            <div className="flex flex-col lg:flex-row gap-12 items-start">
-              <div className="w-full lg:w-1/2">
+            <div className="flex flex-col lg:flex-row gap-12 items-stretch">
+              <div className="w-full lg:w-1/2 space-y-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
                     <Factory className="w-6 h-6 text-accent" />
@@ -97,31 +98,33 @@ export default function ServicesPage() {
                   ))}
                 </ul>
               </div>
-              <div className="w-full lg:w-1/2 bg-card rounded-2xl p-8 border border-border">
-                <h4 className="font-bold text-lg mb-4">How it works in practice</h4>
-                <div className="space-y-4">
-                  {[
-                    { step: '1', text: 'Project requirements are scoped with the buyer/OEM' },
-                    { step: '2', text: 'Verified manufacturers are matched based on capability and capacity' },
-                    { step: '3', text: 'Production is coordinated with milestone-based tracking' },
-                    { step: '4', text: 'Quality checkpoints and compliance documentation are maintained' },
-                  ].map((s, idx) => (
-                    <div key={idx} className="flex items-start gap-4">
-                      <span className="w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center text-sm font-bold shrink-0">
-                        {s.step}
-                      </span>
-                      <p className="text-foreground/70 text-sm pt-1.5">{s.text}</p>
-                    </div>
-                  ))}
-                </div>
+              <div className="w-full lg:w-1/2 h-full min-h-[400px] p-8 rounded-2xl border border-border bg-card shadow-xl flex flex-col items-center justify-center relative overflow-hidden">
+                 <div className="absolute top-1/2 left-[10%] right-[10%] h-0.5 bg-border -translate-y-1/2 z-0" />
+                 <div className="absolute top-1/2 left-[10%] w-[30%] h-0.5 bg-accent -translate-y-1/2 z-0 animate-[pulse_2s_ease-in-out_infinite]" />
+                 
+                 <div className="flex justify-between items-center w-full max-w-sm relative z-10">
+                    {[
+                      { icon: ClipboardList, label: "Scope" },
+                      { icon: Network, label: "Match" },
+                      { icon: Factory, label: "Produce" },
+                      { icon: ShieldCheck, label: "Verify" },
+                    ].map((step, i) => (
+                      <div key={i} className="flex flex-col items-center gap-3">
+                         <div className="w-12 h-12 bg-background border-2 border-accent/50 rounded-full flex items-center justify-center shadow-lg relative group transition-all hover:border-accent hover:scale-110">
+                            <step.icon className="w-5 h-5 text-accent" />
+                         </div>
+                         <span className="text-[10px] font-bold uppercase tracking-wide text-foreground">{step.label}</span>
+                      </div>
+                    ))}
+                 </div>
               </div>
             </div>
           </div>
 
           {/* Service 2: Execution Consistency */}
           <div className="mb-20 pt-12 border-t border-border/50">
-            <div className="flex flex-col lg:flex-row-reverse gap-12 items-start">
-              <div className="w-full lg:w-1/2">
+            <div className="flex flex-col lg:flex-row-reverse gap-12 items-stretch">
+              <div className="w-full lg:w-1/2 space-y-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
                     <Workflow className="w-6 h-6 text-accent" />
@@ -147,23 +150,49 @@ export default function ServicesPage() {
                   ))}
                 </ul>
               </div>
-              <div className="w-full lg:w-1/2 bg-card rounded-2xl p-8 border border-border">
-                <h4 className="font-bold text-lg mb-4">Execution model</h4>
-                <p className="text-foreground/70 text-sm mb-4">
-                  Every project has a defined execution structure with clear phases, ownership, and deliverables:
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { label: 'Scoping', desc: 'Define requirements & Network' },
-                    { label: 'Planning', desc: 'Align timelines & resources' },
-                    { label: 'Execution', desc: 'Coordinate production & quality' },
-                    { label: 'Closure', desc: 'Delivery, documentation & review' },
-                  ].map((phase, idx) => (
-                    <div key={idx} className="p-4 bg-background rounded-xl border border-border">
-                      <h5 className="font-bold text-sm mb-1">{phase.label}</h5>
-                      <p className="text-foreground/60 text-xs">{phase.desc}</p>
-                    </div>
-                  ))}
+              <div className="w-full lg:w-1/2 h-full min-h-[400px] p-8 rounded-2xl border border-border bg-card shadow-xl flex items-center justify-center relative overflow-hidden">
+                <div className="relative w-[280px] h-[280px]">
+                   {/* Connections */}
+                   <div className="absolute inset-0 m-auto w-48 h-48 border border-accent/20 rotate-45 z-0" />
+                   
+                   {/* Nodes */}
+                   <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
+                      <div className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center shadow-md mb-2 relative group">
+                         <div className="absolute -inset-1 bg-accent/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+                         <ClipboardList className="w-5 h-5 text-foreground/80 relative z-10 group-hover:text-accent transition-colors" />
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider">Plan</span>
+                   </div>
+                   
+                   <div className="absolute top-1/2 right-0 -translate-y-1/2 flex flex-col items-center z-10">
+                      <div className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center shadow-md mb-2 relative group">
+                         <div className="absolute -inset-1 bg-accent/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+                         <Target className="w-5 h-5 text-foreground/80 relative z-10 group-hover:text-accent transition-colors" />
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider">Execute</span>
+                   </div>
+                   
+                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
+                      <div className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center shadow-md mb-2 relative group">
+                         <div className="absolute -inset-1 bg-accent/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+                         <CheckCircle2 className="w-5 h-5 text-foreground/80 relative z-10 group-hover:text-accent transition-colors" />
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider">Close</span>
+                   </div>
+                   
+                   <div className="absolute top-1/2 left-0 -translate-y-1/2 flex flex-col items-center z-10">
+                      <div className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center shadow-md mb-2 relative group">
+                         <div className="absolute -inset-1 bg-accent/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+                         <Network className="w-5 h-5 text-foreground/80 relative z-10 group-hover:text-accent transition-colors" />
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider">Review</span>
+                   </div>
+                   
+                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
+                      <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center animate-[pulse_3s_ease-in-out_infinite]">
+                         <Workflow className="w-6 h-6 text-accent" />
+                      </div>
+                   </div>
                 </div>
               </div>
             </div>
@@ -171,8 +200,8 @@ export default function ServicesPage() {
 
           {/* Service 3: Manufacturing Traceability */}
           <div className="mb-20 pt-12 border-t border-border/50">
-            <div className="flex flex-col lg:flex-row gap-12 items-start">
-              <div className="w-full lg:w-1/2">
+            <div className="flex flex-col lg:flex-row gap-12 items-stretch">
+              <div className="w-full lg:w-1/2 space-y-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
                     <ScanLine className="w-6 h-6 text-accent" />
@@ -198,24 +227,37 @@ export default function ServicesPage() {
                   ))}
                 </ul>
               </div>
-              <div className="w-full lg:w-1/2 bg-muted text-foreground rounded-2xl p-8">
-                <h4 className="font-bold text-lg mb-4">Why traceability matters in mobility</h4>
-                <p className="text-foreground/70 text-sm mb-6">
-                  In mobility manufacturing, components go into safety-critical systems. Traceability
-                  is not optional — it&apos;s a regulatory and business requirement.
-                </p>
-                <div className="space-y-3">
-                  {[
-                    'Automotive: IATF 16949 compliance',
-                    'Aerospace: AS9100 documentation',
-                    'Rail: EN 15085 welding standards',
-                    'EV: Battery component tracing',
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3 px-4 py-2 bg-background/5 rounded-lg">
-                      <Shield className="w-4 h-4 text-accent shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </div>
-                  ))}
+              <div className="w-full lg:w-1/2 h-full min-h-[400px] p-8 rounded-2xl border border-border bg-card shadow-xl flex items-center justify-center relative overflow-hidden">
+                <div className="relative w-full max-w-sm h-[300px] flex items-center justify-center">
+                   {/* Central scan item */}
+                   <div className="relative z-20 w-24 h-24 bg-background border border-border rounded-lg flex items-center justify-center shadow-xl overflow-hidden">
+                      <ScanLine className="w-10 h-10 text-foreground/30" />
+                      {/* Scanning laser effect */}
+                      <div className="absolute top-0 left-0 w-full h-1 bg-accent/80 shadow-[0_0_10px_rgba(var(--accent-rgb),1)] animate-[bounce_3s_infinite]" />
+                   </div>
+                   
+                   {/* Glowing lines connecting to standards */}
+                   <div className="absolute top-1/2 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent -translate-y-1/2 z-0" />
+                   <div className="absolute top-12 bottom-12 left-1/2 w-px bg-gradient-to-b from-transparent via-accent/30 to-transparent -translate-x-1/2 z-0" />
+                   
+                   {/* Standard Nodes */}
+                   {[
+                     { label: 'IATF 16949', pos: 'top-2 left-2' },
+                     { label: 'AS9100', pos: 'top-2 right-2' },
+                     { label: 'EN 15085', pos: 'bottom-2 left-2' },
+                     { label: 'EV Trace', pos: 'bottom-2 right-2' },
+                   ].map((std, i) => (
+                     <div key={i} className={`absolute ${std.pos} z-10 flex items-center gap-2 px-3 py-1.5 bg-background border border-border rounded-md shadow-sm`}>
+                        <Shield className="w-3.5 h-3.5 text-accent" />
+                        <span className="text-[10px] font-bold tracking-widest uppercase">{std.label}</span>
+                     </div>
+                   ))}
+                   
+                   {/* Data pulses */}
+                   <div className="absolute top-1/2 left-1/4 w-1.5 h-1.5 rounded-full bg-accent animate-pulse -translate-y-1/2" />
+                   <div className="absolute top-1/4 left-1/2 w-1.5 h-1.5 rounded-full bg-accent animate-pulse -translate-x-1/2 delay-150" />
+                   <div className="absolute top-1/2 right-1/4 w-1.5 h-1.5 rounded-full bg-accent animate-pulse -translate-y-1/2 delay-300" />
+                   <div className="absolute bottom-1/4 left-1/2 w-1.5 h-1.5 rounded-full bg-accent animate-pulse -translate-x-1/2 delay-[450ms]" />
                 </div>
               </div>
             </div>
@@ -223,8 +265,8 @@ export default function ServicesPage() {
 
           {/* Service 4: Consortium Coordination */}
           <div className="pt-12 border-t border-border/50">
-            <div className="flex flex-col lg:flex-row-reverse gap-12 items-start">
-              <div className="w-full lg:w-1/2">
+            <div className="flex flex-col lg:flex-row-reverse gap-12 items-stretch">
+              <div className="w-full lg:w-1/2 space-y-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
                     <Network className="w-6 h-6 text-accent" />
@@ -250,23 +292,51 @@ export default function ServicesPage() {
                   ))}
                 </ul>
               </div>
-              <div className="w-full lg:w-1/2 bg-card rounded-2xl p-8 border border-border">
-                <h4 className="font-bold text-lg mb-4">Consortium participants</h4>
-                <div className="space-y-3">
-                  {[
-                    { icon: Factory, label: 'Manufacturers', desc: 'Provide verified capacity and capability' },
-                    { icon: Briefcase, label: 'Buyers & OEMs', desc: 'Define requirements and volume needs' },
-                    { icon: Users, label: 'Associations', desc: 'Enable standards and cluster development' },
-                    { icon: Handshake, label: 'Advisors', desc: 'Legal, financial, and technical guidance' },
-                  ].map((p, idx) => (
-                    <div key={idx} className="flex items-center gap-4 p-3 bg-background rounded-xl border border-border">
-                      <p.icon className="w-5 h-5 text-accent shrink-0" />
-                      <div>
-                        <h5 className="font-bold text-sm">{p.label}</h5>
-                        <p className="text-foreground/60 text-xs">{p.desc}</p>
-                      </div>
-                    </div>
-                  ))}
+              <div className="w-full lg:w-1/2 h-full min-h-[400px] p-8 rounded-2xl border border-border bg-card shadow-xl flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent opacity-70" />
+                
+                <div className="relative w-full max-w-sm h-[300px] flex flex-col items-center justify-center">
+                  {/* Lines */}
+                  <svg className="absolute inset-0 w-full h-full z-0 opacity-20" style={{ stroke: 'currentColor', strokeWidth: 1.5, strokeDasharray: '4 4' }}>
+                     <line x1="50%" y1="50%" x2="20%" y2="20%" />
+                     <line x1="50%" y1="50%" x2="80%" y2="20%" />
+                     <line x1="50%" y1="50%" x2="20%" y2="80%" />
+                     <line x1="50%" y1="50%" x2="80%" y2="80%" />
+                  </svg>
+                  
+                  {/* Center Node */}
+                  <div className="relative z-20 w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(var(--accent-rgb),0.5)]">
+                     <Network className="w-7 h-7" />
+                  </div>
+                  
+                  {/* Participant Nodes */}
+                  <div className="absolute top-[5%] left-[5%] z-10 flex flex-col items-center">
+                     <div className="w-10 h-10 bg-background border border-border rounded-full flex items-center justify-center mb-1 shadow-md group hover:border-accent transition-colors">
+                        <Factory className="w-4 h-4 text-foreground/70 group-hover:text-accent transition-colors" />
+                     </div>
+                     <span className="text-[10px] font-semibold bg-card px-2 py-0.5 rounded shadow-sm border border-border">Manufacturers</span>
+                  </div>
+                  
+                  <div className="absolute top-[5%] right-[5%] z-10 flex flex-col items-center">
+                     <div className="w-10 h-10 bg-background border border-border rounded-full flex items-center justify-center mb-1 shadow-md group hover:border-accent transition-colors">
+                        <Briefcase className="w-4 h-4 text-foreground/70 group-hover:text-accent transition-colors" />
+                     </div>
+                     <span className="text-[10px] font-semibold bg-card px-2 py-0.5 rounded shadow-sm border border-border">Buyers/OEMs</span>
+                  </div>
+                  
+                  <div className="absolute bottom-[5%] left-[5%] z-10 flex flex-col items-center">
+                     <div className="w-10 h-10 bg-background border border-border rounded-full flex items-center justify-center mb-1 shadow-md group hover:border-accent transition-colors">
+                        <Users className="w-4 h-4 text-foreground/70 group-hover:text-accent transition-colors" />
+                     </div>
+                     <span className="text-[10px] font-semibold bg-card px-2 py-0.5 rounded shadow-sm border border-border">Associations</span>
+                  </div>
+                  
+                  <div className="absolute bottom-[5%] right-[5%] z-10 flex flex-col items-center">
+                     <div className="w-10 h-10 bg-background border border-border rounded-full flex items-center justify-center mb-1 shadow-md group hover:border-accent transition-colors">
+                        <Handshake className="w-4 h-4 text-foreground/70 group-hover:text-accent transition-colors" />
+                     </div>
+                     <span className="text-[10px] font-semibold bg-card px-2 py-0.5 rounded shadow-sm border border-border">Advisors</span>
+                  </div>
                 </div>
               </div>
             </div>
