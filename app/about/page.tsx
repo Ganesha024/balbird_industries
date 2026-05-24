@@ -1,3 +1,4 @@
+import React from 'react';
 import { Card, CardTitle, CardDescription } from "@/components/ui/Card";
 import { ButtonLink } from "@/components/ui/Button";
 import Image from "next/image";
@@ -15,6 +16,8 @@ import {
   BarChart3,
   Code,
   Globe,
+  Building2,
+  ServerCog,
 } from "lucide-react";
 
 export default function AboutPage() {
@@ -135,13 +138,33 @@ export default function AboutPage() {
             </div>
           </div>
         </Card>
-        <div className="w-full relative h-[300px] sm:h-[400px] md:h-[500px] mt-12 rounded-2xl overflow-hidden border border-border shadow-xl">
-          <Image
-            src="/images/about-infographic-ecosystem.png"
-            alt="Manufacturing Execution Ecosystem"
-            fill
-            className="object-cover"
-          />
+        <div className="w-full mt-12 p-8 md:p-16 rounded-2xl border border-border bg-card shadow-xl flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden">
+          {/* Connecting Line */}
+          <div className="hidden md:block absolute top-1/2 left-[15%] right-[15%] h-0.5 bg-accent/20 -translate-y-1/2 z-0" />
+          <div className="block md:hidden absolute left-1/2 top-[15%] bottom-[15%] w-0.5 bg-accent/20 -translate-x-1/2 z-0" />
+          
+          <div className="flex flex-col items-center text-center w-40 z-10 bg-card">
+            <div className="w-24 h-24 bg-muted border border-border rounded-full flex items-center justify-center mb-4 shadow-sm">
+              <Building2 className="w-10 h-10 text-foreground/70" />
+            </div>
+            <h4 className="font-bold text-foreground text-lg mb-1">OEMs</h4>
+            <p className="text-xs text-foreground/60 leading-tight">Requirement & Demand Origination</p>
+          </div>
+          
+          <div className="flex flex-col items-center z-10 bg-card p-4 rounded-full">
+            <div className="w-32 h-32 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_30px_-5px_rgba(var(--accent-rgb),0.3)]">
+              <ServerCog className="w-10 h-10 text-accent mb-2" />
+              <h4 className="font-bold text-foreground text-sm">Balbird Hub</h4>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center text-center w-40 z-10 bg-card">
+            <div className="w-24 h-24 bg-muted border border-border rounded-2xl flex items-center justify-center mb-4 shadow-sm">
+              <Factory className="w-10 h-10 text-foreground/70" />
+            </div>
+            <h4 className="font-bold text-foreground text-lg mb-1">Network</h4>
+            <p className="text-xs text-foreground/60 leading-tight">Distributed Execution Nodes</p>
+          </div>
         </div>
       </section>
 
@@ -167,13 +190,29 @@ export default function AboutPage() {
             </Card>
           ))}
         </div>
-        <div className="w-full relative h-[300px] sm:h-[400px] md:h-[500px] mt-12 rounded-2xl overflow-hidden border border-border shadow-xl">
-          <Image
-            src="/images/about-infographic-verticals.png"
-            alt="Operational Verticals Structure"
-            fill
-            className="object-cover"
-          />
+        <div className="w-full mt-12 p-8 rounded-2xl border border-border bg-card shadow-xl overflow-x-auto">
+          <div className="flex items-center justify-between min-w-[700px] max-w-4xl mx-auto gap-4 py-4">
+            {[
+              { icon: ClipboardList, title: "1. Intake" },
+              { icon: Network, title: "2. Match" },
+              { icon: Target, title: "3. Execute" },
+              { icon: Shield, title: "4. Deliver" }
+            ].map((step, i) => (
+              <React.Fragment key={i}>
+                <div className="flex flex-col items-center text-center w-32 relative group">
+                  <div className="w-16 h-16 bg-background border border-accent/30 rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:border-accent group-hover:shadow-accent/20 transition-all">
+                    <step.icon className="w-8 h-8 text-accent" />
+                  </div>
+                  <h4 className="font-bold text-sm text-foreground uppercase tracking-wider">{step.title}</h4>
+                </div>
+                {i < 3 && (
+                  <div className="flex-1 h-0.5 bg-gradient-to-r from-accent/40 to-accent/10 relative">
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 border-y-[6px] border-y-transparent border-l-[8px] border-l-accent/40" />
+                  </div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -265,13 +304,38 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
-        <div className="w-full relative h-[300px] sm:h-[400px] md:h-[500px] mt-12 rounded-2xl overflow-hidden border border-border shadow-xl">
-          <Image
-            src="/images/about-infographic-network.png"
-            alt="Resources and Network Connections"
-            fill
-            className="object-cover"
-          />
+        <div className="w-full mt-12 py-20 px-4 rounded-2xl border border-border bg-card shadow-xl relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent opacity-50" />
+          
+          <div className="relative w-full max-w-3xl mx-auto flex items-center justify-center min-h-[300px]">
+            {/* Center Node */}
+            <div className="relative z-20 w-32 h-32 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_40px_-10px_rgba(var(--accent-rgb),0.4)]">
+              <Globe className="w-10 h-10 text-accent mb-2" />
+              <span className="text-xs font-black tracking-widest uppercase">Balbird</span>
+            </div>
+
+            {/* Orbiting Nodes */}
+            {[
+              { label: "Legal & Finance", pos: "top-0 left-1/2 -translate-x-1/2 -translate-y-4" },
+              { label: "Universities", pos: "bottom-0 left-1/2 -translate-x-1/2 translate-y-4" },
+              { label: "Global Logistics", pos: "top-1/2 left-0 -translate-x-4 -translate-y-1/2" },
+              { label: "Associations", pos: "top-1/2 right-0 translate-x-4 -translate-y-1/2" },
+              { label: "Quality Auditors", pos: "top-[15%] left-[15%] -translate-x-1/2 -translate-y-1/2" },
+              { label: "Advisors", pos: "bottom-[15%] right-[15%] translate-x-1/2 translate-y-1/2" },
+            ].map((node, i) => (
+              <React.Fragment key={i}>
+                <div className={`absolute z-10 ${node.pos}`}>
+                  <div className="px-5 py-2.5 bg-muted/90 backdrop-blur-md border border-border rounded-full text-xs font-bold text-foreground/80 shadow-lg whitespace-nowrap">
+                    {node.label}
+                  </div>
+                </div>
+              </React.Fragment>
+            ))}
+            
+            {/* Simple decorative rings */}
+            <div className="absolute inset-0 m-auto w-[250px] h-[250px] border border-accent/10 rounded-full z-0" />
+            <div className="absolute inset-0 m-auto w-[450px] h-[450px] border border-border/50 rounded-full z-0 border-dashed" />
+          </div>
         </div>
       </section>
 
