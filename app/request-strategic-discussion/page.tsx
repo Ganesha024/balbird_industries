@@ -212,7 +212,7 @@ export default function RequestStrategicDiscussionPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-32 bg-card border-t border-border/30">
+      <section className="py-12 md:py-16 bg-card border-t border-border/30">
         <div className="container mx-auto px-4 md:px-8 lg:px-16 text-center">
           <h2 className="text-3xl font-extrabold mb-4 tracking-tight">Explore the Ecosystem</h2>
           <p className="text-foreground/80 max-w-xl mx-auto mb-8">
