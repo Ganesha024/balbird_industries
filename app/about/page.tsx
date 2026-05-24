@@ -143,30 +143,30 @@ export default function AboutPage() {
           </div>
           
           <div className="flex-1 w-full">
-            <div className="w-full h-full min-h-[400px] p-8 rounded-2xl border border-border bg-card shadow-xl flex flex-col items-center justify-center gap-8 relative overflow-hidden">
+            <div className="w-full h-full min-h-[400px] p-6 rounded-2xl border border-border bg-card shadow-xl flex flex-col items-center justify-center gap-4 relative overflow-hidden">
               <div className="absolute top-[15%] bottom-[15%] left-1/2 w-0.5 bg-accent/20 -translate-x-1/2 z-0" />
               
               <div className="flex flex-col items-center text-center w-full z-10 bg-card py-2">
-                <div className="w-20 h-20 bg-muted border border-border rounded-full flex items-center justify-center mb-4 shadow-sm">
-                  <Building2 className="w-8 h-8 text-foreground/70" />
+                <div className="w-16 h-16 bg-muted border border-border rounded-full flex items-center justify-center mb-2 shadow-sm">
+                  <Building2 className="w-6 h-6 text-foreground/70" />
                 </div>
                 <h4 className="font-semibold text-foreground text-sm mb-1">OEMs</h4>
-                <p className="text-xs text-foreground/60 leading-tight">Requirement Origination</p>
+                <p className="text-[10px] text-foreground/60 leading-tight">Requirement Origination</p>
               </div>
               
-              <div className="flex flex-col items-center z-10 bg-card p-4 rounded-full">
-                <div className="w-28 h-28 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_30px_-5px_rgba(var(--accent-rgb),0.3)]">
-                  <ServerCog className="w-8 h-8 text-accent mb-1" />
-                  <h4 className="font-semibold text-foreground text-sm">Balbird Hub</h4>
+              <div className="flex flex-col items-center z-10 bg-card p-2 rounded-full">
+                <div className="w-20 h-20 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_30px_-5px_rgba(var(--accent-rgb),0.3)]">
+                  <ServerCog className="w-6 h-6 text-accent mb-1" />
+                  <h4 className="font-semibold text-foreground text-xs">Balbird Hub</h4>
                 </div>
               </div>
 
               <div className="flex flex-col items-center text-center w-full z-10 bg-card py-2">
-                <div className="w-20 h-20 bg-muted border border-border rounded-2xl flex items-center justify-center mb-4 shadow-sm">
-                  <Factory className="w-8 h-8 text-foreground/70" />
+                <div className="w-16 h-16 bg-muted border border-border rounded-2xl flex items-center justify-center mb-2 shadow-sm">
+                  <Factory className="w-6 h-6 text-foreground/70" />
                 </div>
                 <h4 className="font-semibold text-foreground text-sm mb-1">Network</h4>
-                <p className="text-xs text-foreground/60 leading-tight">Distributed Execution Nodes</p>
+                <p className="text-[10px] text-foreground/60 leading-tight">Distributed Execution Nodes</p>
               </div>
             </div>
           </div>
@@ -210,13 +210,13 @@ export default function AboutPage() {
                 ].map((step, i) => (
                   <React.Fragment key={i}>
                     <div className="flex flex-col items-center text-center relative group w-full">
-                      <div className="w-16 h-16 bg-background border border-accent/30 rounded-xl flex items-center justify-center mb-2 shadow-sm group-hover:border-accent group-hover:shadow-accent/20 transition-all z-10">
-                        <step.icon className="w-8 h-8 text-accent" />
+                      <div className="w-12 h-12 bg-background border border-accent/30 rounded-xl flex items-center justify-center mb-1 shadow-sm group-hover:border-accent group-hover:shadow-accent/20 transition-all z-10">
+                        <step.icon className="w-6 h-6 text-accent" />
                       </div>
-                      <h4 className="font-semibold text-sm text-foreground">{step.title}</h4>
+                      <h4 className="font-semibold text-xs text-foreground">{step.title}</h4>
                     </div>
                     {i < 3 && (
-                      <div className="w-1 h-8 bg-gradient-to-b from-accent/40 to-accent/10 relative z-0 -my-1" />
+                      <div className="w-0.5 h-6 bg-gradient-to-b from-accent/40 to-accent/10 relative z-0 -my-1" />
                     )}
                   </React.Fragment>
                 ))}
@@ -319,28 +319,28 @@ export default function AboutPage() {
           </div>
 
           <div className="flex-1 w-full">
-            <div className="w-full h-full min-h-[400px] py-16 px-4 rounded-2xl border border-border bg-card shadow-xl relative overflow-hidden flex flex-col justify-center">
+            <div className="w-full h-full min-h-[400px] py-12 px-2 rounded-2xl border border-border bg-card shadow-xl relative overflow-hidden flex flex-col justify-center">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent opacity-50" />
               
-              <div className="relative w-full max-w-sm mx-auto flex items-center justify-center min-h-[300px]">
+              <div className="relative w-full max-w-sm mx-auto flex items-center justify-center min-h-[250px]">
                 {/* Center Node */}
-                <div className="relative z-20 w-28 h-28 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_40px_-10px_rgba(var(--accent-rgb),0.4)]">
-                  <Globe className="w-8 h-8 text-accent mb-2" />
-                  <span className="text-sm font-bold text-foreground">Balbird</span>
+                <div className="relative z-20 w-20 h-20 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_40px_-10px_rgba(var(--accent-rgb),0.4)]">
+                  <Globe className="w-6 h-6 text-accent mb-1" />
+                  <span className="text-xs font-bold text-foreground">Balbird</span>
                 </div>
 
                 {/* Orbiting Nodes */}
                 {[
-                  { label: "Legal & Finance", pos: "top-0 left-1/2 -translate-x-1/2 -translate-y-4" },
-                  { label: "Universities", pos: "bottom-0 left-1/2 -translate-x-1/2 translate-y-4" },
-                  { label: "Logistics", pos: "top-1/2 left-0 -translate-x-4 -translate-y-1/2" },
-                  { label: "Associations", pos: "top-1/2 right-0 translate-x-4 -translate-y-1/2" },
-                  { label: "Auditors", pos: "top-[15%] left-[15%] -translate-x-1/2 -translate-y-1/2" },
-                  { label: "Advisors", pos: "bottom-[15%] right-[15%] translate-x-1/2 translate-y-1/2" },
+                  { label: "Legal & Finance", pos: "top-0 left-1/2 -translate-x-1/2 -translate-y-2" },
+                  { label: "Universities", pos: "bottom-0 left-1/2 -translate-x-1/2 translate-y-2" },
+                  { label: "Logistics", pos: "top-1/2 left-0 -translate-y-1/2" },
+                  { label: "Associations", pos: "top-1/2 right-0 -translate-y-1/2" },
+                  { label: "Auditors", pos: "top-[15%] left-[10%] -translate-x-1/2 -translate-y-1/2" },
+                  { label: "Advisors", pos: "bottom-[15%] right-[10%] translate-x-1/2 translate-y-1/2" },
                 ].map((node, i) => (
                   <React.Fragment key={i}>
                     <div className={`absolute z-10 ${node.pos}`}>
-                      <div className="px-3 py-2 bg-muted/90 backdrop-blur-md border border-border rounded-full text-xs font-semibold text-foreground/80 shadow-lg whitespace-nowrap">
+                      <div className="px-2 py-1.5 bg-muted/90 backdrop-blur-md border border-border rounded-full text-[10px] font-semibold text-foreground/80 shadow-lg whitespace-nowrap">
                         {node.label}
                       </div>
                     </div>
@@ -348,8 +348,8 @@ export default function AboutPage() {
                 ))}
                 
                 {/* Simple decorative rings */}
-                <div className="absolute inset-0 m-auto w-[200px] h-[200px] border border-accent/10 rounded-full z-0" />
-                <div className="absolute inset-0 m-auto w-[350px] h-[350px] border border-border/50 rounded-full z-0 border-dashed" />
+                <div className="absolute inset-0 m-auto w-[150px] h-[150px] border border-accent/10 rounded-full z-0" />
+                <div className="absolute inset-0 m-auto w-[260px] h-[260px] border border-border/50 rounded-full z-0 border-dashed" />
               </div>
             </div>
           </div>
