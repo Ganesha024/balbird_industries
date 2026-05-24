@@ -237,7 +237,7 @@ export default function JoinNetworkPage() {
                           </div>
                         ))}
                         <div className="grid gap-2 pt-2 border-t border-border/50 mt-2">
-                          <label className="text-sm text-foreground/70">Company Profile (Brochure / Deck)</label>
+                          <label className="text-sm text-foreground/70">Company Profile (PDF, PPT, DOCX)</label>
                           <input
                             type="file"
                             className="h-11 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-accent/10 file:text-accent hover:file:bg-accent/20 cursor-pointer"
