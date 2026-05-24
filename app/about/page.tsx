@@ -18,6 +18,12 @@ import {
   Globe,
   Building2,
   ServerCog,
+  ChevronDown,
+  Scale,
+  Briefcase,
+  Truck,
+  HeartHandshake,
+  ShieldCheck,
 } from "lucide-react";
 
 export default function AboutPage() {
@@ -120,18 +126,21 @@ export default function AboutPage() {
             </div>
             <Card className="overflow-hidden">
               <div className="p-6">
-                <div className="grid gap-3 sm:grid-cols-1 md:grid-cols-2">
+                <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2">
                   {[
-                    { icon: Factory, title: 'Manufacturing Operations' },
-                    { icon: Workflow, title: 'Execution Coordination' },
-                    { icon: Shield, title: 'Manufacturing Traceability' },
-                    { icon: Network, title: 'Consortium Coordination' },
-                    { icon: Users, title: 'Execution Cell (HR)' },
-                    { icon: BarChart3, title: 'Execution Cell (BD)' },
+                    { icon: Factory, title: 'Manufacturing Operations', desc: 'Coordinated production workflows.' },
+                    { icon: Workflow, title: 'Execution Coordination', desc: 'Project-level coordination.' },
+                    { icon: Shield, title: 'Manufacturing Traceability', desc: 'End-to-end documentation.' },
+                    { icon: Network, title: 'Consortium Coordination', desc: 'Multi-Network alignment.' },
+                    { icon: Users, title: 'Execution Cell (HR)', desc: 'Student workforce support.' },
+                    { icon: BarChart3, title: 'Execution Cell (BD)', desc: 'Business development.' },
                   ].map((service, idx) => (
-                    <div key={idx} className="rounded-xl bg-foreground/[0.03] px-4 py-3 flex items-center gap-3">
-                      <service.icon className="h-5 w-5 text-accent shrink-0" />
-                      <h4 className="font-bold text-sm">{service.title}</h4>
+                    <div key={idx} className="rounded-xl bg-foreground/[0.03] px-5 py-4">
+                      <div className="flex items-center gap-3 mb-2">
+                        <service.icon className="h-5 w-5 text-accent" />
+                        <h4 className="font-bold text-sm">{service.title}</h4>
+                      </div>
+                      <p className="text-xs text-foreground/70">{service.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -141,21 +150,23 @@ export default function AboutPage() {
           
           <div className="flex-1 w-full">
             <div className="w-full h-full min-h-[400px] p-6 rounded-2xl border border-border bg-card shadow-xl flex flex-col items-center justify-center gap-4 relative overflow-hidden">
-              <div className="absolute top-[15%] bottom-[15%] left-1/2 w-0.5 bg-accent/20 -translate-x-1/2 z-0" />
+              <div className="absolute top-[20%] bottom-[20%] left-1/2 w-0.5 bg-gradient-to-b from-transparent via-accent/50 to-transparent -translate-x-1/2 z-0 flex flex-col items-center justify-between py-8">
+                 <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                 <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse delay-150" />
+                 <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse delay-300" />
+              </div>
               
               <div className="flex flex-col items-center text-center w-full z-10 bg-card py-2">
                 <div className="w-16 h-16 bg-muted border border-border rounded-full flex items-center justify-center mb-2 shadow-sm">
                   <Building2 className="w-6 h-6 text-foreground/70" />
                 </div>
-                <h4 className="font-semibold text-foreground text-sm mb-1">OEMs</h4>
-                <p className="text-[10px] text-foreground/60 leading-tight">Demand, Specs, Forecasting</p>
+                <h4 className="font-semibold text-foreground text-sm">OEMs</h4>
               </div>
               
               <div className="flex flex-col items-center z-10 bg-card p-2 rounded-full">
                 <div className="w-20 h-20 bg-background border-2 border-accent rounded-full flex flex-col items-center justify-center shadow-[0_0_30px_-5px_rgba(var(--accent-rgb),0.3)]">
                   <ServerCog className="w-6 h-6 text-accent mb-1" />
                   <h4 className="font-semibold text-foreground text-xs">Balbird Hub</h4>
-                  <p className="text-[9px] text-foreground/60 mt-0.5">Execution & Matchmaking</p>
                 </div>
               </div>
 
@@ -163,8 +174,7 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-muted border border-border rounded-2xl flex items-center justify-center mb-2 shadow-sm">
                   <Factory className="w-6 h-6 text-foreground/70" />
                 </div>
-                <h4 className="font-semibold text-foreground text-sm mb-1">Network</h4>
-                <p className="text-[10px] text-foreground/60 leading-tight">Factories, Assembly, Logistics</p>
+                <h4 className="font-semibold text-foreground text-sm">Network Nodes</h4>
               </div>
             </div>
           </div>
@@ -181,16 +191,17 @@ export default function AboutPage() {
                 Four operational verticals structure everything we build and execute.
               </p>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2">
               {[
-                { icon: ClipboardList, title: 'Communication' },
-                { icon: Target, title: 'Task Management' },
-                { icon: Network, title: 'Matchmaking' },
-                { icon: Shield, title: 'Engineering' },
+                { icon: ClipboardList, title: 'Communication', desc: 'Network interaction systems, chatbot, and structured information flow.' },
+                { icon: Target, title: 'Task Management', desc: 'Execution tracking, milestone monitoring, and accountability workflows.' },
+                { icon: Network, title: 'Matchmaking', desc: 'AI-assisted matching of capabilities with requirements.' },
+                { icon: Shield, title: 'Engineering', desc: 'Technical validation, quality assurance, and DFM analysis.' },
               ].map((vertical, idx) => (
-                <Card key={idx} className="p-4 flex items-center gap-3">
-                  <vertical.icon className="h-6 w-6 text-accent shrink-0" />
-                  <CardTitle className="text-sm m-0 leading-tight">{vertical.title}</CardTitle>
+                <Card key={idx} className="p-5 text-center">
+                  <vertical.icon className="h-8 w-8 text-accent mx-auto mb-3" />
+                  <CardTitle className="text-base">{vertical.title}</CardTitle>
+                  <CardDescription className="text-xs mt-2">{vertical.desc}</CardDescription>
                 </Card>
               ))}
             </div>
@@ -200,21 +211,22 @@ export default function AboutPage() {
             <div className="w-full h-full min-h-[400px] p-8 rounded-2xl border border-border bg-card shadow-xl flex flex-col justify-center">
               <div className="flex flex-col items-center gap-2 py-4">
                 {[
-                  { icon: ClipboardList, title: "1. Intake", sub: "Structured Requirements" },
-                  { icon: Network, title: "2. Match", sub: "AI Capability Routing" },
-                  { icon: Target, title: "3. Execute", sub: "Milestone Tracking" },
-                  { icon: Shield, title: "4. Deliver", sub: "QA & Logistics" }
+                  { icon: ClipboardList, title: "Intake" },
+                  { icon: Network, title: "Match" },
+                  { icon: Target, title: "Execute" },
+                  { icon: Shield, title: "Deliver" }
                 ].map((step, i) => (
                   <React.Fragment key={i}>
                     <div className="flex flex-col items-center text-center relative group w-full">
                       <div className="w-12 h-12 bg-background border border-accent/30 rounded-xl flex items-center justify-center mb-1 shadow-sm group-hover:border-accent group-hover:shadow-accent/20 transition-all z-10">
                         <step.icon className="w-6 h-6 text-accent" />
                       </div>
-                      <h4 className="font-semibold text-xs text-foreground">{step.title}</h4>
-                      <p className="text-[10px] text-foreground/60">{step.sub}</p>
+                      <h4 className="font-semibold text-xs text-foreground uppercase tracking-wider">{step.title}</h4>
                     </div>
                     {i < 3 && (
-                      <div className="w-0.5 h-4 bg-gradient-to-b from-accent/40 to-accent/10 relative z-0 mt-1 mb-1" />
+                      <div className="flex flex-col items-center justify-center h-6 -my-1 z-0 text-accent/50">
+                        <ChevronDown className="w-4 h-4 animate-pulse" />
+                      </div>
                     )}
                   </React.Fragment>
                 ))}
@@ -293,7 +305,7 @@ export default function AboutPage() {
                 We leverage a strong network of advisors, associations, and industry connections.
               </p>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="grid gap-3 sm:grid-cols-2">
               {[
                 'Legal Advisor',
                 'Financial Advisor',
@@ -308,8 +320,9 @@ export default function AboutPage() {
                 'Financial Stability',
                 'LinkedIn Premium',
               ].map((resource, idx) => (
-                <div key={idx} className="px-4 py-2 bg-muted rounded-full border border-border text-xs font-medium text-foreground/80 shadow-sm">
-                  {resource}
+                <div key={idx} className="flex items-center gap-3 p-3 bg-card rounded-xl border border-border">
+                  <CheckCircle className="w-4 h-4 text-accent shrink-0" />
+                  <span className="text-xs font-medium text-foreground/80">{resource}</span>
                 </div>
               ))}
             </div>
@@ -328,16 +341,17 @@ export default function AboutPage() {
 
                 {/* Orbiting Nodes */}
                 {[
-                  { label: "Legal & Finance", pos: "top-0 left-1/2 -translate-x-1/2 -translate-y-2" },
-                  { label: "Universities", pos: "bottom-0 left-1/2 -translate-x-1/2 translate-y-2" },
-                  { label: "Logistics", pos: "top-1/2 left-0 -translate-y-1/2" },
-                  { label: "Associations", pos: "top-1/2 right-0 -translate-y-1/2" },
-                  { label: "Auditors", pos: "top-[15%] left-[10%] -translate-x-1/2 -translate-y-1/2" },
-                  { label: "Advisors", pos: "bottom-[15%] right-[10%] translate-x-1/2 translate-y-1/2" },
+                  { label: "Legal", icon: Scale, pos: "top-0 left-1/2 -translate-x-1/2 -translate-y-2" },
+                  { label: "Academia", icon: GraduationCap, pos: "bottom-0 left-1/2 -translate-x-1/2 translate-y-2" },
+                  { label: "Logistics", icon: Truck, pos: "top-1/2 left-0 -translate-y-1/2" },
+                  { label: "Unions", icon: HeartHandshake, pos: "top-1/2 right-0 -translate-y-1/2" },
+                  { label: "Auditors", icon: ShieldCheck, pos: "top-[15%] left-[10%] -translate-x-1/2 -translate-y-1/2" },
+                  { label: "Advisors", icon: Briefcase, pos: "bottom-[15%] right-[10%] translate-x-1/2 translate-y-1/2" },
                 ].map((node, i) => (
                   <React.Fragment key={i}>
                     <div className={`absolute z-10 ${node.pos}`}>
-                      <div className="px-2 py-1.5 bg-muted/90 backdrop-blur-md border border-border rounded-full text-[10px] font-semibold text-foreground/80 shadow-lg whitespace-nowrap">
+                      <div className="flex items-center gap-1.5 px-3 py-1.5 bg-muted/90 backdrop-blur-md border border-border rounded-full text-[10px] font-semibold text-foreground/80 shadow-lg whitespace-nowrap">
+                        <node.icon className="w-3 h-3 text-accent" />
                         {node.label}
                       </div>
                     </div>
@@ -346,7 +360,7 @@ export default function AboutPage() {
                 
                 {/* Simple decorative rings */}
                 <div className="absolute inset-0 m-auto w-[150px] h-[150px] border border-accent/10 rounded-full z-0" />
-                <div className="absolute inset-0 m-auto w-[260px] h-[260px] border border-border/50 rounded-full z-0 border-dashed" />
+                <div className="absolute inset-0 m-auto w-[260px] h-[260px] border border-border/50 rounded-full z-0 border-dashed animate-[spin_60s_linear_infinite]" />
               </div>
             </div>
           </div>
