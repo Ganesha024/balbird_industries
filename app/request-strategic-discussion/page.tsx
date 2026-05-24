@@ -114,11 +114,10 @@ export default function RequestStrategicDiscussionPage() {
                     </select>
                   </div>
                   <div className="grid gap-2">
-                    <label className="text-sm font-medium">Sector <span className="text-red-500">*</span></label>
+                    <label className="text-sm font-medium">Sector</label>
                     <select
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                       name="sector"
-                      required
                     >
                       <option value="">Select sector</option>
                       <option value="aerospace">Aerospace</option>
