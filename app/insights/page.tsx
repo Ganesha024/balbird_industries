@@ -1,20 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Card, CardTitle, CardDescription } from "@/components/ui/Card";
 import { ButtonLink } from "@/components/ui/Button";
-import {
-  BookOpen, Filter, FileText, Tag, Calendar,
-  Lightbulb, ChevronDown, TrendingUp, Shield, Users, Download
-} from "lucide-react";
+import { ChevronDown, BookOpen, Presentation, FileText, ArrowRight } from "lucide-react";
+import { blogs } from '@/lib/data/blogs';
 
-const articleStructure = [
-  "Title", "Sector Tag", "Summary", "Date",
-  "Key Takeaways", "Related Resources", "Related Requirements",
-] as const;
+type TabType = 'blogs' | 'casestudy' | 'guidelines';
 
 export default function InsightsPage() {
-  const [expandedSection, setExpandedSection] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState<TabType>('blogs');
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -48,94 +44,125 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      {/* Knowledge Areas */}
-      <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-background">
+      {/* Main Content Area */}
+      <section className="pt-16 pb-24 md:pb-32 bg-background min-h-[60vh]">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
-          <div className="flex flex-col gap-3 mb-12">
-            <span className="text-accent font-bold tracking-widest uppercase text-xs">Categories</span>
-            <h2 className="text-3xl font-extrabold tracking-tight">Knowledge Areas</h2>
-            <p className="max-w-3xl text-foreground/80">
-              Access industry analysis, market trends, compliance updates, and strategic insights across all mobility manufacturing sectors. Click on any section below to download its detailed PDF report.
-            </p>
+          
+          {/* Tabs UI */}
+          <div className="flex flex-wrap gap-2 md:gap-4 mb-12 border-b border-border/50 pb-4">
+            <button
+              onClick={() => setActiveTab('blogs')}
+              className={`flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 ${
+                activeTab === 'blogs' 
+                  ? 'bg-accent text-white shadow-md' 
+                  : 'bg-muted text-foreground/70 hover:bg-muted/80 hover:text-foreground'
+              }`}
+            >
+              <BookOpen className="w-4 h-4" /> Blogs
+            </button>
+            <button
+              onClick={() => setActiveTab('casestudy')}
+              className={`flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 ${
+                activeTab === 'casestudy' 
+                  ? 'bg-accent text-white shadow-md' 
+                  : 'bg-muted text-foreground/70 hover:bg-muted/80 hover:text-foreground'
+              }`}
+            >
+              <Presentation className="w-4 h-4" /> Case Studies
+            </button>
+            <button
+              onClick={() => setActiveTab('guidelines')}
+              className={`flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 ${
+                activeTab === 'guidelines' 
+                  ? 'bg-accent text-white shadow-md' 
+                  : 'bg-muted text-foreground/70 hover:bg-muted/80 hover:text-foreground'
+              }`}
+            >
+              <FileText className="w-4 h-4" /> User Guidelines
+            </button>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-16">
-            {[
-              { icon: TrendingUp, title: "Sector-Specific Analysis", desc: "Deep dives into aerospace, automotive, railway, marine, and heavy mobility trends." },
-              { icon: Shield, title: "Regulatory Intelligence", desc: "Compliance updates, documentation requirements, and certification guidance." },
-              { icon: Users, title: "Capacity & Workforce", desc: "Market trends, workforce development, and capacity planning strategies." },
-              { icon: Lightbulb, title: "Strategic Updates", desc: "Progress reports and outcomes from ecosystem development initiatives." },
-            ].map((item, idx) => {
-              const isExpanded = expandedSection === idx;
-              return (
-                <div 
-                  key={idx} 
-                  onClick={() => setExpandedSection(isExpanded ? null : idx)}
-                  className={`p-5 rounded-xl border transition-all duration-300 cursor-pointer ${
-                    isExpanded 
-                      ? 'bg-accent/5 border-accent shadow-md' 
-                      : 'bg-card border-border hover:shadow-md hover:border-black/10'
-                  }`}
-                >
-                  <div className="flex items-start justify-between">
-                    <item.icon className={`w-6 h-6 mb-3 ${isExpanded ? 'text-accent' : 'text-accent/80'}`} />
-                    <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isExpanded ? 'rotate-180 text-accent' : 'text-foreground/70'}`} />
-                  </div>
-                  <h4 className="font-bold text-sm mb-1">{item.title}</h4>
-                  <p className="text-xs text-foreground/60 mb-4">{item.desc}</p>
-                  
-                  {/* Expanded Content */}
-                  <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <div className="pt-3 border-t border-accent/20">
-                      <button className="flex items-center justify-center gap-2 w-full py-2.5 bg-accent text-white font-bold text-xs uppercase tracking-wider rounded-md hover:bg-accent/90 transition-colors">
-                        <Download className="w-4 h-4" /> Download PDF
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Article Structure */}
-          <div className="w-full max-w-4xl mx-auto">
-            <Card className="hover:shadow-lg transition-shadow">
-              <div className="p-5">
-                <div className="flex items-center gap-2 mb-4">
-                  <FileText className="w-5 h-5 text-accent" />
-                  <CardTitle>Article Structure</CardTitle>
-                </div>
-                <CardDescription>Each insight follows a structured format for consistency.</CardDescription>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {articleStructure.map((item, index) => (
-                    <div key={item} className="flex items-center gap-3 px-4 py-3 bg-card rounded-xl border border-border">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <span className="text-sm font-medium text-foreground/80">{item}</span>
-                    </div>
-                  ))}
-                </div>
+          {/* Content Render */}
+          <div className="animate-fade-in">
+            {/* BLOGS */}
+            {activeTab === 'blogs' && (
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {blogs.map((blog) => (
+                  <Link href={`/insights/blog/${blog.slug}`} key={blog.id} className="group">
+                    <Card className="h-full flex flex-col p-6 border-border hover:border-accent hover:shadow-lg transition-all duration-300 bg-card">
+                      <div className="mb-4">
+                        <span className="inline-block text-[10px] font-black uppercase tracking-widest text-accent mb-3 px-2 py-1 bg-accent/10 rounded">
+                          Article
+                        </span>
+                        <CardTitle className="text-lg leading-tight group-hover:text-accent transition-colors">
+                          {blog.title}
+                        </CardTitle>
+                      </div>
+                      <CardDescription className="text-sm flex-grow line-clamp-3 mb-6">
+                        {blog.excerpt}
+                      </CardDescription>
+                      <div className="flex items-center text-sm font-bold text-accent mt-auto group-hover:translate-x-1 transition-transform">
+                        Read full article <ArrowRight className="ml-2 w-4 h-4" />
+                      </div>
+                    </Card>
+                  </Link>
+                ))}
               </div>
-            </Card>
-          </div>
-        </div>
-      </section>
+            )}
 
-      {/* Latest Articles Placeholder */}
-      <section className="pb-24 md:pb-32 pt-12 md:pt-16 bg-card border-y border-border/30">
-        <div className="container mx-auto px-4 md:px-8 lg:px-16">
-          <div className="flex flex-col gap-3 mb-12">
-            <span className="text-accent font-bold tracking-widest uppercase text-xs">Latest</span>
-            <h2 className="text-3xl font-extrabold tracking-tight">Latest Articles</h2>
+            {/* CASE STUDIES */}
+            {activeTab === 'casestudy' && (
+              <div className="grid gap-6 md:grid-cols-2">
+                {[1, 2].map((item) => (
+                  <Card key={item} className="p-8 border-border flex flex-col items-center justify-center text-center bg-card min-h-[300px]">
+                    <Presentation className="w-12 h-12 text-accent/30 mb-4" />
+                    <CardTitle className="mb-2">Automotive Sub-Assembly Localization</CardTitle>
+                    <CardDescription>
+                      Coming soon. A detailed case study demonstrating cross-border execution and vendor consolidation in the automotive tier-2 sector.
+                    </CardDescription>
+                  </Card>
+                ))}
+              </div>
+            )}
+
+            {/* USER GUIDELINES */}
+            {activeTab === 'guidelines' && (
+              <Card className="p-8 md:p-12 border-border bg-card max-w-4xl">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="p-3 bg-accent/10 rounded-xl">
+                    <FileText className="w-8 h-8 text-accent" />
+                  </div>
+                  <h2 className="text-2xl font-extrabold tracking-tight">Platform User Guidelines</h2>
+                </div>
+                <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none text-foreground/80 space-y-6">
+                  <p>
+                    Balbird operates as a closed-loop execution network. To maintain the integrity and reliability of our manufacturing ecosystem, all network participants must adhere to strict operational guidelines.
+                  </p>
+                  
+                  <h3 className="text-lg font-bold text-foreground">1. Commitment to Execution</h3>
+                  <p>
+                    We are not a marketplace for casual browsing. Suppliers joining the network must be prepared to execute projects under strict quality control, timeline compliance, and active telemetry monitoring.
+                  </p>
+
+                  <h3 className="text-lg font-bold text-foreground">2. Communication Protocols</h3>
+                  <p>
+                    All project-related communication, engineering changes, and DFM updates must be logged within the designated operational verticals. Avoiding the structured communication loops jeopardizes the safety and traceability of mobility components.
+                  </p>
+
+                  <h3 className="text-lg font-bold text-foreground">3. Traceability & Transparency</h3>
+                  <p>
+                    From raw material origin to final batch inspection, participants are required to maintain unbroken documentation trails. Our Execution Cells are deployed to assist, but ultimate responsibility for compliance remains with the facility operators.
+                  </p>
+
+                  <div className="p-4 bg-muted border border-border/50 rounded-xl mt-8">
+                    <p className="text-sm m-0">
+                      <strong>Note:</strong> Detailed user onboarding manuals and compliance checklists are provided directly to qualified suppliers upon successful admission into the network.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            )}
           </div>
-          <Card className="p-8 text-center">
-            <BookOpen className="w-12 h-12 text-accent/30 mx-auto mb-4" />
-            <CardTitle>Coming Soon</CardTitle>
-            <CardDescription>
-              Curated insights and analysis from across the mobility manufacturing ecosystem will be published here. Stay tuned for sector-specific analysis and strategic updates.
-            </CardDescription>
-          </Card>
         </div>
       </section>
 
