@@ -6,6 +6,7 @@ import { Card, CardTitle, CardDescription } from "@/components/ui/Card";
 import { ButtonLink } from "@/components/ui/Button";
 import { ChevronDown, BookOpen, Presentation, FileText, ArrowRight, HelpCircle, Plus, Minus } from "lucide-react";
 import { blogs } from '@/lib/data/blogs';
+import { casestudies } from '@/lib/data/casestudies';
 
 type TabType = 'blogs' | 'casestudy' | 'guidelines' | 'faq';
 
@@ -166,15 +167,26 @@ export default function InsightsPage() {
 
             {/* CASE STUDIES */}
             {activeTab === 'casestudy' && (
-              <div className="grid gap-6 md:grid-cols-2">
-                {[1, 2].map((item) => (
-                  <Card key={item} className="p-8 border-border flex flex-col items-center justify-center text-center bg-card min-h-[300px]">
-                    <Presentation className="w-12 h-12 text-accent/30 mb-4" />
-                    <CardTitle className="mb-2">Automotive Sub-Assembly Localization</CardTitle>
-                    <CardDescription>
-                      Coming soon. A detailed case study demonstrating cross-border execution and vendor consolidation in the automotive tier-2 sector.
-                    </CardDescription>
-                  </Card>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {casestudies.map((casestudy) => (
+                  <Link href={`/insights/casestudy/${casestudy.slug}`} key={casestudy.id} className="group">
+                    <Card className="h-full flex flex-col p-6 border-border hover:border-accent hover:shadow-lg transition-all duration-300 bg-card">
+                      <div className="mb-4">
+                        <span className="inline-block text-[10px] font-black uppercase tracking-widest text-accent mb-3 px-2 py-1 bg-accent/10 rounded">
+                          Case Study
+                        </span>
+                        <CardTitle className="text-lg leading-tight group-hover:text-accent transition-colors">
+                          {casestudy.title}
+                        </CardTitle>
+                      </div>
+                      <CardDescription className="text-sm flex-grow line-clamp-3 mb-6">
+                        {casestudy.excerpt}
+                      </CardDescription>
+                      <div className="flex items-center text-sm font-bold text-accent mt-auto group-hover:translate-x-1 transition-transform">
+                        Read full case study <ArrowRight className="ml-2 w-4 h-4" />
+                      </div>
+                    </Card>
+                  </Link>
                 ))}
               </div>
             )}
