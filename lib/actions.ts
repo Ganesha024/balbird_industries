@@ -75,7 +75,7 @@ export async function submitJoinNetwork(formData: FormData) {
 
 export async function submitStrategicDiscussion(formData: FormData) {
   const organization_name = formData.get("organization_name") as string;
-  const Network_type = formData.get("Network_type") as string;
+  const network_type = formData.get("Network_type") as string;
   const sector = formData.get("sector") as string;
   const country_region = formData.get("country_region") as string;
   const contact_person = formData.get("contact_person") as string;
@@ -110,7 +110,7 @@ export async function submitStrategicDiscussion(formData: FormData) {
     .insert([
       {
         organization_name,
-        Network_type,
+        network_type,
         sector,
         country_region,
         contact_person,
