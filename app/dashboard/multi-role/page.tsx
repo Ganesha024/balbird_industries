@@ -14,7 +14,7 @@ export default function MultiRolePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5">
             {[
               { icon: Users, label: "Manufacturer", desc: "Full manufacturing access", stats: [["Active Projects", "12"], ["Team Size", "45"]] },
-              { icon: Briefcase, label: "Supplier", desc: "Supply chain management", stats: [["Active Orders", "28"], ["Partners", "8"]] },
+              { icon: Briefcase, label: "Manufacturer", desc: "Supply chain management", stats: [["Active Orders", "28"], ["Partners", "8"]] },
               { icon: Target, label: "Distributor", desc: "Distribution and logistics", stats: [["Delivery Routes", "15"], ["Regions", "6"]] },
             ].map((role) => (
               <Card key={role.label} className="p-3">

@@ -28,12 +28,12 @@ const Network = [
       "Access to structured project pipelines",
       "Cross-border collaboration opportunities",
       "Execution coordination and traceability support",
-      "Visibility to OEMs and buyers through the ecosystem",
+      "Visibility to OEMs and clients through the ecosystem",
     ],
   },
   {
-    key: "Buyer",
-    label: "Buyers & OEMs",
+    key: "Client",
+    label: "Clients & OEMs",
     icon: Building2,
     description:
       "Companies sourcing mobility components with specific technical requirements, volume needs, and compliance standards. They drive project requirements and demand.",
@@ -93,7 +93,7 @@ const Network = [
     label: "Associations & Members",
     icon: Globe,
     description:
-      "Industry bodies and supplier associations facilitating collaboration, standardization, and collective capability development across mobility manufacturing clusters.",
+      "Industry bodies and manufacturer associations facilitating collaboration, standardization, and collective capability development across mobility manufacturing clusters.",
     whatTheyDo: [
       "Facilitate industry standards and best practices",
       "Coordinate cluster development and export promotion",
@@ -273,7 +273,7 @@ export default function NetworkPage() {
         <div className="rounded-2xl border border-border bg-muted px-8 py-10 text-center">
           <h3 className="text-2xl font-extrabold tracking-tight">Find Your Role in the Ecosystem</h3>
           <p className="mt-2 text-foreground/80 max-w-xl mx-auto">
-            Whether you&apos;re a manufacturer, buyer, association, or student —
+            Whether you&apos;re a manufacturer, client, association, or student —
             there&apos;s a defined role for you in the Balbird ecosystem.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">

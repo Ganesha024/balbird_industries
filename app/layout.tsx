@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Balbird Industries — Cross-Border Manufacturing Execution Partner",
-  description: "Balbird helps manufacturers, buyers, and partners execute mobility component manufacturing projects together — with CDMO operations, execution coordination, traceability, and consortium alignment.",
+  description: "Balbird helps manufacturers, clients, and partners execute mobility component manufacturing projects together — with CDMO operations, execution coordination, traceability, and consortium alignment.",
 };
 
 export default function RootLayout({

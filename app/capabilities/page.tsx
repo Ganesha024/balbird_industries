@@ -274,7 +274,7 @@ export default function ServicesPage() {
                   <h3 className="text-2xl font-extrabold">Consortium Coordination</h3>
                 </div>
                 <p className="text-foreground/80 leading-relaxed mb-6">
-                  We bring manufacturers, buyers, associations, and partners into aligned
+                  We bring manufacturers, clients, associations, and partners into aligned
                   consortiums for large-scale mobility programs — enabling structured collaboration
                   without intermediary trading.
                 </p>
@@ -321,7 +321,7 @@ export default function ServicesPage() {
                      <div className="w-10 h-10 bg-background border border-border rounded-full flex items-center justify-center mb-1 shadow-md group hover:border-accent transition-colors">
                         <Briefcase className="w-4 h-4 text-foreground/70 group-hover:text-accent transition-colors" />
                      </div>
-                     <span className="text-[10px] font-semibold bg-card px-2 py-0.5 rounded shadow-sm border border-border">Buyers/OEMs</span>
+                     <span className="text-[10px] font-semibold bg-card px-2 py-0.5 rounded shadow-sm border border-border">Clients/OEMs</span>
                   </div>
                   
                   <div className="absolute bottom-[5%] left-[5%] z-10 flex flex-col items-center">

@@ -15,8 +15,8 @@ const resources = [
   {
     icon: Building2,
     group: "OEM / Tier",
-    description: "Resources for OEMs and tier suppliers to submit requirements and evaluate manufacturing partners.",
-    items: ["Requirement Submission Guide", "Supplier Evaluation Framework"],
+    description: "Resources for OEMs and tier manufacturers to submit requirements and evaluate manufacturing partners.",
+    items: ["Requirement Submission Guide", "Manufacturer Evaluation Framework"],
   },
   {
     icon: Globe,

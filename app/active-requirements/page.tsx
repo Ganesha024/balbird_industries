@@ -244,7 +244,7 @@ export default function ExecutionReadyFacilitiesPage() {
                 </div>
               </div>
               <p className="mt-6 text-foreground/80 leading-relaxed">
-                Capacity is dynamically aligned across multiple facilities and suppliers, enabling scalable, flexible, and reliable execution for mobility component projects.
+                Capacity is dynamically aligned across multiple facilities and manufacturers, enabling scalable, flexible, and reliable execution for mobility component projects.
               </p>
             </div>
             <div className="w-full lg:w-1/2 bg-muted text-foreground rounded-2xl p-8">

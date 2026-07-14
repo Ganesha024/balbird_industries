@@ -106,7 +106,7 @@ export default function ActiveProgramsPage() {
               </div>
               <CardTitle className="text-2xl mb-3">Mobility Components Traceability Rollout</CardTitle>
               <CardDescription className="text-base text-foreground/80 mb-6 leading-relaxed">
-                Implementing a standardized, end-to-end traceability protocol across our existing consortium of EV component suppliers. We are deploying our structured execution software to track material provenance and production batches.
+                Implementing a standardized, end-to-end traceability protocol across our existing consortium of EV component manufacturers. We are deploying our structured execution software to track material provenance and production batches.
               </CardDescription>
               <div className="space-y-3 pt-6 border-t border-border">
                 <h4 className="text-sm font-bold uppercase tracking-wider text-foreground/50 mb-2">Active Milestones</h4>
@@ -120,7 +120,7 @@ export default function ActiveProgramsPage() {
                 </div>
                 <div className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-amber-500 shrink-0" />
-                  <p className="text-sm text-foreground/60">System integration testing with buyers (Next 45 Days)</p>
+                  <p className="text-sm text-foreground/60">System integration testing with clients (Next 45 Days)</p>
                 </div>
               </div>
             </Card>
@@ -164,7 +164,7 @@ export default function ActiveProgramsPage() {
                 </div>
                 <h3 className="text-2xl font-bold mb-4">Want to participate in an active program?</h3>
                 <p className="text-foreground/70 mb-8 max-w-sm mx-auto">
-                  Whether you are a manufacturer, buyer, or strategic partner, there is a role for you in our execution ecosystem.
+                  Whether you are a manufacturer, client, or strategic partner, there is a role for you in our execution ecosystem.
                 </p>
                 <div className="flex flex-col items-center gap-4 w-full max-w-sm mx-auto">
                   <Link

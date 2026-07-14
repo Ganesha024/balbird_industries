@@ -106,7 +106,7 @@ export default function RequestStrategicDiscussionPage() {
                     >
                       <option value="">Select Network type</option>
                       <option value="manufacturer">Manufacturer</option>
-                      <option value="oem_tier">OEM / Buyer</option>
+                      <option value="oem_tier">OEM / Client</option>
                       <option value="association">Association</option>
                       <option value="student">Student / Execution Cell</option>
                       <option value="advisor">Strategic Advisor</option>

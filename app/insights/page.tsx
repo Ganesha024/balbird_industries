@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "How is Balbird different from a manufacturing marketplace?",
-    answer: "Unlike a marketplace that simply connects buyers with suppliers and steps away, Balbird actively manages the execution. We integrate process telemetry, conduct on-site compliance audits using our Execution Cells, and take responsibility for final part quality and delivery timelines."
+    answer: "Unlike a marketplace that simply connects clients with manufacturers and steps away, Balbird actively manages the execution. We integrate process telemetry, conduct on-site compliance audits using our Execution Cells, and take responsibility for final part quality and delivery timelines."
   },
   {
     question: "What is the Consortium Manufacturing Model?",
@@ -44,8 +44,8 @@ const faqs = [
     answer: "Our network covers a vast range of industrial processes including high-precision CNC turning, VMC machining (up to 1200mm envelopes), heavy fabrication, precision welding, plastic injection molding, and specialized surface treatments."
   },
   {
-    question: "How do suppliers join the manufacturing network?",
-    answer: "Suppliers must pass our rigorous pre-qualification audits, which verify machine specifications, operator certifications, and quality management systems. You can apply through the 'Join Network' page."
+    question: "How do manufacturers join the manufacturing network?",
+    answer: "Manufacturers must pass our rigorous pre-qualification audits, which verify machine specifications, operator certifications, and quality management systems. You can apply through the 'Join Network' page."
   },
   {
     question: "Can I track my project's progress in real-time?",
@@ -230,7 +230,7 @@ export default function InsightsPage() {
                   
                   <h3>1. Commitment to Execution</h3>
                   <p>
-                    We are not a marketplace for casual browsing. Suppliers joining the network must be prepared to execute projects under strict quality control, timeline compliance, and active telemetry monitoring. Every node in the network is expected to perform with industrial-grade reliability.
+                    We are not a marketplace for casual browsing. Manufacturers joining the network must be prepared to execute projects under strict quality control, timeline compliance, and active telemetry monitoring. Every node in the network is expected to perform with industrial-grade reliability.
                   </p>
 
                   <h3>2. Communication Protocols</h3>
@@ -245,7 +245,7 @@ export default function InsightsPage() {
 
                   <div className="p-6 bg-accent/5 border-l-4 border-l-accent mt-12 rounded-r-xl">
                     <p className="text-sm m-0 font-medium">
-                      <strong className="text-accent">Note:</strong> Detailed user onboarding manuals and compliance checklists are provided directly to qualified suppliers upon successful admission into the network.
+                      <strong className="text-accent">Note:</strong> Detailed user onboarding manuals and compliance checklists are provided directly to qualified manufacturers upon successful admission into the network.
                     </p>
                   </div>
                 </div>

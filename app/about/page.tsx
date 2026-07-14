@@ -310,7 +310,7 @@ export default function AboutPage() {
                 'Legal Advisor',
                 'Financial Advisor',
                 'Tech Advisor',
-                'Supplier Associations',
+                'Manufacturer Associations',
                 'Student Workforce',
                 'Non-Tech Advisors',
                 'Industrial HR Networks',

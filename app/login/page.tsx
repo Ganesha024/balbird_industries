@@ -95,7 +95,7 @@ export default function LoginPage() {
             <div className="grid grid-cols-2 gap-3">
               {[
                 { icon: Factory, label: "Manufacturer", desc: "Production & capacity", color: "bg-blue-50 border-blue-200", btn: "bg-blue-600 hover:bg-blue-700" },
-                { icon: Building2, label: "Buyer / OEM", desc: "Requirements & quality", color: "bg-green-50 border-green-200", btn: "bg-green-600 hover:bg-green-700" },
+                { icon: Building2, label: "Client / OEM", desc: "Requirements & quality", color: "bg-green-50 border-green-200", btn: "bg-green-600 hover:bg-green-700" },
                 { icon: Globe, label: "Association", desc: "Standards & clusters", color: "bg-purple-50 border-purple-200", btn: "bg-purple-600 hover:bg-purple-700" },
                 { icon: GraduationCap, label: "Execution Cell", desc: "Student operations", color: "bg-orange-50 border-orange-200", btn: "bg-orange-600 hover:bg-orange-700" },
               ].map((role, idx) => (

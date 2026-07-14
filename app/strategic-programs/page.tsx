@@ -28,7 +28,7 @@ const programs = [
     icon: Building2,
     title: "OEM Alignment",
     description: "Strategic programs to align manufacturing capabilities with OEM requirements and specifications.",
-    objectives: ["Requirements mapping", "Supplier development", "Quality partnerships", "Technology transfer"],
+    objectives: ["Requirements mapping", "Manufacturer development", "Quality partnerships", "Technology transfer"],
   },
   {
     icon: Globe,

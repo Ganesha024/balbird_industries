@@ -57,7 +57,7 @@ export default function Home() {
             <span className="text-accent">Projects Together.</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
-            Balbird helps manufacturers, buyers, and strategic partners execute
+            Balbird helps manufacturers, clients, and strategic partners execute
             mobility component manufacturing operations — with full traceability,
             execution consistency, and consortium coordination.
           </p>
@@ -110,7 +110,7 @@ export default function Home() {
               <p className="text-lg text-foreground/80 leading-relaxed">
                 Balbird is a cross-border manufacturing execution partner operating
                 in the mobility components manufacturing sector. We work
-                project-based — helping companies, manufacturers, suppliers, and
+                project-based — helping companies, manufacturers, manufacturers, and
                 partners execute manufacturing operations together with structure,
                 traceability, and consistency.
               </p>
@@ -123,7 +123,7 @@ export default function Home() {
                 },
                 {
                   title: 'Cross-Border Coordination',
-                  desc: 'We align manufacturers, buyers, and partners across borders for seamless mobility component production.',
+                  desc: 'We align manufacturers, clients, and partners across borders for seamless mobility component production.',
                 },
                 {
                   title: 'Full Manufacturing Traceability',
@@ -180,7 +180,7 @@ export default function Home() {
               {
                 icon: Network,
                 title: 'Consortium Coordination',
-                desc: 'We bring manufacturers, buyers, associations, and partners into aligned consortiums for large-scale mobility programs.',
+                desc: 'We bring manufacturers, clients, associations, and partners into aligned consortiums for large-scale mobility programs.',
               },
               {
                 icon: Users,
@@ -304,7 +304,7 @@ export default function Home() {
               },
               {
                 icon: Building2,
-                role: 'Buyers & OEMs',
+                role: 'Clients & OEMs',
                 desc: 'Companies sourcing mobility components with specific technical requirements and volume needs.',
               },
               {
@@ -375,7 +375,7 @@ export default function Home() {
               {
                 icon: Network,
                 vertical: 'Matchmaking',
-                desc: 'AI-assisted matching of manufacturer capabilities with buyer requirements and project needs.',
+                desc: 'AI-assisted matching of manufacturer capabilities with client requirements and project needs.',
               },
               {
                 icon: Shield,
