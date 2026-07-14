@@ -35,7 +35,7 @@ const detailedCapabilities = [
     items: [
       {
         title: "Laser Cutting",
-        image: "/images/fabrication_welding.png",
+        image: "/images/laser_cutting_real.png",
         details: [
           "1500 × 3000 mm in-house",
           "Larger systems through cluster support",
@@ -43,7 +43,7 @@ const detailedCapabilities = [
       },
       {
         title: "Plasma Cutting & CNC Bending",
-        image: "/images/plasma_cutting.png",
+        image: "/images/plasma_bending_real.png",
         details: [
           "Plasma Cutting: Up to 2000 × 6000 mm",
           "CNC Bending: Up to 6000 mm length",
@@ -51,7 +51,7 @@ const detailedCapabilities = [
       },
       {
         title: "Welding Infrastructure",
-        image: "/images/welding_infrastructure.png",
+        image: "/images/welding_real.png",
         details: [
           "MIG / CO2 welding, TIG welding",
           "ARC welding, Projection welding",
