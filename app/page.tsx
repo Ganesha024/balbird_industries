@@ -211,6 +211,59 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SECTION D.5 — Manufacturer Onboarding */}
+      <section className="py-24 md:py-32 bg-accent/5 text-foreground relative border-y border-border/50">
+        <div className="container mx-auto px-4 md:px-8 lg:px-16">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="w-full lg:w-1/2">
+              <span className="inline-block text-accent font-bold tracking-widest uppercase text-xs mb-4">
+                For Manufacturers
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight tracking-tight">
+                Stop Chasing Contracts.<br />
+                <span className="text-accent">Start Executing Projects.</span>
+              </h2>
+              <div className="w-20 h-1.5 bg-accent mb-6 rounded-full" />
+              <p className="text-lg text-foreground/80 leading-relaxed mb-8 font-medium">
+                We are actively looking for high-quality manufacturers to join our capacity network. 
+                Instead of competing in race-to-the-bottom bidding wars, our platform directly matches your 
+                machine capabilities with verified OEM requirements.
+              </p>
+              <Link
+                href="/join-network"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white font-bold rounded-lg hover:bg-accent/90 transition-all text-lg shadow-lg hover:-translate-y-1"
+              >
+                Onboard as a Manufacturer <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+            
+            <div className="w-full lg:w-1/2">
+              <div className="bg-card border border-border p-8 md:p-10 rounded-2xl shadow-xl">
+                <h3 className="text-2xl font-bold mb-8">Why Join the Balbird Ecosystem?</h3>
+                <div className="space-y-6">
+                  {[
+                    { title: "Direct Project Matching", desc: "No bidding. Our system matches OEM requirements directly to your available machine capacity and capabilities." },
+                    { title: "Zero Administrative Burden", desc: "Our on-site Execution Cells handle the tedious process documentation and compliance logs for you." },
+                    { title: "Guaranteed Consistency", desc: "Work on structured, project-based operations with clear scoping, realistic timelines, and reliable cashflow." },
+                    { title: "Consortium Collaboration", desc: "Partner with other specialized manufacturers to execute massive mobility programs you couldn't handle alone." }
+                  ].map((benefit, idx) => (
+                    <div key={idx} className="flex gap-4">
+                      <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+                        <CheckCircle2 className="w-5 h-5 text-accent" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-lg mb-1">{benefit.title}</h4>
+                        <p className="text-foreground/70 text-sm leading-relaxed">{benefit.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION E — How It Works */}
       <section className="py-24 md:py-32 bg-card border-y border-border/30">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
