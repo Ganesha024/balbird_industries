@@ -54,7 +54,7 @@ export default function Home() {
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.1]">
             We Execute Manufacturing<br />
-            <span className="text-accent">Projects Together.</span>
+            <span className="text-accent">Projects Together</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
             Balbird helps manufacturers, clients, and strategic partners execute
