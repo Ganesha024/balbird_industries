@@ -54,7 +54,7 @@ export default function Footer() {
             <h4 className="text-foreground font-bold text-lg mb-6">Get In Touch</h4>
             <ul className="space-y-3">
               <li>
-                <a href="mailto:info@balbirdindustries.com" className="flex items-center gap-3 hover:text-accent transition-colors">
+                <a href="mailto:info@balbirdindustries.com?subject=Inquiry%20from%20Balbird%20Website" className="flex items-center gap-3 hover:text-accent transition-colors">
                   <Mail size={16} />
                   <span>info@balbirdindustries.com</span>
                 </a>
