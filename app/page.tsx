@@ -28,7 +28,7 @@ import SectionHeader from '@/components/ui/SectionHeader';
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* SECTION A — Hero */}
+      {/* SECTION A, Hero */}
       <section 
         className="relative min-h-screen flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/images/hero-home.png')" }}
@@ -58,7 +58,7 @@ export default function Home() {
           </h1>
           <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
             Balbird helps manufacturers, clients, and strategic partners execute
-            mobility component manufacturing operations — with full traceability,
+            mobility component manufacturing operations, with full traceability,
             execution consistency, and consortium coordination.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -82,7 +82,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION B — Operational Snapshot */}
+      {/* SECTION B, Operational Snapshot */}
       <section className="bg-muted text-foreground border-y border-border">
         <div className="container mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-border">
@@ -94,7 +94,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION C — Who We Are */}
+      {/* SECTION C, Who We Are */}
       <section className="py-24 md:py-32 bg-card">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
@@ -110,7 +110,7 @@ export default function Home() {
               <p className="text-lg text-foreground/80 leading-relaxed">
                 Balbird is a cross-border manufacturing execution partner operating
                 in the mobility components manufacturing sector. We work
-                project-based — helping companies, manufacturers, manufacturers, and
+                project-based, helping companies, manufacturers, manufacturers, and
                 partners execute manufacturing operations together with structure,
                 traceability, and consistency.
               </p>
@@ -119,7 +119,7 @@ export default function Home() {
               {[
                 {
                   title: 'Project-Based Execution',
-                  desc: 'Every engagement is structured as a project with clear scope, Network, and deliverables — no open listings, no spot trades.',
+                  desc: 'Every engagement is structured as a project with clear scope, Network, and deliverables, no open listings, no spot trades.',
                 },
                 {
                   title: 'Cross-Border Coordination',
@@ -127,7 +127,7 @@ export default function Home() {
                 },
                 {
                   title: 'Full Manufacturing Traceability',
-                  desc: 'End-to-end documentation from capacity verification to final delivery — ensuring compliance at every stage.',
+                  desc: 'End-to-end documentation from capacity verification to final delivery, ensuring compliance at every stage.',
                 },
                 {
                   title: 'Consortium-Driven Model',
@@ -152,30 +152,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION D — What We Do (Services) */}
+      {/* SECTION D, What We Do (Services) */}
       <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <SectionHeader
             eyebrow="Our Services"
             heading="What We Do"
-            subheading="Contract Development Manufacturing Operations (CDMO) — structured execution across the mobility supply chain."
+            subheading="Contract Development Manufacturing Operations (CDMO), structured execution across the mobility supply chain."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {[
               {
                 icon: Factory,
                 title: 'Manufacturing Operations',
-                desc: 'We coordinate and execute production workflows across verified manufacturers — ensuring capacity alignment and output consistency.',
+                desc: 'We coordinate and execute production workflows across verified manufacturers, ensuring capacity alignment and output consistency.',
               },
               {
                 icon: Workflow,
                 title: 'Execution Consistency',
-                desc: 'Project-level coordination across Network — from scoping through delivery — with structured task management and clear ownership.',
+                desc: 'Project-level coordination across Network, from scoping through delivery, with structured task management and clear ownership.',
               },
               {
                 icon: ScanLine,
                 title: 'Manufacturing Traceability',
-                desc: 'Full documentation trail from raw material to finished component — compliance, certifications, and quality records at every node.',
+                desc: 'Full documentation trail from raw material to finished component, compliance, certifications, and quality records at every node.',
               },
               {
                 icon: Network,
@@ -211,7 +211,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION D.5 — Manufacturer Onboarding */}
+      {/* SECTION D.5, Manufacturer Onboarding */}
       <section className="py-24 md:py-32 bg-accent/5 text-foreground relative border-y border-border/50">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
@@ -264,13 +264,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION E — How It Works */}
+      {/* SECTION E, How It Works */}
       <section className="py-24 md:py-32 bg-card border-y border-border/30">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <SectionHeader
             eyebrow="The Process"
             heading="How Projects Get Executed"
-            subheading="Every project follows a structured execution lifecycle — no ad-hoc transactions."
+            subheading="Every project follows a structured execution lifecycle, no ad-hoc transactions."
           />
           <div className="relative mt-16">
             {/* Desktop connecting line */}
@@ -312,13 +312,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION F — Sector Focus: Mobility */}
+      {/* SECTION F, Sector Focus: Mobility */}
       <section className="py-24 md:py-32 bg-muted text-foreground">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <SectionHeader
             eyebrow="Sector Focus"
             heading="Mobility Components Manufacturing"
-            subheading="We operate exclusively in the mobility manufacturing sector — depth over breadth."
+            subheading="We operate exclusively in the mobility manufacturing sector, depth over breadth."
           />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12">
             {[
@@ -340,7 +340,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION G — Network Ecosystem */}
+      {/* SECTION G, Network Ecosystem */}
       <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <SectionHeader
@@ -406,7 +406,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION H — Operational Verticals */}
+      {/* SECTION H, Operational Verticals */}
       <section className="py-20 bg-muted border-y border-slate-200">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <SectionHeader
@@ -453,7 +453,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION I — What We Are Not */}
+      {/* SECTION I, What We Are Not */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 md:px-8 lg:px-16 max-w-4xl">
           <div className="text-center mb-12">
@@ -496,7 +496,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION J — CTA Banner */}
+      {/* SECTION J, CTA Banner */}
       <section className="py-24 md:py-32 bg-muted text-foreground relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
         <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-accent/5 rounded-full blur-[80px]" />

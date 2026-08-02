@@ -50,8 +50,8 @@ export default function ServicesPage() {
             <span className="text-accent">Manufacturing Operations</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
-            We provide end-to-end manufacturing execution services — from operations
-            coordination to traceability — for cross-border mobility component projects.
+            We provide end-to-end manufacturing execution services, from operations
+            coordination to traceability, for cross-border mobility component projects.
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CDMO Core Services — Detailed Breakdown */}
+      {/* CDMO Core Services, Detailed Breakdown */}
       <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <SectionHeader
@@ -80,7 +80,7 @@ export default function ServicesPage() {
                   <h3 className="text-2xl font-extrabold">Manufacturing Operations</h3>
                 </div>
                 <p className="text-foreground/80 leading-relaxed mb-6">
-                  We coordinate production workflows across verified manufacturers — ensuring
+                  We coordinate production workflows across verified manufacturers, ensuring
                   capacity alignment, output consistency, and compliance adherence throughout
                   the production lifecycle.
                 </p>
@@ -132,8 +132,8 @@ export default function ServicesPage() {
                   <h3 className="text-2xl font-extrabold">Execution Consistency</h3>
                 </div>
                 <p className="text-foreground/80 leading-relaxed mb-6">
-                  Project-level coordination across all Network — from initial scoping
-                  through final delivery — with structured task management and clear ownership
+                  Project-level coordination across all Network, from initial scoping
+                  through final delivery, with structured task management and clear ownership
                   at every phase.
                 </p>
                 <ul className="space-y-3">
@@ -209,8 +209,7 @@ export default function ServicesPage() {
                   <h3 className="text-2xl font-extrabold">Manufacturing Traceability</h3>
                 </div>
                 <p className="text-foreground/80 leading-relaxed mb-6">
-                  Full documentation trail from raw material sourcing to finished component delivery —
-                  ensuring compliance, certifications, and quality records are maintained at every node
+                  Full documentation trail from raw material sourcing to finished component delivery, ensuring compliance, certifications, and quality records are maintained at every node
                   in the supply chain.
                 </p>
                 <ul className="space-y-3">
@@ -275,7 +274,7 @@ export default function ServicesPage() {
                 </div>
                 <p className="text-foreground/80 leading-relaxed mb-6">
                   We bring manufacturers, clients, associations, and partners into aligned
-                  consortiums for large-scale mobility programs — enabling structured collaboration
+                  consortiums for large-scale mobility programs, enabling structured collaboration
                   without intermediary trading.
                 </p>
                 <ul className="space-y-3">
@@ -399,7 +398,7 @@ export default function ServicesPage() {
               </h2>
               <p className="text-foreground/80 leading-relaxed mb-6">
                 We use AI and automation to match manufacturer capabilities with project
-                requirements — analyzing capacity, certifications, technical fit, and
+                requirements, analyzing capacity, certifications, technical fit, and
                 geographic factors to find the right execution partners.
               </p>
               <ul className="space-y-3">

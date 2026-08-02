@@ -62,7 +62,7 @@ export default function MobilitySectorsPage() {
             <span className="text-accent">Sectors</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mb-8 font-medium leading-relaxed">
-            Structured capacity focus areas across mobility manufacturing sectors — from aerospace precision to heavy machinery production.
+            Structured capacity focus areas across mobility manufacturing sectors, from aerospace precision to heavy machinery production.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function MobilitySectorsPage() {
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Clock, title: "Long-Term Commitments", desc: "Programs span years — requiring stable partnerships and predictable capacity." },
+              { icon: Clock, title: "Long-Term Commitments", desc: "Programs span years, requiring stable partnerships and predictable capacity." },
               { icon: Shield, title: "Strict Compliance", desc: "Safety, environmental, and quality standards are non-negotiable across global markets." },
               { icon: ScanLine, title: "Complete Traceability", desc: "Every step must be documented and verifiable from raw materials to finished products." },
               { icon: TrendingUp, title: "High Volume Scaling", desc: "Consistent high-volume production with zero-defect quality standards." },

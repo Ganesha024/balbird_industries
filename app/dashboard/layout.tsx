@@ -3,35 +3,48 @@
 import { Button, ButtonLink } from "@/components/ui/Button";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
-  Home, UserCircle, ClipboardList, FolderOpen, Target,
-  Network, BarChart3, FileText, Bell, Users2, MessageCircle,
-  Menu, X, Search, User, ChevronDown, LogOut, Settings,
+  Search, User, ChevronDown, LogOut, Bell, UserCircle, Home,
 } from "lucide-react";
-import { useState } from "react";
-
-const navItems = [
-  { icon: Home, label: "Overview", href: "/dashboard" },
-  { icon: UserCircle, label: "Profile", href: "/dashboard/profile" },
-  { icon: ClipboardList, label: "Requirements", href: "/dashboard/requirements" },
-  { icon: FolderOpen, label: "Projects", href: "/dashboard/projects" },
-  { icon: Target, label: "Programs", href: "/dashboard/programs" },
-  { icon: Network, label: "Matchmaking", href: "/dashboard/capabilities" },
-  { icon: BarChart3, label: "Performance", href: "/dashboard/performance" },
-  { icon: FileText, label: "Documents", href: "/dashboard/documents" },
-  { icon: Users2, label: "Requests", href: "/dashboard/requests" },
-  { icon: Bell, label: "Alerts", href: "/dashboard/notifications" },
-  { icon: MessageCircle, label: "Help", href: "/dashboard/chatbot" },
-];
+import { useEffect, useState } from "react";
+import RoleAwareNav from "@/components/dashboard/RoleAwareNav";
+import { getAuthenticatedUser, getCurrentUser, signOut, type UserProfile } from "@/lib/auth";
+import { useRouter } from "next/navigation";
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
   const [profileOpen, setProfileOpen] = useState(false);
+  const [user, setUser] = useState<UserProfile | null>(null);
+  const [authChecking, setAuthChecking] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    async function checkAuthentication() {
+      const authenticatedUser = await getAuthenticatedUser();
+
+      if (!authenticatedUser) {
+        router.replace("/login?next=/dashboard");
+        return;
+      }
+
+      setUser(await getCurrentUser());
+      setAuthChecking(false);
+    }
+
+    checkAuthentication();
+  }, [router]);
+
+  const handleSignOut = async () => {
+    await signOut();
+    router.push('/login');
+  };
+
+  if (authChecking) {
+    return <div className="min-h-screen bg-card" aria-label="Checking authentication" />;
+  }
 
   return (
     <div className="min-h-screen bg-card flex flex-col">
@@ -79,8 +92,8 @@ export default function DashboardLayout({
                   <div className="fixed inset-0 z-40" onClick={() => setProfileOpen(false)} />
                   <div className="absolute right-0 mt-2 w-56 bg-background border border-border rounded-xl shadow-lg z-50 overflow-hidden">
                     <div className="p-4 border-b border-border bg-card">
-                      <p className="font-bold text-sm text-foreground">Ganesh</p>
-                      <p className="text-xs text-foreground/70 mt-0.5">ganesh5006pal@gmail.com</p>
+                      <p className="font-bold text-sm text-foreground">{user?.full_name || "Your account"}</p>
+                      <p className="text-xs text-foreground/70 mt-0.5">{user?.email || "Loading profile…"}</p>
                     </div>
                     <div className="p-2 space-y-1">
                       <ButtonLink href="/dashboard/profile" variant="ghost" className="w-full justify-start text-sm">
@@ -89,7 +102,7 @@ export default function DashboardLayout({
                       <ButtonLink href="/" variant="ghost" className="w-full justify-start text-sm">
                         <Home className="h-4 w-4 mr-2" /> Return to Main Site
                       </ButtonLink>
-                      <Button variant="ghost" className="w-full justify-start text-sm text-red-600 hover:text-red-700 hover:bg-red-50">
+                      <Button variant="ghost" className="w-full justify-start text-sm text-red-600 hover:text-red-700 hover:bg-red-50" onClick={handleSignOut}>
                         <LogOut className="h-4 w-4 mr-2" /> Sign Out
                       </Button>
                     </div>
@@ -103,27 +116,7 @@ export default function DashboardLayout({
         {/* Secondary Navigation (Horizontal Scrollable Tabs) */}
         <div className="border-t border-border bg-background">
           <div className="max-w-7xl mx-auto w-full px-4 overflow-x-auto custom-scrollbar">
-            <nav className="flex items-center gap-1 min-w-max py-2">
-              {navItems.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`
-                      flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors
-                      ${isActive
-                        ? "bg-accent text-white shadow-sm"
-                        : "text-foreground/70 hover:bg-muted hover:text-foreground"
-                      }
-                    `}
-                  >
-                    <item.icon className={`h-4 w-4 shrink-0 ${isActive ? "text-accent-foreground" : "text-foreground/70"}`} />
-                    <span>{item.label}</span>
-                  </Link>
-                );
-              })}
-            </nav>
+            <RoleAwareNav />
           </div>
         </div>
       </header>

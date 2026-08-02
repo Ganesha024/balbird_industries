@@ -56,7 +56,7 @@ export default function AboutPage() {
             <span className="text-accent">Execution Partner</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
-            Balbird is an execution partner operating in the mobility components manufacturing sector. We help Network execute operations together — with structure, traceability, and consistency.
+            Balbird is an execution partner operating in the mobility components manufacturing sector. We help Network execute operations together, with structure, traceability, and consistency.
           </p>
         </div>
       </section>
@@ -67,7 +67,7 @@ export default function AboutPage() {
         <div className="flex flex-col gap-3">
           <h2 className="text-3xl font-extrabold tracking-tight">Our Identity</h2>
           <p className="max-w-3xl text-foreground/80">
-            Understanding what Balbird is — and what it is not — is critical to how we work with every Network.
+            Understanding what Balbird is, and what it is not, is critical to how we work with every Network.
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
@@ -77,7 +77,7 @@ export default function AboutPage() {
               <ul className="mt-3 space-y-3">
                 {[
                   'A cross-border manufacturing execution partner',
-                  'Project-based — every engagement is a defined project',
+                  'Project-based, every engagement is a defined project',
                   'Focused exclusively on mobility components manufacturing',
                   'A facilitator of structured collaboration between Network',
                   'Commission-based on production work + fees from execution cell',
@@ -95,11 +95,11 @@ export default function AboutPage() {
             <div className="text-sm text-foreground/70">
               <ul className="mt-3 space-y-3">
                 {[
-                  'Not a broker — we don\'t take positions or trade margins',
-                  'Not a marketplace — no open listings or spot trades',
-                  'Not a trading company — we don\'t buy or resell',
-                  'Not a listing platform — we maintain qualified, validated nodes',
-                  'Not ad-hoc — every engagement follows structured execution',
+                  'Not a broker, we don\'t take positions or trade margins',
+                  'Not a marketplace, no open listings or spot trades',
+                  'Not a trading company, we don\'t buy or resell',
+                  'Not a listing platform, we maintain qualified, validated nodes',
+                  'Not ad-hoc, every engagement follows structured execution',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <span className="w-4 h-4 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
@@ -121,7 +121,7 @@ export default function AboutPage() {
             <div className="flex flex-col gap-3">
               <h2 className="text-3xl font-extrabold tracking-tight">Cross-Border Execution Ecosystem</h2>
               <p className="max-w-xl text-foreground/80">
-                Contract Development Manufacturing Operations (CDMO) — structured execution across the mobility supply chain.
+                Contract Development Manufacturing Operations (CDMO), structured execution across the mobility supply chain.
               </p>
             </div>
             <Card className="overflow-hidden">

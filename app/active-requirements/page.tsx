@@ -173,7 +173,7 @@ export default function ExecutionReadyFacilitiesPage() {
             <span className="text-accent">Manufacturing Facilities</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mb-8 font-medium leading-relaxed">
-            Explore the manufacturing infrastructure across our verified network — from precision machining to advanced fabrication, scaled for mobility component production.
+            Explore the manufacturing infrastructure across our verified network, from precision machining to advanced fabrication, scaled for mobility component production.
           </p>
         </div>
 

@@ -112,7 +112,7 @@ const Network = [
     label: "Execution Cell Members (Students)",
     icon: GraduationCap,
     description:
-      "Student workforce contributing to HR operations, business development, and manufacturing process support — forming the execution backbone of project operations.",
+      "Student workforce contributing to HR operations, business development, and manufacturing process support, forming the execution backbone of project operations.",
     whatTheyDo: [
       "Support HR and workforce coordination",
       "Drive business development and outreach activities",
@@ -158,7 +158,7 @@ export default function NetworkPage() {
             <span className="text-accent">Ecosystem</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
-            Balbird operates with a defined set of Network — each with a clear role, structured access, and aligned outcomes. Every participant is role-defined by design.
+            Balbird operates with a defined set of Network, each with a clear role, structured access, and aligned outcomes. Every participant is role-defined by design.
           </p>
         </div>
       </section>
@@ -216,7 +216,7 @@ export default function NetworkPage() {
         </div>
       </section>
 
-      {/* Network Roles — Detailed Cards */}
+      {/* Network Roles, Detailed Cards */}
       <section className="container mx-auto px-4 md:px-8 lg:px-16 space-y-6">
         <div className="flex flex-col gap-3">
           <h2 className="text-3xl font-extrabold tracking-tight">Network Roles</h2>
@@ -273,8 +273,7 @@ export default function NetworkPage() {
         <div className="rounded-2xl border border-border bg-muted px-8 py-10 text-center">
           <h3 className="text-2xl font-extrabold tracking-tight">Find Your Role in the Ecosystem</h3>
           <p className="mt-2 text-foreground/80 max-w-xl mx-auto">
-            Whether you&apos;re a manufacturer, client, association, or student —
-            there&apos;s a defined role for you in the Balbird ecosystem.
+            Whether you&apos;re a manufacturer, client, association, or student, there&apos;s a defined role for you in the Balbird ecosystem.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <ButtonLink href="/join-network" variant="primary" className="w-full sm:w-auto">
