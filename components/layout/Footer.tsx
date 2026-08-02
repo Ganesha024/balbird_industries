@@ -74,15 +74,17 @@ export default function Footer() {
             © {new Date().getFullYear()} Balbird Industries. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <a href="https://linkedin.com/company/balbird" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/balbirdindustries/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="LinkedIn">
               <Linkedin size={20} />
             </a>
+            {/* 
             <a href="https://twitter.com/balbird" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Twitter">
               <Twitter size={20} />
             </a>
             <a href="https://youtube.com/@balbird" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="YouTube">
               <Youtube size={20} />
-            </a>
+            </a> 
+            */}
           </div>
         </div>
       </div>
