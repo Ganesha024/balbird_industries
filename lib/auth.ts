@@ -39,16 +39,16 @@ export async function signIn(email: string, password: string) {
 
     if (error) {
       console.error('Sign in error:', error);
-      return { success: false, error: error.message };
+      return { success: false, error: error.message, claims: null };
     }
 
-    return { success: true, data };
+    const claims = data?.session?.access_token || null;
+    return { success: true, data, claims };
   } catch (err) {
     console.error('Sign in exception:', err);
-    return { success: false, error: 'An unexpected error occurred' };
+    return { success: false, error: 'An unexpected error occurred', claims: null };
   }
 }
-
 export async function signUp(email: string, password: string, fullName: string, role: UserRole) {
   const { data, error } = await supabase.auth.signUp({
     email,
