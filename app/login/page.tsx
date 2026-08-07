@@ -40,25 +40,21 @@ export default function LoginPage() {
       icon: Factory,
       label: "Manufacturer",
       desc: "Production & capacity",
-      btn: "bg-blue-600 hover:bg-blue-700",
     },
     {
       icon: Building2,
       label: "OEM",
       desc: "Requirements & quality",
-      btn: "bg-green-600 hover:bg-green-700",
     },
     {
       icon: Globe,
       label: "Association",
       desc: "Standards & clusters",
-      btn: "bg-purple-600 hover:bg-purple-700",
     },
     {
       icon: GraduationCap,
       label: "Student",
       desc: "Execution cell",
-      btn: "bg-orange-600 hover:bg-orange-700",
     },
   ];
 
@@ -145,13 +141,13 @@ export default function LoginPage() {
             </CardTitle>
             <div className="grid grid-cols-2 gap-3">
               {roles.map((role, idx) => (
-                <div key={idx} className={`rounded-lg p-3 border ${role.btn}`}> 
+                <div key={idx} className="rounded-lg p-3 border border-gray-300"> 
                   <div className="flex items-center gap-1.5 mb-1">
                     <role.icon className="w-5 h-5 text-foreground/70" />
                     <span className="font-bold text-sm text-foreground">{role.label}</span>
                   </div>
                   <p className="text-xs text-foreground/60 mb-2">{role.desc}</p>
-                  <ButtonLink href="/dashboard" size="sm" className={`w-full text-foreground ${role.btn}`}>Access</ButtonLink>
+                  <ButtonLink href="/dashboard" size="sm" className="w-full text-foreground bg-gray-200 hover:bg-gray-300">Access</ButtonLink>
                 </div>
               ))}
             </div>

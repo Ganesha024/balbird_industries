@@ -42,7 +42,15 @@ export async function signIn(email: string, password: string) {
       return { success: false, error: error.message, claims: null };
     }
 
-    const claims = data?.session?.access_token || null;
+    // Attempt to get the access token from the immediate response
+    let claims = data?.session?.access_token || null;
+    // If not available, fetch the current session explicitly
+    if (!claims) {
+      const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+      if (!sessionError && sessionData?.session) {
+        claims = sessionData.session.access_token;
+      }
+    }
     return { success: true, data, claims };
   } catch (err) {
     console.error('Sign in exception:', err);
