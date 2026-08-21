@@ -47,14 +47,14 @@ export default function Home() {
         />
         {/* Radial glow */}
         <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-16 text-center animate-fade-in">
-          <span className="inline-block text-accent font-bold tracking-widest uppercase text-sm mb-6 px-5 py-1.5 border border-accent/30 rounded-full bg-accent/10 backdrop-blur-sm">
+          <span className="inline-block text-accent font-bold tracking-widest uppercase text-sm mb-6 text-center mx-auto">
             Cross-Border Manufacturing Execution Partner
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.1]">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.1] text-center mx-auto">
             We Execute Manufacturing<br />
             <span className="text-accent">Projects Together</span>
           </h1>
-          <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed text-center">
             Balbird helps manufacturers, clients, and strategic partners execute
             mobility component manufacturing operations, with full traceability,
             execution consistency, and consortium coordination.
@@ -164,35 +164,42 @@ export default function Home() {
                 icon: Factory,
                 title: 'Manufacturing Operations',
                 desc: 'We coordinate and execute production workflows across verified manufacturers, ensuring capacity alignment and output consistency.',
+                link: '/capabilities#manufacturing-operations',
               },
               {
                 icon: Workflow,
                 title: 'Execution Consistency',
                 desc: 'Project-level coordination across Network, from scoping through delivery, with structured task management and clear ownership.',
+                link: '/capabilities#execution-consistency',
               },
               {
                 icon: ScanLine,
                 title: 'Manufacturing Traceability',
                 desc: 'Full documentation trail from raw material to finished component, compliance, certifications, and quality records at every node.',
+                link: '/capabilities#manufacturing-traceability',
               },
               {
                 icon: Network,
                 title: 'Consortium Coordination',
                 desc: 'We bring manufacturers, clients, associations, and partners into aligned consortiums for large-scale mobility programs.',
+                link: '/capabilities#consortium-coordination',
               },
               {
                 icon: Users,
                 title: 'Execution Cell Services',
                 desc: 'Dedicated student workforce support for HR operations, business development, and manufacturing process documentation.',
+                link: '/capabilities#execution-cell-services',
               },
               {
                 icon: Handshake,
                 title: 'Matchmaking & Engineering',
                 desc: 'AI-assisted capability matching to connect the right manufacturer with the right project requirements.',
+                link: '/capabilities#ai-matchmaking',
               },
             ].map((service, idx) => (
-              <div
+              <Link
                 key={idx}
+                href={service.link}
                 className="group relative p-8 bg-card rounded-xl border border-border hover:bg-background hover:shadow-lg hover:border-accent/20 transition-all duration-300"
               >
                 <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
@@ -203,7 +210,7 @@ export default function Home() {
                   {service.desc}
                 </p>
                 <ArrowRight className="w-5 h-5 text-accent mt-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Linkedin, Twitter, Youtube, Mail } from 'lucide-react';
+import { Linkedin, Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   const pathname = usePathname();
@@ -59,11 +59,18 @@ export default function Footer() {
                   <span>info@balbirdindustries.com</span>
                 </a>
               </li>
-<li>
-  <a href="https://wa.me/919272449392?text=Hi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-accent transition-colors">
-    <span>+91 92724 49392</span>
-  </a>
-</li>
+              <li>
+                <a href="https://wa.me/919272449392?text=Hi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-accent transition-colors">
+                  <Phone size={16} />
+                  <span>+91 92724 49392</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/company/balbirdindustries/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-accent transition-colors" aria-label="LinkedIn">
+                  <Linkedin size={16} />
+                  <span>LinkedIn</span>
+                </a>
+              </li>
               <li>
                 <Link href="/request-strategic-discussion" className="inline-block mt-2 px-5 py-2.5 bg-accent text-white font-bold rounded hover:bg-accent/90 transition-all text-sm">
                   Request Discussion
@@ -78,19 +85,6 @@ export default function Footer() {
           <p className="text-sm">
             © {new Date().getFullYear()} Balbird Industries. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <a href="https://www.linkedin.com/company/balbirdindustries/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="LinkedIn">
-              <Linkedin size={20} />
-            </a>
-            {/* 
-            <a href="https://twitter.com/balbird" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Twitter">
-              <Twitter size={20} />
-            </a>
-            <a href="https://youtube.com/@balbird" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="YouTube">
-              <Youtube size={20} />
-            </a> 
-            */}
-          </div>
         </div>
       </div>
     </footer>

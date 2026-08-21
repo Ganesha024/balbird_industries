@@ -40,14 +40,14 @@ export default function ServicesPage() {
           }}
         />
         <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-16 text-center animate-fade-in">
-          <span className="inline-block text-accent font-bold tracking-widest uppercase text-sm mb-6 px-5 py-1.5 border border-accent/30 rounded-full bg-accent/10 backdrop-blur-sm">
+          <span className="inline-block text-accent font-bold tracking-widest uppercase text-sm mb-6 text-center mx-auto">
             Our Services
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.1]">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.1] text-center mx-auto">
             Contract Development<br />
             <span className="text-accent">Manufacturing Operations</span>
           </h1>
-          <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed text-center">
             We provide end-to-end manufacturing execution services, from operations
             coordination to traceability, for cross-border mobility component projects.
           </p>
@@ -68,7 +68,7 @@ export default function ServicesPage() {
           />
 
           {/* Service 1: Manufacturing Operations */}
-          <div className="mt-16 mb-20">
+          <div id="manufacturing-operations" className="mt-16 mb-20">
             <div className="flex flex-col lg:flex-row gap-12 items-stretch">
               <div className="w-full lg:w-1/2 space-y-6">
                 <div className="flex items-center gap-3 mb-4">
@@ -120,7 +120,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Service 2: Execution Consistency */}
-          <div className="mb-20 pt-12 border-t border-border/50">
+          <div id="execution-consistency" className="mb-20 pt-12 border-t border-border/50">
             <div className="flex flex-col lg:flex-row-reverse gap-12 items-stretch">
               <div className="w-full lg:w-1/2 space-y-6">
                 <div className="flex items-center gap-3 mb-4">
@@ -193,7 +193,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Service 3: Manufacturing Traceability */}
-          <div className="mb-20 pt-12 border-t border-border/50">
+          <div id="manufacturing-traceability" className="mb-20 pt-12 border-t border-border/50">
             <div className="flex flex-col lg:flex-row gap-12 items-stretch">
               <div className="w-full lg:w-1/2 space-y-6">
                 <div className="flex items-center gap-3 mb-4">
@@ -257,7 +257,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Service 4: Consortium Coordination */}
-          <div className="pt-12 border-t border-border/50">
+          <div id="consortium-coordination" className="pt-12 border-t border-border/50">
             <div className="flex flex-col lg:flex-row-reverse gap-12 items-stretch">
               <div className="w-full lg:w-1/2 space-y-6">
                 <div className="flex items-center gap-3 mb-4">
@@ -338,7 +338,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Execution Cell Services */}
-      <section className="py-24 md:py-32 bg-card border-y border-border/30">
+      <section id="execution-cell-services" className="py-24 md:py-32 bg-card border-y border-border/30">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <SectionHeader
             eyebrow="Execution Cell"
@@ -379,7 +379,7 @@ export default function ServicesPage() {
       </section>
 
       {/* AI & Matchmaking */}
-      <section className="py-24 md:py-32 bg-background">
+      <section id="ai-matchmaking" className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="w-full lg:w-1/2">

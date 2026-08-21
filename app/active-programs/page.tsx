@@ -33,17 +33,17 @@ export default function ActiveProgramsPage() {
           }}
         />
         <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-16 text-center animate-fade-in mt-16">
-          <span className="inline-block text-accent font-bold tracking-widest uppercase text-sm mb-6 px-5 py-1.5 border border-accent/30 rounded-full bg-accent/10 backdrop-blur-sm flex items-center justify-center gap-2 w-max mx-auto">
+          <span className="inline-block text-accent font-bold tracking-widest uppercase text-sm mb-6 flex items-center justify-center gap-2 w-max mx-auto">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
             </span>
             Live Execution Status
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.1]">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.1] text-center mx-auto">
             Active <span className="text-accent">Programs</span>
           </h1>
-          <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-10 font-medium leading-relaxed text-center">
             A real-time overview of the strategic manufacturing operations, capability matching pipelines, and cross-border integrations we are executing right now.
           </p>
         </div>

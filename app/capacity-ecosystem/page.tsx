@@ -108,14 +108,11 @@ export default function CapacityEcosystemPage() {
           }}
         />
         <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-16 pt-28 pb-16 animate-fade-in">
-          <span className="inline-block text-accent font-bold tracking-widest uppercase text-sm mb-6 px-5 py-1.5 border border-accent/30 rounded-full bg-accent/10 backdrop-blur-sm">
-            Ecosystem
-          </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.1] max-w-3xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.1] max-w-3xl text-center mx-auto">
             Capacity<br />
             <span className="text-accent">Ecosystem</span>
           </h1>
-          <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mb-8 font-medium leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto mb-8 font-medium leading-relaxed text-center">
             A structured network model connecting manufacturing units, OEM programs, workforce, associations, and strategic finance using standardized data.
           </p>
         </div>
