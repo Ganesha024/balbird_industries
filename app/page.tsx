@@ -46,8 +46,6 @@ export default function Home() {
           }}
         />
         {/* Radial glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-accent/20 rounded-full blur-[120px]" />
-
         <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-16 text-center animate-fade-in">
           <span className="inline-block text-accent font-bold tracking-widest uppercase text-sm mb-6 px-5 py-1.5 border border-accent/30 rounded-full bg-accent/10 backdrop-blur-sm">
             Cross-Border Manufacturing Execution Partner
@@ -498,9 +496,6 @@ export default function Home() {
 
       {/* SECTION J, CTA Banner */}
       <section className="py-24 md:py-32 bg-muted text-foreground relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-accent/5 rounded-full blur-[80px]" />
-
         <div className="container mx-auto px-4 md:px-8 lg:px-16 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
             Have a Manufacturing Project?

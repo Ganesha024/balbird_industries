@@ -39,8 +39,6 @@ export default function ServicesPage() {
             backgroundSize: "60px 60px",
           }}
         />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/20 rounded-full blur-[120px]" />
-
         <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-16 text-center animate-fade-in">
           <span className="inline-block text-accent font-bold tracking-widest uppercase text-sm mb-6 px-5 py-1.5 border border-accent/30 rounded-full bg-accent/10 backdrop-blur-sm">
             Our Services
@@ -158,7 +156,6 @@ export default function ServicesPage() {
                    {/* Nodes */}
                    <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
                       <div className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center shadow-md mb-2 relative group">
-                         <div className="absolute -inset-1 bg-accent/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
                          <ClipboardList className="w-5 h-5 text-foreground/80 relative z-10 group-hover:text-accent transition-colors" />
                       </div>
                       <span className="text-[10px] font-bold uppercase tracking-wider">Plan</span>
@@ -166,7 +163,6 @@ export default function ServicesPage() {
                    
                    <div className="absolute top-1/2 right-0 -translate-y-1/2 flex flex-col items-center z-10">
                       <div className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center shadow-md mb-2 relative group">
-                         <div className="absolute -inset-1 bg-accent/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
                          <Target className="w-5 h-5 text-foreground/80 relative z-10 group-hover:text-accent transition-colors" />
                       </div>
                       <span className="text-[10px] font-bold uppercase tracking-wider">Execute</span>
@@ -174,7 +170,6 @@ export default function ServicesPage() {
                    
                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
                       <div className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center shadow-md mb-2 relative group">
-                         <div className="absolute -inset-1 bg-accent/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
                          <CheckCircle2 className="w-5 h-5 text-foreground/80 relative z-10 group-hover:text-accent transition-colors" />
                       </div>
                       <span className="text-[10px] font-bold uppercase tracking-wider">Close</span>
@@ -182,7 +177,6 @@ export default function ServicesPage() {
                    
                    <div className="absolute top-1/2 left-0 -translate-y-1/2 flex flex-col items-center z-10">
                       <div className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center shadow-md mb-2 relative group">
-                         <div className="absolute -inset-1 bg-accent/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
                          <Network className="w-5 h-5 text-foreground/80 relative z-10 group-hover:text-accent transition-colors" />
                       </div>
                       <span className="text-[10px] font-bold uppercase tracking-wider">Review</span>
@@ -438,8 +432,6 @@ export default function ServicesPage() {
 
       {/* CTA */}
       <section className="py-24 md:py-32 bg-muted text-foreground relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
-
         <div className="container mx-auto px-4 md:px-8 lg:px-16 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
             Ready to Execute a Project?

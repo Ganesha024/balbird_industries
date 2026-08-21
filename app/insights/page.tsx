@@ -69,7 +69,6 @@ export default function InsightsPage() {
             backgroundSize: "60px 60px",
           }}
         />
-        <div className="absolute top-1/3 left-1/3 w-[500px] h-[300px] bg-accent/10 rounded-full blur-[120px]" />
 
         <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-16 pt-28 pb-16 animate-fade-in">
           <span className="inline-block text-accent font-bold tracking-widest uppercase text-sm mb-6 px-5 py-1.5 border border-accent/30 rounded-full bg-accent/10 backdrop-blur-sm">
@@ -309,7 +308,7 @@ export default function InsightsPage() {
 
       {/* CTA */}
       <section className="py-24 md:py-32 bg-muted text-foreground relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
+
         <div className="container mx-auto px-4 md:px-8 lg:px-16 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Stay Informed</h2>
           <p className="text-xl mb-10 font-medium max-w-2xl mx-auto text-foreground/80">
