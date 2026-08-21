@@ -34,7 +34,7 @@ export default function Home() {
         style={{ backgroundImage: "url('/images/hero-home.png')" }}
       >
         {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-white/90" />
+        <div className="absolute inset-0 bg-white/89" />
         
         {/* Subtle grid overlay */}
         <div
