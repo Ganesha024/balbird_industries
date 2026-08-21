@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { signIn } from "@/lib/auth";
+import { signIn, getCurrentUser } from "@/lib/auth";
 
 import { Button } from "@/components/ui/Button";
 import { ButtonLink } from "@/components/ui/Button";
@@ -26,8 +26,21 @@ export default function LoginPage() {
     if (result.success) {
       const claims = result.claims;
       console.log("Login claims:", claims);
+      
+      // Get user role to redirect to correct dashboard
+      const user = await getCurrentUser();
+      
+      const roleRoutes: Record<string, string> = {
+        manufacturer: "/dashboard/manufacturer/overview",
+        oem: "/dashboard/oem/overview",
+        association: "/dashboard/association/overview",
+        strategic_partner: "/dashboard/strategic-partner/overview",
+        retailer: "/dashboard/retailer/overview",
+        student: "/dashboard/student/overview",
+      };
+      
       const requestedPath = new URLSearchParams(window.location.search).get("next");
-      const destination = requestedPath?.startsWith("/dashboard") ? requestedPath : "/dashboard";
+      const destination = requestedPath?.startsWith("/dashboard") ? requestedPath : (user?.role ? roleRoutes[user.role] : "/dashboard");
       router.push(destination);
     } else {
       setError(result.error ?? "Login failed");

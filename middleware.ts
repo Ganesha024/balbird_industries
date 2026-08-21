@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export async function middleware(req: NextRequest) {
-  // Temporarily disabled for debugging
-  // TODO: Re-enable after Supabase auth is working
+  // Temporarily disable middleware to debug sign-in issues
+  console.log('Middleware disabled for debugging sign-in')
   return NextResponse.next()
 }
 

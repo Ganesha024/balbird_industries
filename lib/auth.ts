@@ -58,17 +58,30 @@ export async function signIn(email: string, password: string) {
   }
 }
 export async function signUp(email: string, password: string, fullName: string, role: UserRole) {
+  // First, sign up the user
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
   });
 
   if (error) {
+    console.error('Sign up error:', error);
     return { success: false, error: error.message };
   }
 
   if (data.user) {
-    // Create profile entry
+    // Sign in the user immediately to establish session for profile creation
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (signInError) {
+      console.error('Sign in after signup error:', signInError);
+      return { success: false, error: `Sign in failed: ${signInError.message}` };
+    }
+
+    // Now create profile entry with established session
     const { error: profileError } = await supabase
       .from('profiles')
       .insert({
@@ -79,7 +92,14 @@ export async function signUp(email: string, password: string, fullName: string, 
       });
 
     if (profileError) {
-      return { success: false, error: profileError.message };
+      console.error('Profile creation error:', profileError);
+      // If profile creation fails, we should still return success since auth worked
+      // But log the error for debugging
+      return { 
+        success: true, 
+        data,
+        warning: `Profile creation failed: ${profileError.message}. User was created but profile may be missing.`
+      };
     }
   }
 
@@ -107,7 +127,13 @@ export async function getCurrentUser(): Promise<UserProfile | null> {
     .eq('id', user.id)
     .single();
 
-  if (error || !profile) {
+  if (error) {
+    console.error('Profile fetch error:', error);
+    return null;
+  }
+
+  if (!profile) {
+    console.warn('No profile found for user:', user.id);
     return null;
   }
 

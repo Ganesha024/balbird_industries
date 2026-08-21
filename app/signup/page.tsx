@@ -51,8 +51,16 @@ export default function SignUpPage() {
     const result = await signUp(email, password, fullName, selectedRole);
 
     if (result.success) {
-      // Redirect to login after successful signup
-      router.push('/login');
+      // Redirect to role-specific dashboard after successful signup
+      const roleRoutes: Record<string, string> = {
+        manufacturer: "/dashboard/manufacturer/overview",
+        oem: "/dashboard/oem/overview",
+        association: "/dashboard/association/overview",
+        strategic_partner: "/dashboard/strategic-partner/overview",
+        retailer: "/dashboard/retailer/overview",
+        student: "/dashboard/student/overview",
+      };
+      router.push(roleRoutes[selectedRole]);
     } else {
       setError(result.error || "Sign up failed");
     }
