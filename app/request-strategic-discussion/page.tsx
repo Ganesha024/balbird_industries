@@ -137,6 +137,17 @@ export default function RequestStrategicDiscussionPage() {
                     />
                   </div>
                   <div className="grid gap-2">
+                    <label className="text-sm font-medium">Pincode <span className="text-red-500">*</span></label>
+                    <input
+                      className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                      name="pincode"
+                      placeholder="Enter pincode"
+                      pattern="[0-9]{4,10}"
+                      title="Please enter a valid pincode (4–10 digits)"
+                      required
+                    />
+                  </div>
+                  <div className="grid gap-2">
                     <label className="text-sm font-medium">Contact Person <span className="text-red-500">*</span></label>
                     <input
                       className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/40"

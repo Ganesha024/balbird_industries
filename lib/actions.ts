@@ -6,6 +6,7 @@ export async function submitJoinNetwork(formData: FormData) {
   const organization_name = formData.get("organization_name") as string;
   const sector = formData.get("sector") as string;
   const country = formData.get("country") as string;
+  const pincode = formData.get("pincode") as string;
   const contact_person = formData.get("contact_person") as string;
   const contact_email = formData.get("contact_email") as string;
   const whatsapp_number = formData.get("whatsapp_number") as string;
@@ -16,7 +17,7 @@ export async function submitJoinNetwork(formData: FormData) {
   const role_specific_data: Record<string, string> = {};
   
   const knownKeys = [
-    "organization_name", "sector", "country", "contact_person", 
+    "organization_name", "sector", "country", "pincode", "contact_person", 
     "contact_email", "whatsapp_number", "role_description", 
     "selected_role", "company_profile"
   ];
@@ -56,6 +57,7 @@ export async function submitJoinNetwork(formData: FormData) {
         organization_name,
         sector,
         country,
+        pincode,
         contact_person,
         contact_email,
         whatsapp_number,
@@ -78,6 +80,7 @@ export async function submitStrategicDiscussion(formData: FormData) {
   const network_type = formData.get("Network_type") as string;
   const sector = formData.get("sector") as string;
   const country_region = formData.get("country_region") as string;
+  const pincode = formData.get("pincode") as string;
   const contact_person = formData.get("contact_person") as string;
   const contact_email = formData.get("contact_email") as string;
   const whatsapp_number = formData.get("whatsapp_number") as string;
@@ -113,6 +116,7 @@ export async function submitStrategicDiscussion(formData: FormData) {
         network_type,
         sector,
         country_region,
+        pincode,
         contact_person,
         contact_email,
         whatsapp_number,
