@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS strategic_discussion_requests (
 );
 
 -- Create updated_at trigger
+DROP TRIGGER IF EXISTS update_strategic_discussion_requests_updated_at ON strategic_discussion_requests;
 CREATE TRIGGER update_strategic_discussion_requests_updated_at 
   BEFORE UPDATE ON strategic_discussion_requests
   FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
@@ -26,16 +27,19 @@ CREATE TRIGGER update_strategic_discussion_requests_updated_at
 ALTER TABLE strategic_discussion_requests ENABLE ROW LEVEL SECURITY;
 
 -- Allow authenticated users to insert requests
+DROP POLICY IF EXISTS "Authenticated users can insert strategic discussion requests" ON strategic_discussion_requests;
 CREATE POLICY "Authenticated users can insert strategic discussion requests"
   ON strategic_discussion_requests FOR INSERT
   WITH CHECK (auth.uid() IS NOT NULL);
 
 -- Allow service role to read all requests (for admin access)
+DROP POLICY IF EXISTS "Service role can view all strategic discussion requests" ON strategic_discussion_requests;
 CREATE POLICY "Service role can view all strategic discussion requests"
   ON strategic_discussion_requests FOR SELECT
   USING (auth.role() = 'service_role');
 
 -- Allow service role to update all requests
+DROP POLICY IF EXISTS "Service role can update strategic discussion requests" ON strategic_discussion_requests;
 CREATE POLICY "Service role can update strategic discussion requests"
   ON strategic_discussion_requests FOR UPDATE
   USING (auth.role() = 'service_role');

@@ -6,10 +6,19 @@ INSERT INTO storage.buckets (id, name, public)
 VALUES ('company_profiles', 'company_profiles', true)
 ON CONFLICT DO NOTHING;
 
+-- Create traceability_images storage bucket
+INSERT INTO storage.buckets (id, name, public)
+VALUES ('traceability_images', 'traceability_images', true)
+ON CONFLICT DO NOTHING;
+
 -- Drop existing policies if they exist
 DROP POLICY IF EXISTS "Public Access company_profiles" ON storage.objects;
 DROP POLICY IF EXISTS "Authenticated users can upload to company_profiles" ON storage.objects;
 DROP POLICY IF EXISTS "Service role can manage company_profiles" ON storage.objects;
+
+DROP POLICY IF EXISTS "Public Access traceability_images" ON storage.objects;
+DROP POLICY IF EXISTS "Authenticated users can upload to traceability_images" ON storage.objects;
+DROP POLICY IF EXISTS "Service role can manage traceability_images" ON storage.objects;
 
 -- Create policies for company_profiles bucket
 -- Allow public access (since files are accessed via public URLs)
@@ -30,5 +39,27 @@ CREATE POLICY "Service role can manage company_profiles"
   ON storage.objects FOR ALL
   USING (
     bucket_id = 'company_profiles' AND 
+    auth.role() = 'service_role'
+  );
+
+-- Create policies for traceability_images bucket
+-- Allow public access (since files are accessed via public URLs)
+CREATE POLICY "Public Access traceability_images"
+  ON storage.objects FOR SELECT
+  USING (bucket_id = 'traceability_images');
+
+-- Allow authenticated users to upload files
+CREATE POLICY "Authenticated users can upload to traceability_images"
+  ON storage.objects FOR INSERT
+  WITH CHECK (
+    bucket_id = 'traceability_images' AND 
+    auth.uid() IS NOT NULL
+  );
+
+-- Allow service role to manage all files
+CREATE POLICY "Service role can manage traceability_images"
+  ON storage.objects FOR ALL
+  USING (
+    bucket_id = 'traceability_images' AND 
     auth.role() = 'service_role'
   );

@@ -1,6 +1,7 @@
 "use server";
 
 import { supabase } from "./supabase";
+import { createClient } from "./supabase-server";
 
 export async function submitJoinNetwork(formData: FormData) {
   const organization_name = formData.get("organization_name") as string;
@@ -131,4 +132,96 @@ export async function submitStrategicDiscussion(formData: FormData) {
   }
 
   return { success: true };
+}
+
+export async function submitTraceabilityEntry(formData: FormData) {
+  const batch_number = formData.get("batch_number") as string;
+  const product_name = formData.get("product_name") as string;
+  const client_name = formData.get("client_name") as string;
+  const description = formData.get("description") as string;
+  const status = formData.get("status") as string || "pending";
+  const progress = parseInt(formData.get("progress") as string) || 0;
+  const user_id = formData.get("user_id") as string;
+
+  let image_url = null;
+
+  if (!user_id) {
+    console.error("No user_id provided in form data");
+    return { success: false, error: "User not authenticated - no user_id provided" };
+  }
+
+  console.log("User ID from form:", user_id);
+
+  // Use client-side supabase for this action
+  // Handle image upload
+  const traceability_image = formData.get("traceability_image") as File | null;
+  if (traceability_image && traceability_image.size > 0) {
+    console.log("Image file received:", traceability_image.name, traceability_image.size, traceability_image.type);
+    
+    try {
+      const fileExt = traceability_image.name.split('.').pop();
+      const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+      
+      console.log("Attempting to upload to bucket: traceability_images, file:", fileName);
+      
+      const { error: uploadError, data: uploadData } = await supabase.storage
+        .from('traceability_images')
+        .upload(fileName, traceability_image);
+        
+      if (uploadError) {
+        console.error("Storage upload error:", uploadError);
+        // Continue without image upload for now
+        console.log("Continuing without image upload due to error");
+      } else {
+        console.log("Upload successful:", uploadData);
+        
+        const { data: publicUrlData } = supabase.storage
+          .from('traceability_images')
+          .getPublicUrl(fileName);
+        image_url = publicUrlData.publicUrl;
+        console.log("Public URL generated:", image_url);
+      }
+    } catch (error) {
+      console.error("Exception during image upload:", error);
+      // Continue without image upload
+      console.log("Continuing without image upload due to exception");
+    }
+  }
+
+  const { error } = await supabase
+    .from('traceability_entries')
+    .insert([
+      {
+        user_id: user_id,
+        batch_number,
+        product_name,
+        client_name,
+        description,
+        image_url,
+        status,
+        progress
+      }
+    ]);
+
+  if (error) {
+    console.error("Supabase Error:", error);
+    return { success: false, error: error.message };
+  }
+
+  return { success: true };
+}
+
+export async function getTraceabilityEntries(userId: string) {
+  const { data, error } = await supabase
+    .from('traceability_entries')
+    .select('*')
+    .eq('user_id', userId)
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error("Supabase Error:", error);
+    return { success: false, error: error.message, data: null };
+  }
+
+  return { success: true, data };
 }

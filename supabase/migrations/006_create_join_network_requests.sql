@@ -18,7 +18,8 @@ CREATE TABLE IF NOT EXISTS join_network_requests (
 );
 
 -- Create updated_at trigger
-CREATE TRIGGER update_join_network_requests_updated_at 
+DROP TRIGGER IF EXISTS update_join_network_requests_updated_at ON join_network_requests;
+CREATE TRIGGER update_join_network_requests_updated_at
   BEFORE UPDATE ON join_network_requests
   FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
@@ -26,16 +27,19 @@ CREATE TRIGGER update_join_network_requests_updated_at
 ALTER TABLE join_network_requests ENABLE ROW LEVEL SECURITY;
 
 -- Allow authenticated users to insert requests
+DROP POLICY IF EXISTS "Authenticated users can insert join network requests" ON join_network_requests;
 CREATE POLICY "Authenticated users can insert join network requests"
   ON join_network_requests FOR INSERT
   WITH CHECK (auth.uid() IS NOT NULL);
 
 -- Allow service role to read all requests (for admin access)
+DROP POLICY IF EXISTS "Service role can view all join network requests" ON join_network_requests;
 CREATE POLICY "Service role can view all join network requests"
   ON join_network_requests FOR SELECT
   USING (auth.role() = 'service_role');
 
 -- Allow service role to update all requests
+DROP POLICY IF EXISTS "Service role can update join network requests" ON join_network_requests;
 CREATE POLICY "Service role can update join network requests"
   ON join_network_requests FOR UPDATE
   USING (auth.role() = 'service_role');
