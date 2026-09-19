@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, LayoutDashboard } from 'lucide-react';
+import { Menu, X, LayoutDashboard, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Navbar() {
@@ -25,7 +25,15 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Services', href: '/capabilities' },
+    { 
+      name: 'Services', 
+      href: '#',
+      dropdown: [
+        { name: 'CDMO', href: '/capabilities' },
+        { name: 'Intelligent Order & Procurement', href: '/services/intelligent-order-procurement' },
+        { name: 'Intelligent Task Orchestration', href: '/services/intelligent-task-orchestration' }
+      ]
+    },
     { name: 'Capacity & Capabilities', href: '/capacity-ecosystem' },
     { name: 'Network', href: '/network' },
     { name: 'Insights', href: '/insights' },
@@ -34,7 +42,15 @@ export default function Navbar() {
 
   // All links (shown in mobile menu)
   const allLinks = [
-    ...navLinks,
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'CDMO', href: '/capabilities' },
+    { name: 'Order & Procurement', href: '/services/intelligent-order-procurement' },
+    { name: 'Task Orchestration', href: '/services/intelligent-task-orchestration' },
+    { name: 'Capacity & Capabilities', href: '/capacity-ecosystem' },
+    { name: 'Network', href: '/network' },
+    { name: 'Insights', href: '/insights' },
+    { name: 'Active Programs', href: '/active-programs' },
     { name: 'Dashboard', href: '/dashboard' },
   ];
 
@@ -73,6 +89,34 @@ export default function Navbar() {
         <nav className="hidden lg:flex items-center gap-5 shrink-0">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
+            if (link.dropdown) {
+              const isDropdownActive = link.dropdown.some(item => pathname === item.href);
+              return (
+                <div key={link.name} className="relative group">
+                  <span
+                    className={`flex items-center gap-1 cursor-pointer text-[13px] font-medium whitespace-nowrap transition-colors py-2 ${
+                      isDropdownActive ? 'text-accent font-bold' : 'text-foreground/80 hover:text-accent'
+                    }`}
+                  >
+                    {link.name}
+                    <ChevronDown className="w-3 h-3" />
+                  </span>
+                  <div className="absolute top-full left-0 mt-2 w-72 bg-background border border-border shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100] flex flex-col py-2">
+                    {link.dropdown.map((sublink) => (
+                      <Link
+                        key={sublink.name}
+                        href={sublink.href}
+                        className={`px-4 py-2 text-[13px] font-medium hover:bg-muted hover:text-accent transition-colors ${
+                          pathname === sublink.href ? 'text-accent bg-muted/50' : 'text-foreground/80'
+                        }`}
+                      >
+                        {sublink.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
             return (
               <Link
                 key={link.name}
