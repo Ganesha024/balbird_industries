@@ -119,7 +119,7 @@ export default function AboutPage() {
             <div className="flex flex-col gap-3">
               <h2 className="text-3xl font-extrabold tracking-tight">Cross-Border Execution Ecosystem</h2>
               <p className="max-w-xl text-foreground/80">
-                Contract Development Manufacturing Operations (CDMO), structured execution across the mobility supply chain.
+                Contract Manufacturing Services, structured execution across the mobility supply chain.
               </p>
             </div>
             <Card className="overflow-hidden">

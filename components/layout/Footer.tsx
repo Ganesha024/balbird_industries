@@ -31,7 +31,7 @@ export default function Footer() {
           <div>
             <h4 className="text-foreground font-bold text-lg mb-6">Services</h4>
             <ul className="space-y-3">
-              <li><Link href="/capabilities" className="hover:text-accent transition-colors">CDMO Operations</Link></li>
+              <li><Link href="/capabilities" className="hover:text-accent transition-colors">Contract Manufacturing Services</Link></li>
               <li><Link href="/capabilities" className="hover:text-accent transition-colors">Execution Coordination</Link></li>
               <li><Link href="/capabilities" className="hover:text-accent transition-colors">Manufacturing Traceability</Link></li>
               <li><Link href="/capabilities" className="hover:text-accent transition-colors">Consortium Coordination</Link></li>

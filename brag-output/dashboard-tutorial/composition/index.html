@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balbird Dashboard Tutorial</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --background: #ffffff;
+      --foreground: #0f172a;
+      --accent: #2563eb;
+      --accent-foreground: #ffffff;
+      --muted: #f1f5f9;
+      --border: #e2e8f0;
+      --card: #ffffff;
+      --ring: rgba(37, 99, 235, 0.35);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      overflow: hidden;
+    }
+
+    .composition {
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      background: var(--background);
+      overflow: hidden;
+    }
+
+    /* Scene 1: Dashboard Entry */
+    .scene-dashboard {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .scene-dashboard.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .dashboard-header {
+      background: var(--background);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+    }
+
+    .dashboard-nav {
+      background: var(--background);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 40px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+    }
+
+    .nav-item {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--foreground);
+      opacity: 0.7;
+      transition: all 0.2s;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-item.active {
+      background: var(--accent);
+      color: white;
+      opacity: 1;
+    }
+
+    .nav-item:hover {
+      opacity: 1;
+    }
+
+    .dashboard-content {
+      padding: 40px;
+    }
+
+    .welcome-section {
+      margin-bottom: 32px;
+    }
+
+    .welcome-title {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .welcome-subtitle {
+      font-size: 16px;
+      color: var(--foreground);
+      opacity: 0.7;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: box-shadow 0.3s;
+    }
+
+    .stat-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .stat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .stat-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .stat-change {
+      font-size: 12px;
+      font-weight: 500;
+      color: #16a34a;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--foreground);
+      opacity: 0.7;
+    }
+
+    /* Label overlay */
+    .scene-label {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.9);
+      color: white;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-size: 24px;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .scene-label.visible {
+      opacity: 1;
+    }
+
+    /* Scene 2-5: Section pages */
+    .section-page {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+
+    .section-page.active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+
+    .section-header {
+      padding: 40px 40px 24px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--foreground);
+      opacity: 0.7;
+    }
+
+    .section-content {
+      padding: 0 40px 40px;
+    }
+
+    .status-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .status-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .status-card.pending {
+      border-left-color: #f97316;
+    }
+
+    .status-card.completed {
+      border-left-color: #22c55e;
+    }
+
+    .status-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .status-card-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--accent);
+    }
+
+    .status-card.pending .status-card-icon {
+      color: #f97316;
+    }
+
+    .status-card.completed .status-card-icon {
+      color: #22c55e;
+    }
+
+    .status-card-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .status-card-value {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .status-card-button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .supplier-list {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .supplier-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .supplier-item:last-child {
+      border-bottom: none;
+    }
+
+    .supplier-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .supplier-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .supplier-name {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .supplier-location {
+      font-size: 14px;
+      color: var(--foreground);
+      opacity: 0.7;
+    }
+
+    .supplier-metrics {
+      display: flex;
+      gap: 32px;
+    }
+
+    .supplier-metric {
+      text-align: right;
+    }
+
+    .supplier-metric-label {
+      font-size: 12px;
+      color: var(--foreground);
+      opacity: 0.7;
+    }
+
+    .supplier-metric-value {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .order-list {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .order-item {
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .order-item:last-child {
+      border-bottom: none;
+    }
+
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .order-number {
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    .order-status {
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .order-product {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .order-client {
+      font-size: 14px;
+      color: var(--foreground);
+      opacity: 0.7;
+    }
+
+    .order-progress {
+      margin-top: 16px;
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: var(--muted);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 4px;
+      transition: width 0.3s;
+    }
+
+    /* Scene 7: Closing */
+    .scene-closing {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .scene-closing.active {
+      opacity: 1;
+    }
+
+    .closing-logo {
+      width: 120px;
+      height: 120px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 32px;
+    }
+
+    .closing-title {
+      font-size: 48px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .closing-tagline {
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      max-width: 800px;
+    }
+
+    /* Cursor */
+    .cursor {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 1000;
+    }
+
+    .cursor::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+    }
+
+    .cursor.visible {
+      opacity: 1;
+    }
+
+    .cursor.click {
+      transform: scale(0.8);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    .animate-slide-up {
+      animation: slideUp 0.6s ease-out forwards;
+    }
+  </style>
+</head>
+<body>
+  <div class="composition">
+    <!-- Audio -->
+    <audio id="bg-music" data-start="0" data-duration="25" data-track-index="10" data-volume="0.35" src="assets/music/happy-beats-business-moves-vol-12-by-ende-dot-app.mp3"></audio>
+
+    <!-- Scene 1: Dashboard Entry -->
+    <div class="scene-dashboard" id="scene-dashboard">
+      <div class="dashboard-header">
+        <div class="logo">
+          <div class="logo-icon">B</div>
+          <span>Balbird Industries</span>
+        </div>
+      </div>
+      <div class="dashboard-nav">
+        <div class="nav-item active">Overview</div>
+        <div class="nav-item">Requirements</div>
+        <div class="nav-item">Supplier Matching</div>
+        <div class="nav-item">Active Orders</div>
+        <div class="nav-item">Documents</div>
+      </div>
+      <div class="dashboard-content">
+        <div class="welcome-section">
+          <div class="welcome-title">Welcome back, OEM User!</div>
+          <div class="welcome-subtitle">OEM Dashboard, Track your activities and performance.</div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon">📋</div>
+              <div class="stat-change">+2</div>
+            </div>
+            <div class="stat-value">8</div>
+            <div class="stat-label">Active Requirements</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon">🏭</div>
+              <div class="stat-change">+3</div>
+            </div>
+            <div class="stat-value">12</div>
+            <div class="stat-label">Supplier Matches</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon">📦</div>
+              <div class="stat-change">+4</div>
+            </div>
+            <div class="stat-value">15</div>
+            <div class="stat-label">Active Orders</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon">📊</div>
+              <div class="stat-change">+2%</div>
+            </div>
+            <div class="stat-value">94%</div>
+            <div class="stat-label">On-Time Delivery</div>
+          </div>
+        </div>
+      </div>
+      <div class="scene-label" id="label-dashboard">Dashboard</div>
+    </div>
+
+    <!-- Scene 3: Requirements Section -->
+    <div class="section-page" id="scene-requirements">
+      <div class="dashboard-header">
+        <div class="logo">
+          <div class="logo-icon">B</div>
+          <span>Balbird Industries</span>
+        </div>
+      </div>
+      <div class="dashboard-nav">
+        <div class="nav-item">Overview</div>
+        <div class="nav-item active">Requirements</div>
+        <div class="nav-item">Supplier Matching</div>
+        <div class="nav-item">Active Orders</div>
+        <div class="nav-item">Documents</div>
+      </div>
+      <div class="section-header">
+        <div class="section-title">Requirements</div>
+        <div class="section-subtitle">Manage your project requirements and specifications.</div>
+      </div>
+      <div class="section-content">
+        <div class="status-cards">
+          <div class="status-card">
+            <div class="status-card-header">
+              <div class="status-card-icon">📋</div>
+              <div class="status-card-title">Active</div>
+            </div>
+            <div class="status-card-value">12</div>
+            <div class="status-card-button">View Details</div>
+          </div>
+          <div class="status-card pending">
+            <div class="status-card-header">
+              <div class="status-card-icon">⏰</div>
+              <div class="status-card-title">Pending Review</div>
+            </div>
+            <div class="status-card-value">5</div>
+            <div class="status-card-button">Review Now</div>
+          </div>
+          <div class="status-card completed">
+            <div class="status-card-header">
+              <div class="status-card-icon">✅</div>
+              <div class="status-card-title">Completed</div>
+            </div>
+            <div class="status-card-value">28</div>
+            <div class="status-card-button">View Archive</div>
+          </div>
+        </div>
+      </div>
+      <div class="scene-label" id="label-requirements">Requirements</div>
+    </div>
+
+    <!-- Scene 4: Suppliers Section -->
+    <div class="section-page" id="scene-suppliers">
+      <div class="dashboard-header">
+        <div class="logo">
+          <div class="logo-icon">B</div>
+          <span>Balbird Industries</span>
+        </div>
+      </div>
+      <div class="dashboard-nav">
+        <div class="nav-item">Overview</div>
+        <div class="nav-item">Requirements</div>
+        <div class="nav-item active">Suppliers</div>
+        <div class="nav-item">Active Orders</div>
+        <div class="nav-item">Documents</div>
+      </div>
+      <div class="section-header">
+        <div class="section-title">Supplier Management</div>
+        <div class="section-subtitle">Manage your supplier relationships and performance metrics.</div>
+      </div>
+      <div class="section-content">
+        <div class="stats-grid" style="margin-bottom: 24px;">
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon">🏭</div>
+              <div class="stat-change">+2</div>
+            </div>
+            <div class="stat-value">24</div>
+            <div class="stat-label">Active Suppliers</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon">⭐</div>
+              <div class="stat-change">Excellent</div>
+            </div>
+            <div class="stat-value">4.6</div>
+            <div class="stat-label">Avg Rating</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon">📈</div>
+              <div class="stat-change">+12%</div>
+            </div>
+            <div class="stat-value">94%</div>
+            <div class="stat-label">On-Time Delivery</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon">⚠️</div>
+              <div class="stat-change">Attention</div>
+            </div>
+            <div class="stat-value">3</div>
+            <div class="stat-label">Performance Issues</div>
+          </div>
+        </div>
+        <div class="supplier-list">
+          <div class="supplier-item">
+            <div class="supplier-info">
+              <div class="supplier-icon">🏭</div>
+              <div>
+                <div class="supplier-name">Precision Auto Components Ltd</div>
+                <div class="supplier-location">Pune, Maharashtra</div>
+              </div>
+            </div>
+            <div class="supplier-metrics">
+              <div class="supplier-metric">
+                <div class="supplier-metric-label">Rating</div>
+                <div class="supplier-metric-value">4.8</div>
+              </div>
+              <div class="supplier-metric">
+                <div class="supplier-metric-label">On-Time</div>
+                <div class="supplier-metric-value">98%</div>
+              </div>
+              <div class="supplier-metric">
+                <div class="supplier-metric-label">Quality</div>
+                <div class="supplier-metric-value">99.2%</div>
+              </div>
+            </div>
+          </div>
+          <div class="supplier-item">
+            <div class="supplier-info">
+              <div class="supplier-icon">🏭</div>
+              <div>
+                <div class="supplier-name">Bharat Electronics Manufacturing</div>
+                <div class="supplier-location">Pune, Maharashtra</div>
+              </div>
+            </div>
+            <div class="supplier-metrics">
+              <div class="supplier-metric">
+                <div class="supplier-metric-label">Rating</div>
+                <div class="supplier-metric-value">4.7</div>
+              </div>
+              <div class="supplier-metric">
+                <div class="supplier-metric-label">On-Time</div>
+                <div class="supplier-metric-value">96%</div>
+              </div>
+              <div class="supplier-metric">
+                <div class="supplier-metric-label">Quality</div>
+                <div class="supplier-metric-value">98.5%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scene-label" id="label-suppliers">Suppliers</div>
+    </div>
+
+    <!-- Scene 5: Orders Section -->
+    <div class="section-page" id="scene-orders">
+      <div class="dashboard-header">
+        <div class="logo">
+          <div class="logo-icon">B</div>
+          <span>Balbird Industries</span>
+        </div>
+      </div>
+      <div class="dashboard-nav">
+        <div class="nav-item">Overview</div>
+        <div class="nav-item">Requirements</div>
+        <div class="nav-item">Suppliers</div>
+        <div class="nav-item active">Orders</div>
+        <div class="nav-item">Documents</div>
+      </div>
+      <div class="section-header">
+        <div class="section-title">Production Orders</div>
+        <div class="section-subtitle">Manage incoming production orders and delivery schedules.</div>
+      </div>
+      <div class="section-content">
+        <div class="stats-grid" style="margin-bottom: 24px;">
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon">📦</div>
+              <div class="stat-change">+3</div>
+            </div>
+            <div class="stat-value">12</div>
+            <div class="stat-label">Active Orders</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon">📦</div>
+              <div class="stat-change">This Week</div>
+            </div>
+            <div class="stat-value">4</div>
+            <div class="stat-label">New Orders</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon">🚚</div>
+              <div class="stat-change">On Time</div>
+            </div>
+            <div class="stat-value">8</div>
+            <div class="stat-label">Ready for Delivery</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon">⚠️</div>
+              <div class="stat-change">Attention</div>
+            </div>
+            <div class="stat-value">2</div>
+            <div class="stat-label">Delayed Orders</div>
+          </div>
+        </div>
+        <div class="order-list">
+          <div class="order-item">
+            <div class="order-header">
+              <div class="order-number">ORD-2024-0892</div>
+              <div class="order-status">In Production</div>
+            </div>
+            <div class="order-product">EV Motor Housing Assembly</div>
+            <div class="order-client">Client: Tata Motors Ltd</div>
+            <div class="order-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 78%;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="order-item">
+            <div class="order-header">
+              <div class="order-number">ORD-2024-0895</div>
+              <div class="order-status">In Production</div>
+            </div>
+            <div class="order-product">Chassis Frame Components</div>
+            <div class="order-client">Client: Mahindra & Mahindra</div>
+            <div class="order-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 45%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scene-label" id="label-orders">Orders</div>
+    </div>
+
+    <!-- Scene 7: Closing -->
+    <div class="scene-closing" id="scene-closing">
+      <div class="closing-logo">B</div>
+      <div class="closing-title">Balbird Industries</div>
+      <div class="closing-tagline">Not a Broker. Not a Marketplace. An Execution Partner.</div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="cursor" id="cursor"></div>
+  </div>
+
+  <script>
+    // Scene timing and transitions
+    const scenes = {
+      dashboard: document.getElementById('scene-dashboard'),
+      requirements: document.getElementById('scene-requirements'),
+      suppliers: document.getElementById('scene-suppliers'),
+      orders: document.getElementById('scene-orders'),
+      closing: document.getElementById('scene-closing')
+    };
+
+    const labels = {
+      dashboard: document.getElementById('label-dashboard'),
+      requirements: document.getElementById('label-requirements'),
+      suppliers: document.getElementById('label-suppliers'),
+      orders: document.getElementById('label-orders')
+    };
+
+    const cursor = document.getElementById('cursor');
+
+    // Timeline: 25 seconds total
+    // Scene 1: Dashboard Entry (0-3s)
+    // Scene 2: Navigation Highlight (3-6s) 
+    // Scene 3: Requirements Section (6-10s)
+    // Scene 4: Suppliers Section (10-14s)
+    // Scene 5: Orders Section (14-18s)
+    // Scene 6: Return to Dashboard (18-21s)
+    // Scene 7: Closing Frame (21-25s)
+
+    function showScene(sceneName) {
+      Object.values(scenes).forEach(scene => {
+        scene.classList.remove('active');
+      });
+      if (scenes[sceneName]) {
+        scenes[sceneName].classList.add('active');
+      }
+    }
+
+    function showLabel(labelName) {
+      Object.values(labels).forEach(label => {
+        label.classList.remove('visible');
+      });
+      if (labels[labelName]) {
+        labels[labelName].classList.add('visible');
+      }
+    }
+
+    function hideAllLabels() {
+      Object.values(labels).forEach(label => {
+        label.classList.remove('visible');
+      });
+    }
+
+    function moveCursor(x, y, click = false) {
+      cursor.style.left = x + 'px';
+      cursor.style.top = y + 'px';
+      cursor.classList.add('visible');
+      if (click) {
+        cursor.classList.add('click');
+        setTimeout(() => cursor.classList.remove('click'), 200);
+      }
+    }
+
+    function hideCursor() {
+      cursor.classList.remove('visible');
+    }
+
+    // Scene 1: Dashboard Entry (0-3s)
+    setTimeout(() => {
+      showScene('dashboard');
+      showLabel('dashboard');
+    }, 0);
+
+    // Scene 2: Navigation Highlight (3-6s)
+    setTimeout(() => {
+      hideAllLabels();
+      // Simulate cursor movement across navigation
+      moveCursor(500, 200);
+      setTimeout(() => moveCursor(700, 200), 500);
+      setTimeout(() => moveCursor(900, 200, true), 1000); // Click on Requirements
+      setTimeout(() => moveCursor(1100, 200), 1500);
+      setTimeout(() => moveCursor(1300, 200), 2000);
+    }, 3000);
+
+    // Scene 3: Requirements Section (6-10s)
+    setTimeout(() => {
+      showScene('requirements');
+      showLabel('requirements');
+      moveCursor(900, 180); // Position on Requirements tab
+    }, 6000);
+
+    // Scene 4: Suppliers Section (10-14s)
+    setTimeout(() => {
+      showScene('suppliers');
+      showLabel('suppliers');
+      moveCursor(1100, 180); // Position on Suppliers tab
+    }, 10000);
+
+    // Scene 5: Orders Section (14-18s)
+    setTimeout(() => {
+      showScene('orders');
+      showLabel('orders');
+      moveCursor(1300, 180); // Position on Orders tab
+    }, 14000);
+
+    // Scene 6: Return to Dashboard (18-21s)
+    setTimeout(() => {
+      showScene('dashboard');
+      showLabel('dashboard');
+      moveCursor(400, 180, true); // Click on Overview
+      hideAllLabels();
+      setTimeout(() => showLabel('dashboard'), 500);
+    }, 18000);
+
+    // Scene 7: Closing Frame (21-25s)
+    setTimeout(() => {
+      hideAllLabels();
+      hideCursor();
+      showScene('closing');
+    }, 21000);
+
+    // Start music
+    const music = document.getElementById('bg-music');
+    music.play().catch(e => console.log('Music autoplay prevented:', e));
+  </script>
+</body>
+</html>

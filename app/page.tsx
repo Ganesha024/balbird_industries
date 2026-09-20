@@ -87,7 +87,7 @@ export default function Home() {
             <StatCounter value={6} suffix="+" label="Network Types" />
             <StatCounter value={4} suffix="" label="Operational Verticals" />
             <StatCounter value={1} suffix="" label="Sector Focus: Mobility" />
-            <StatCounter value={3} suffix="" label="Core CDMO Services" />
+            <StatCounter value={3} suffix="" label="Core Contract Manufacturing Services" />
           </div>
         </div>
       </section>
@@ -156,7 +156,7 @@ export default function Home() {
           <SectionHeader
             eyebrow="Our Services"
             heading="What We Do"
-            subheading="Contract Development Manufacturing Operations (CDMO), structured execution across the mobility supply chain."
+            subheading="Contract Manufacturing Services, structured execution across the mobility supply chain."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {[

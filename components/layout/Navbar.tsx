@@ -29,9 +29,14 @@ export default function Navbar() {
       name: 'Services', 
       href: '#',
       dropdown: [
-        { name: 'CDMO', href: '/capabilities' },
-        { name: 'Intelligent Order & Procurement', href: '/services/intelligent-order-procurement' },
-        { name: 'Intelligent Task Orchestration', href: '/services/intelligent-task-orchestration' }
+        { name: 'Business Development', href: '/capabilities' },
+        { 
+          name: 'Project Management', 
+          dropdown: [
+            { name: 'Order & Procurement', href: '/services/order-procurement' },
+            { name: 'Task Orchestration', href: '/services/task-orchestration' }
+          ]
+        }
       ]
     },
     { name: 'Capacity & Capabilities', href: '/capacity-ecosystem' },
@@ -44,9 +49,9 @@ export default function Navbar() {
   const allLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'CDMO', href: '/capabilities' },
-    { name: 'Order & Procurement', href: '/services/intelligent-order-procurement' },
-    { name: 'Task Orchestration', href: '/services/intelligent-task-orchestration' },
+    { name: 'Business Development', href: '/capabilities' },
+    { name: 'Order & Procurement', href: '/services/order-procurement' },
+    { name: 'Task Orchestration', href: '/services/task-orchestration' },
     { name: 'Capacity & Capabilities', href: '/capacity-ecosystem' },
     { name: 'Network', href: '/network' },
     { name: 'Insights', href: '/insights' },
@@ -90,7 +95,7 @@ export default function Navbar() {
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             if (link.dropdown) {
-              const isDropdownActive = link.dropdown.some(item => pathname === item.href);
+              const isDropdownActive = link.dropdown.some(item => pathname === item.href || (item.dropdown && item.dropdown.some(sub => pathname === sub.href)));
               return (
                 <div key={link.name} className="relative group">
                   <span
@@ -102,17 +107,45 @@ export default function Navbar() {
                     <ChevronDown className="w-3 h-3" />
                   </span>
                   <div className="absolute top-full left-0 mt-2 w-72 bg-background border border-border shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100] flex flex-col py-2">
-                    {link.dropdown.map((sublink) => (
-                      <Link
-                        key={sublink.name}
-                        href={sublink.href}
-                        className={`px-4 py-2 text-[13px] font-medium hover:bg-muted hover:text-accent transition-colors ${
-                          pathname === sublink.href ? 'text-accent bg-muted/50' : 'text-foreground/80'
-                        }`}
-                      >
-                        {sublink.name}
-                      </Link>
-                    ))}
+                    {link.dropdown.map((sublink) => {
+                      if (sublink.dropdown) {
+                        const isSubDropdownActive = sublink.dropdown.some(sub => pathname === sub.href);
+                        return (
+                          <div key={sublink.name} className="relative group/submenu">
+                            <div className="flex items-center justify-between px-4 py-2 text-[13px] font-medium hover:bg-muted hover:text-accent transition-colors cursor-pointer">
+                              <span className={isSubDropdownActive ? 'text-accent bg-muted/50' : 'text-foreground/80'}>
+                                {sublink.name}
+                              </span>
+                              <ChevronDown className="w-3 h-3 -rotate-90 group-hover/submenu:rotate-0 transition-transform" />
+                            </div>
+                            <div className="absolute left-full top-0 ml-1 w-56 bg-background border border-border shadow-xl rounded-lg opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-200 z-[100] flex flex-col py-2">
+                              {sublink.dropdown.map((subsublink) => (
+                                <Link
+                                  key={subsublink.name}
+                                  href={subsublink.href}
+                                  className={`px-4 py-2 text-[13px] font-medium hover:bg-muted hover:text-accent transition-colors ${
+                                    pathname === subsublink.href ? 'text-accent bg-muted/50' : 'text-foreground/80'
+                                  }`}
+                                >
+                                  {subsublink.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      }
+                      return (
+                        <Link
+                          key={sublink.name}
+                          href={sublink.href}
+                          className={`px-4 py-2 text-[13px] font-medium hover:bg-muted hover:text-accent transition-colors ${
+                            pathname === sublink.href ? 'text-accent bg-muted/50' : 'text-foreground/80'
+                          }`}
+                        >
+                          {sublink.name}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               );
