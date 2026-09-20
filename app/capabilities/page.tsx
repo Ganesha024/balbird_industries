@@ -237,7 +237,7 @@ export default function ServicesPage() {
     setCurrentSlide((prev) => (prev - 1 + services.length) % services.length);
   };
 
-  const goToSlide = (index) => {
+  const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
   return (
